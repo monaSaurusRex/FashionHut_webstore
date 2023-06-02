@@ -10,6 +10,61 @@
     --light:#F8F9FA;
     --dark: #212529;
 
-    --heading-font:'Roboto Condensed';;
+    --heading-font:'Roboto Condensed';
+    --body-font: 'Roboto';
+
+}
+
+h1, title{
+    font-family: var(--heading-font);
+    color: var(--text-color);
+
+    font-size: 20px;
+    line-height: 20px;
+    font-weight : 700;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+}
+
+h2{ /*product title, description title*/
+    font-family: var(--body-font);
+    color: var(--text-color);
+
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 600;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+}
+
+p{
+    font-family: var(--body-font);
+    color: var(--text-color);
+
+    font-size: 13px;
+    line-height: 14px;
+    font-weight: 400;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+
+}
+
+p .bold{
+    font-family: var(--body-font);
+    color: var(--text-color);
+
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 600;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
 
 }
