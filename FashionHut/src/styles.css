@@ -6,7 +6,7 @@
     --text-color: #343A40;
 
     --light-grey:#ced4da; /*border outline, number input, box outline, checkbox outline */
-    --light:#F8F9FA;
+    --light:#F8F9FA; /*card background, header background, background color for containers*/
     --dark: #212529;
 
     --heading-font:'Roboto Condensed';
