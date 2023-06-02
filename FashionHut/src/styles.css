@@ -1,1 +1,15 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+:root{
+    --background-color: #E9ECEF;
+    --primary-colorful:#32AEAB;
+    
+    --text-color: #343A40;
+    --light-grey:#ced4da; /*border outline, number input, box outline, checkbox outline */
+
+    --light:#F8F9FA;
+    --dark: #212529;
+
+    --heading-font:'Roboto Condensed';;
+
+}
