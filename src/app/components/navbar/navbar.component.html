@@ -1,8 +1,58 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed top text" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" [routerLink]="['/all-products']">
-            FashionHut
+    <div class="container-fluid">
+        
+        <div class="nav-left">
+            <button class="navbar-toggler navbar-toggler-left shadow-none" data-bs-toggle="offcanvas" data-bs-target="#mobile-left-sidebar" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <fa-icon [icon]="bars"></fa-icon> 
+            </button>
+        </div>
 
+        <a class="navbar-brand d-flex justify-content-center" [routerLink]="['/all-products']"> <!--[routerLink]="['/all-products']"-->
+            <span class="colour">Fashion</span><span class="white">Hut</span>
         </a>
+
+        <div class="nav-right d-flex justify-content-end">
+            <div class="offcanvas offcanvas-start" id="mobile-left-sidebar" tabindex="-1" aria-label="mobile-left-sidebar-Lbl">
+                <div class="offcanvas-header pe-6">
+                    <span class="logo">
+                        <span class="colour">Fashion</span>
+                        <span class="white">Hut</span>
+                    </span>
+                    <button class="btn-close btn-close-white shadow-none" type="button" data-bs-dismiss="offcanvas" aria-label="close">
+                        <!-- <fa-icon [icon]="close"></fa-icon>  -->
+                    </button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['']">Login</a>
+                        </li>
+                        <div class="vr mobile-hide align-self-center"></div>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['']">Sign up</a>
+                        </li>
+                        <div class="vr mobile-hide align-self-center"></div>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="navbar-toggler shadow-none" data-bs-toggle="offcanvas" data-bs-target="#mobile-left-sidebar" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <fa-icon [icon]="search"></fa-icon> 
+            </button>
+
+            <button class="navbar-toggler shadow-none" data-bs-toggle="offcanvas" data-bs-target="#mobile-left-sidebar" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <fa-icon [icon]="user"></fa-icon> 
+            </button>
+
+            <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-item-list" aria-controls="cart-item-list">
+                <span class="cart-nav-item ">
+                    
+                </span>
+                    <fa-icon [icon]="cart"></fa-icon>
+                    <p class="cart-item-counter ps-2 mb-0">1</p>
+                
+            </button>
+            
+        </div>
     </div>
 </nav>
