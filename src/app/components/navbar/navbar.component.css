@@ -1,0 +1,9 @@
+.navbar{
+    background-color: var(--dark);
+}
+
+.navbar-brand a{
+    font-family: var(--heading-font);
+    font-weight: var(--bold);
+    font-size: var(--large);
+}
