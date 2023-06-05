@@ -1,0 +1,47 @@
+button {
+    padding: 10px;
+    display: flex;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--white);
+    font-family: var(--body-font);
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+
+    width: 120px;
+    height: 25px;
+    flex: none;
+    border: 3;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+button:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+/* 
+button:focus{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px var(--primary-color);
+    color: var(--primary-color);
+ } */
+ p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+ }
+
+ p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+ }
+ .card{
+    -webkit-box-direction: normal;
+    word-wrap: break-word;
+ }
