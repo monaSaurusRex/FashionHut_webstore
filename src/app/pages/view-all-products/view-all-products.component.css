@@ -3,7 +3,8 @@ button {
     display: flex;
     flex-direction: row;
     border-color: var(--primary-color);
-    background-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--white);
     font-family: var(--body-font);
     justify-content: center;
     align-items: center;
@@ -20,11 +21,12 @@ button {
 
 button:hover {
     border-color: var(--primary-color);
-    background-color: var(--white);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
 }
- button:focus{
+/* 
+button:focus{
     outline-color: transparent;
     outline-style: solid;
     box-shadow: 0 0 0 4px var(--primary-color);
- }
+    color: var(--primary-color);
+ } */
