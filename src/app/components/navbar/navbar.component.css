@@ -90,10 +90,6 @@ hr{
         line-height: var(--x-large);
     }
 
-    .mobile-hide { /*class property assigned to html elments to hide them on mobile devices*/
-        display: none !important;
-    }
-
     .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
         font-weight: var(--light);
         font-size: var(--regular);
@@ -105,7 +101,4 @@ hr{
         margin-left: 0px;
     }
 
-    .container-fluid{
-        padding:0px 5px;
-    }
 }

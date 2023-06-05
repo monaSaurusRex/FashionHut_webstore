@@ -33,6 +33,10 @@
  
 }
 
+body{
+    background-color: var(--background-color);
+}
+
 h1, title{
     font-family: var(--heading-font);
     color: var(--text-color);
@@ -89,4 +93,15 @@ p .bold{ /*price label, rating label*/
 fa-icon{
     height: var(--normal);
     line-height: var(--normal);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .mobile-hide { /*class property assigned to html elements to hide them on mobile devices*/
+        display: none !important;
+    }
+
+    .container-fluid{
+        padding:0px 5px;
+    }
 }
