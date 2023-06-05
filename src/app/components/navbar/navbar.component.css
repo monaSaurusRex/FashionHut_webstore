@@ -70,10 +70,13 @@ p .cart-item-counter{
     height: var(--x-large);
 }
 
-fa-icon{
+fa-icon, .cart-item-counter{
     height: var(--x-large);
     width: var(--x-large);
     display: flex;
+    justify-content: center;
+    align-self: center;
+    padding-right: 3px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -83,7 +86,22 @@ fa-icon{
         line-height: var(--x-large);
     }
 
-    .mobile-hide {
+    .mobile-hide { /*class property assigned to html elments to hide them on mobile devices*/
         display: none !important;
+    }
+
+    .nav-item, .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
+        font-weight: var(--light);
+        font-size: var(--regular);
+        line-height: var(--regular);
+        padding: 3px;
+    }
+
+    button{
+        margin-left: 0px;
+    }
+
+    .container-fluid{
+        padding:0px 5px;
     }
 }
