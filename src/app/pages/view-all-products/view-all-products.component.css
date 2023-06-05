@@ -1,0 +1,30 @@
+button {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    font-family: var(--body-font);
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+
+    width: 120px;
+    height: 25px;
+    flex: none;
+    border: 3;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+button:hover {
+    border-color: var(--primary-color);
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+ button:focus{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px var(--primary-color);
+ }
