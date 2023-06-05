@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewAllProductsComponent } from './pages/view-all-products/view-all-products.component';
 
 const routes: Routes = [
-  {path: 'all-products', component: ViewAllProductsComponent},
+  {path: '', component: ViewAllProductsComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
+ 
 ];
 
 @NgModule({
