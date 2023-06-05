@@ -79,6 +79,10 @@ fa-icon, .cart-item-counter{
     padding-right: 3px;
 }
 
+hr{
+    margin: 5px 0px;
+}
+
 @media only screen and (max-width: 768px) {
 
     .navbar-brand span, .logo{
@@ -90,7 +94,7 @@ fa-icon, .cart-item-counter{
         display: none !important;
     }
 
-    .nav-item, .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
+    .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
         font-weight: var(--light);
         font-size: var(--regular);
         line-height: var(--regular);
