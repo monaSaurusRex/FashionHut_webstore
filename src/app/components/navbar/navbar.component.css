@@ -70,19 +70,12 @@ p .cart-item-counter{
     text-align: center;
 }
 
-.vr{
-    height: var(--x-large);
-    width: 1.5px;
-}
+
 
 fa-icon, .cart-item-counter{
     display: flex;
     justify-content: center;
     align-self: center;
-}
-
-hr{
-    margin: 5px 0px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -4,13 +4,17 @@
 
     </div>
 
-    <div class="input-group">
-        <div class="form-outline">
-            <input type="search" id="header-search" class="form-control" />
-            <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
+    <div class="search d-flex justify-content-start">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="search" id="header-search" class="form-control" />
+                <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
+            </div>
+            <button type="button" class="btn btn-primary">
+                <fa-icon [icon]="search"></fa-icon>
+            </button>
         </div>
-        <button type="button" class="btn btn-primary">
-            <fa-icon [icon]="search"></fa-icon>
-        </button>
     </div>
+
+    
 </div>
