@@ -102,9 +102,13 @@ p .bold{ /*price label, rating label*/
     align-items: center;
 }
 
-fa-icon{
-    height: var(--normal);
-    line-height: var(--normal);
+fa-icon, .cart-item-counter{
+    height: var(--x-large);
+    width: var(--x-large);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding-right: 3px;
 }
 
 @media only screen and (max-width: 768px) {

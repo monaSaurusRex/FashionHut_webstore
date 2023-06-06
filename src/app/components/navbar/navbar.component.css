@@ -75,15 +75,6 @@ p .cart-item-counter{
     width: 1.5px;
 }
 
-fa-icon, .cart-item-counter{
-    height: var(--x-large);
-    width: var(--x-large);
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    padding-right: 3px;
-}
-
 hr{
     margin: 5px 0px;
 }
