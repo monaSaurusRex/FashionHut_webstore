@@ -38,6 +38,7 @@
     --s-small: 3px;
     --s-medium: 5px;
     --s-large: 10px;
+    
     --s-default: 1rem;
     --s-x-small: var(--default) * .25;
     --s-small: var(--default) * .5;
