@@ -1,27 +1,29 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '/src/assets/fonts/_fonts.css';
 
-:root{
+:root {
     /* colour palette */
     --background-color: #E9ECEF;
-    --primary-color:#32AEAB;
-    --white:#F8F9FA; /*card background, header background, background color for containers*/
+    --primary-color: #32AEAB;
+    --white: #F8F9FA;
+    /*card background, header background, background color for containers*/
     --black: #212529;
-    --light-grey:#ced4da; /*border outline, number input, box outline, checkbox outline */
-    --dark: #343A40; 
+    --light-grey: #ced4da;
+    /*border outline, number input, box outline, checkbox outline */
+    --dark: #343A40;
 
     /* font-family: */
-    --heading-font:'Roboto Condensed', sans-serif;
+    --heading-font: 'Roboto Condensed', sans-serif;
     --body-font: 'Roboto', sans-serif;
 
     /* font-weights */
     --black: 900;
     --bold: 700;
     --medium: 500;
-    --regular:400;
+    --regular: 400;
     --light: 300;
     --thin: 100;
-    
+
     /* font-sizes */
     --extra-small: 12px;
     --small: 14px;
@@ -32,37 +34,48 @@
     --xx-large: 35px;
 
     /* spacing*/
-    --mobile-padding: 5px;
-    --mobile-margin: 3px;
+    --s-small: 3px;
+    --s-medium: 5px;
+    --s-large: 10px;
+    --s-default: 1rem;
+    --s-x-small: var(--default) * .25;
+    --s-small: var(--default) * .5;
+    --s-medium: var(--default) * 1.5;
+    --s-large: var(--default) * 3;
 
-    --desktop-padding: 10px;
-    --desktop-margin: 3px;
+    /* input & button heights*/
+    --height-x-large: 44px;
+    --height-large: 36px;
+    --height-small: 32px;
 
-    --default: 1rem;
-    --x-small: var(--default) * .25;
-    --small: var(--default) * .5;
-    --medium: var(--default) * 1.5;
-    --large: var(--default) * 3; 
+    /* borders */
+    --default-border-radius: 3px;
+    --light-grey-border: 1px solid var(--light-grey);
+    --colourful-border:  1px solid var(--primary-color);
+    --dark-border: 1px solid var(--dark);
 }
 
-body{
+body {
     background-color: var(--background-color);
 }
 
-h1, title{
+h1,
+title {
     font-family: var(--heading-font);
     color: var(--text-color);
 
     font-size: var(--large);
-    line-height: var(--large);;
-    font-weight : var(--bold);
+    line-height: var(--large);
+    ;
+    font-weight: var(--bold);
     font-style: normal;
 
     display: flex;
     align-items: center;
 }
 
-h2{ /*product title, description title*/
+h2 {
+    /*product title, description title*/
     font-family: var(--heading-font);
     color: var(--text-color);
 
@@ -75,7 +88,7 @@ h2{ /*product title, description title*/
     align-items: center;
 }
 
-p{
+p {
     font-family: var(--body-font);
     color: var(--text-color);
 
@@ -89,7 +102,8 @@ p{
 
 }
 
-p .bold{ /*price label, rating label*/
+p .bold {
+    /*price label, rating label*/
     font-family: var(--body-font);
     color: var(--text-color);
 
@@ -102,22 +116,42 @@ p .bold{ /*price label, rating label*/
     align-items: center;
 }
 
-fa-icon, .cart-item-counter{
+fa-icon,
+.cart-item-counter {
     height: var(--x-large);
     width: var(--x-large);
+    padding: var(--s-x-small);
+}
+
+button {
+    border-radius: var(--default-border-radius);
+    height: var(--height-large);
+
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-self: center;
-    padding-right: 3px;
+    align-items: center;
+    padding: var(--s-large);
+    gap: var(--s-large);
+}
+
+input{
+    height: var(--height-large);
+}
+
+.form-control{
+    border-radius: var(--default-border-radius);
+    border-color: var(--light-grey);
 }
 
 @media only screen and (max-width: 768px) {
 
-    .mobile-hide { /*class property assigned to html elements to hide them on mobile devices*/
+    .mobile-hide {
+        /*class property assigned to html elements to hide them on mobile devices*/
         display: none !important;
     }
 
-    .container-fluid{
-        padding:0px 5px;
+    .container-fluid {
+        padding: 0px 5px;
     }
 }
