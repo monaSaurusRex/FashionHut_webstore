@@ -5,13 +5,12 @@
     /* colour palette */
     --background-color: #E9ECEF;
     --primary-color: #32AEAB;
-    --white: #F8F9FA;
-    /*card background, header background, background color for containers*/
+    --white: #F8F9FA; /*card background, header background, background color for containers*/
     --black: #212529;
     --light-grey: #ced4da;
     --lighter-grey: #DEE2E6;
-    /*border outline, number input, box outline, checkbox outline */
-    --dark: #343A40;
+    
+    --dark: #343A40; /*border outline, number input, box outline, checkbox outline */
     --darker: #212529;
 
     /* font-family: */
