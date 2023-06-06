@@ -30,7 +30,19 @@
     --large: 20px;
     --x-large: 25px;
     --xx-large: 35px;
- 
+
+    /* spacing*/
+    --mobile-padding: 5px;
+    --mobile-margin: 3px;
+
+    --desktop-padding: 10px;
+    --desktop-margin: 3px;
+
+    --default: 1rem;
+    --x-small: var(--default) * .25;
+    --small: var(--default) * .5;
+    --medium: var(--default) * 1.5;
+    --large: var(--default) * 3; 
 }
 
 body{
