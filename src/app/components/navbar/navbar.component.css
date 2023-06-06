@@ -26,10 +26,14 @@ button {
 
 .nav-item{
     font-family: var(--body-font);
-    font-weight: var(--light);
+    font-weight: var(--regular);
     font-size: var(--medium);
     line-height: var(--medium);
     padding: 5px;
+}
+
+.nav-item a{
+    color: var(--white);
 }
 
 .navbar-toggler, .navbar-collapse{
@@ -66,21 +70,12 @@ p .cart-item-counter{
     text-align: center;
 }
 
-.vr{
-    height: var(--x-large);
-}
+
 
 fa-icon, .cart-item-counter{
-    height: var(--x-large);
-    width: var(--x-large);
     display: flex;
     justify-content: center;
     align-self: center;
-    padding-right: 3px;
-}
-
-hr{
-    margin: 5px 0px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -88,10 +83,6 @@ hr{
     .navbar-brand span, .logo{
         font-size: var(--x-large);
         line-height: var(--x-large);
-    }
-
-    .mobile-hide { /*class property assigned to html elments to hide them on mobile devices*/
-        display: none !important;
     }
 
     .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
@@ -105,7 +96,4 @@ hr{
         margin-left: 0px;
     }
 
-    .container-fluid{
-        padding:0px 5px;
-    }
 }
