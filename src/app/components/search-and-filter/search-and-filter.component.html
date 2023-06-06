@@ -1,10 +1,16 @@
 <div class="container-fluid" id="search-and-filter">
-    
+
     <div class="categories d-flex justify-content-start">
 
     </div>
 
-    <div class="search d-flex justify-content-end">
-
+    <div class="input-group">
+        <div class="form-outline">
+            <input type="search" id="header-search" class="form-control" />
+            <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
+        </div>
+        <button type="button" class="btn btn-primary">
+            <fa-icon [icon]="search"></fa-icon>
+        </button>
     </div>
 </div>

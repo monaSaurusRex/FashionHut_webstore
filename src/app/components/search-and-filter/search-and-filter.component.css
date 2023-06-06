@@ -3,3 +3,18 @@
     padding: 10px 30px;
     background-color: var(--white);
 }
+
+button{
+    background-color: var(--dark);
+    border: var(--dark);;
+}
+
+button:focus, button:hover{
+    background-color: var(--dark);
+    border: var(--dark);
+
+}
+
+label{
+    color: var(--dark);
+}
