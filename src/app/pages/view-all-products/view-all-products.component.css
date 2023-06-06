@@ -44,4 +44,5 @@ button:focus{
  .card{
     -webkit-box-direction: normal;
     word-wrap: break-word;
+    width: 100%;
  }
