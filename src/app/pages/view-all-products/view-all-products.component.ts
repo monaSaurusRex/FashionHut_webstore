@@ -59,9 +59,10 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
       totalItems: this.itemsInCart
     };
 
-      console.log()
+      console.log(this._cartService.setTotalItemsInCart(count))
+      console.log(this._cartService.getTotalItemsInCart())
 
-    // this._cartService.setTotalItemsInCart(count);
+    this._cartService.setTotalItemsInCart(count);
     // console.log(typeof count);
     // console.log("numItems: " + count)
   }

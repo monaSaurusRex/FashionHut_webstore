@@ -28,18 +28,15 @@ export class NavbarComponent implements OnInit {
   search = faSearch;
 
   constructor(private _cartService: CartService) {
+    // this.itemsInCart = this.subscription.
   }
 
   ngOnInit() {
     // call getTotalItemsInCart function for cart services
     this.subscription = this._cartService.getTotalItemsInCart().subscribe();
 
-    
-
     // this.itemsInCart = this.subscription;
   }
-
-
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
