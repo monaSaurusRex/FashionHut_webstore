@@ -1,43 +1,35 @@
-.container{
+.container, .col{
     background-color: var(--white);
 }
 
-.row{
-    margin-left: 90px;
-    margin-top: 19px;
-    row-gap: 0;
-   
-}
-.col-12{
-    margin: 50px;
-    margin-top: 16px;
-    
   
-    
-  
-   
-}
 .col-4{
-    padding: 20px;
-    margin-top: 15px;
-    height: 200px;
+  
+    margin: var(--s-large);
+    padding: var(--s-large);
 }
+    
 
 .col-5{
-    padding: 5px;
-    margin-left: 20px;
-    margin-top: 30px;
+    padding: var(--s-large);
+    margin: var(--s-large);
+    height: 100%;
+    
+
 }
-.form-c{
+.inputbox{
+    border-radius: var(--default-border-radius);
+    border-color: var(--light-grey);
     width: 40px;
 }
 
-.card-img-top{
-    width: 120px;
-    height: 155px;
+
+
+.btn{
+    background-color: var(--primary-color);
+    color: var(--white);
+    
 }
-.card-img{
-    height: 600px;
-    margin-right: 200px;
-    margin-top: 2px;
+.quantity{
+    color: var(--white);
 }

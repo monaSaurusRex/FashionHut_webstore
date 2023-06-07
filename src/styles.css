@@ -38,7 +38,7 @@
     --s-small: 3px;
     --s-medium: 5px;
     --s-large: 10px;
-    
+
     --s-default: 1rem;
     --s-x-small: var(--default) * .25;
     --s-small: var(--default) * .5;
@@ -161,7 +161,15 @@ hr{
 
     border:none !important;
 }
+/* image sizing styles */
+.large-image{
+    width: 100%;
+    height: 100%;
+}
+.small-image{
+    height: 100%;
 
+}
 @media only screen and (max-width: 768px) {
 
     .mobile-hide {
