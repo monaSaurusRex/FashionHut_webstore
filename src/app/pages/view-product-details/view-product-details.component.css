@@ -9,8 +9,8 @@
    
 }
 .col-12{
-    margin: 41px;
-    margin-top: 20px;
+    margin: 50px;
+    margin-top: 16px;
     
   
     
@@ -34,9 +34,10 @@
 
 .card-img-top{
     width: 120px;
-    height: 160px;
+    height: 155px;
 }
 .card-img{
     height: 600px;
     margin-right: 200px;
+    margin-top: 2px;
 }
