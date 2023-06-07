@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewAllProductsComponent } from './pages/view-all-products/view-all-products.component';
 import { SearchAndFilterComponent } from './components/search-and-filter/search-and-filter.component';
+import { FilterPipe } from './services/filter/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ViewAllProductsComponent,
-    SearchAndFilterComponent
+    SearchAndFilterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faShoppingCart,
   faBars,
@@ -7,7 +8,9 @@ import {
   faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
 
 @Component({
   selector: 'app-view-all-products',
@@ -16,12 +19,10 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class ViewAllProductsComponent implements OnInit, OnDestroy {
   // dummy data to use
-  products = [
-    { productName: 'Formal Jacket', price: 1000, imageURL: 'src/assets/stock_images/jacket'},
-    { productName: 'Beige Coat', price: 2500, imageURL: 'src/assets/stock_images/jacket'},
-    { productName: 'Casual Coat', price: 1500,imageURL: 'src/assets/stock_images/jacket'}
-    // { productName: "Casual Coat", price: 1500, colour: {colourName: "Beige"}, imageURL: "src/assets/stock_images/jacket"}
-  ];
+
+
+  // cartItems: any [] = [];
+  products: Product[] = [];
 
   //icons
   cart = faShoppingCart;
@@ -30,9 +31,11 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   itemsInCart: number = 0;
   subscription!: Subscription;
 
-  // cartItems: any [] = [];
-
-  constructor(private _cartService: CartService) {}
+  constructor(
+    private _cartService: CartService,
+    private _fakeStoreService: FakestoreService,
+    router: Router
+  ) {}
 
   ngOnInit() {
     // call getTotalItemsInCart function for cart services
@@ -42,24 +45,34 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
       .subscribe((itemsInCart) => {
         this.itemsInCart = itemsInCart.totalItems;
       });
-    console.log(this.itemsInCart)
+    // console.log(this.itemsInCart)
+
+    this._fakeStoreService.getAll().subscribe((products: any) => {
+      //arrow functions are already in the format of a promise
+      console.table(products);
+      this.products = products;
+    });
+
   }
 
+  //send product id to view details
+  viewDetails(id: any) {
+    // this.router.navigate(['./view-product', id]);
+  }
+
+
+  //add to cart button functionality on view all page
   addToCart(product: any) {
-    
-    
     // console.log(product)
-    if(product) {
+    if (product) {
       this.itemsInCart++;
     }
 
-    console.log(this.itemsInCart)
+    console.log(this.itemsInCart);
     let count = {
-      totalItems: this.itemsInCart
+      totalItems: this.itemsInCart,
     };
-
-      console.log(this._cartService.getTotalItemsInCart())
-
+    // console.log(this._cartService.getTotalItemsInCart());
     this._cartService.setTotalItemsInCart(count);
   }
 

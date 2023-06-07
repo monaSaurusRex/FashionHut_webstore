@@ -4,6 +4,7 @@ import { ViewAllProductsComponent } from './pages/view-all-products/view-all-pro
 
 const routes: Routes = [
   {path: '', component: ViewAllProductsComponent},
+  // {path: 'view-product/:id', component: ViewProductDetailsComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
  
 ];
