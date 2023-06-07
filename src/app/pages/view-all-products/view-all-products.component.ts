@@ -12,18 +12,19 @@ export class ViewAllProductsComponent implements OnInit{
   constructor (){}
 
   products = [
-    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Formal Jacket", price: 1000, imageURL: "assets/images/Jacket.png"},
+    { productName: "Beige Coat", price: 2500, imageURL: "assets/images/Jacket.png"},
+    { productName: "Casual Coat", price: 1500, imageURL: "assets/images/Jacket.png"},
     // { productName: "Casual Coat", price: 1500, colour: {colourName: "Beige"}, imageURL: "src/assets/stock_images/jacket"}
-    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
-    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Formal Jacket", price: 1000, imageURL: "assets/images/Jacket.png"},
+    { productName: "Beige Coat", price: 2500, imageURL: "assets/images/Jacket.png"},
+    { productName: "Casual Coat", price: 1500, imageURL: "assets/images/Jacket.png"},
+    { productName: "Formal Jacket", price: 1000, imageURL: "assets/images/Jacket.png"},
+    { productName: "Beige Coat", price: 2500, imageURL: "assets/images/Jacket.png"},
+    { productName: "Casual Coat", price: 1500, imageURL: "assets/images/Jacket.png"},
 
   ];
+
 
   ngOnInit() {}     
   
