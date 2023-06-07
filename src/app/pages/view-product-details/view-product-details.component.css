@@ -5,16 +5,22 @@
 .row{
     margin-left: 90px;
     margin-top: 19px;
+    row-gap: 0;
    
 }
 .col-12{
-    margin: 12px;
+    margin: 50px;
+    margin-top: 20px;
+    
+  
+    
   
    
 }
 .col-4{
     padding: 20px;
     margin-top: 15px;
+    height: 200px;
 }
 
 .col-5{
@@ -28,4 +34,7 @@
 .card-img-top{
     width: 120px;
     height: 160px;
+}
+.card-img{
+    height: 570px;
 }
