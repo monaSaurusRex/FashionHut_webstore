@@ -23,7 +23,6 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
     // { productName: "Casual Coat", price: 1500, colour: {colourName: "Beige"}, imageURL: "src/assets/stock_images/jacket"}
   ];
 
-
   //icons
   cart = faShoppingCart;
 
@@ -59,12 +58,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
       totalItems: this.itemsInCart
     };
 
-      console.log(this._cartService.setTotalItemsInCart(count))
       console.log(this._cartService.getTotalItemsInCart())
 
     this._cartService.setTotalItemsInCart(count);
-    // console.log(typeof count);
-    // console.log("numItems: " + count)
   }
 
   ngOnDestroy() {
