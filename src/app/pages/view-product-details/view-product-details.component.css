@@ -1,0 +1,35 @@
+.container, .col{
+    background-color: var(--white);
+}
+
+  
+.col-4{
+  
+    margin: var(--s-large);
+    padding: var(--s-large);
+}
+    
+
+.col-5{
+    padding: var(--s-large);
+    margin: var(--s-large);
+    height: 100%;
+    
+
+}
+.inputbox{
+    border-radius: var(--default-border-radius);
+    border-color: var(--light-grey);
+    width: 40px;
+}
+
+
+
+.btn{
+    background-color: var(--primary-color);
+    color: var(--white);
+    
+}
+.quantity{
+    color: var(--white);
+}
