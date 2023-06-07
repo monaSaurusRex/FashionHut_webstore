@@ -11,7 +11,19 @@ export class ViewAllProductsComponent implements OnInit{
   cart = faShoppingCart;
   constructor (){}
 
- products: any [] = [];
+  products = [
+    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
+    // { productName: "Casual Coat", price: 1500, colour: {colourName: "Beige"}, imageURL: "src/assets/stock_images/jacket"}
+    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Formal Jacket", price: 1000, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Beige Coat", price: 2500, imageURL: "src/assets/stock_images/jacket"},
+    { productName: "Casual Coat", price: 1500, imageURL: "src/assets/stock_images/jacket"},
+
+  ];
 
   ngOnInit() {}     
   
