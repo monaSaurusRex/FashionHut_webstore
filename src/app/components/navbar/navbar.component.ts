@@ -18,7 +18,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   //cart services function variable
-  itemsInCart!: number;
+  itemsInCart!: any;
   subscription!: Subscription;
   //icons
   cart = faShoppingCart;
@@ -40,9 +40,9 @@ export class NavbarComponent implements OnInit {
       .subscribe((itemsInCart) => {
         this.itemsInCart = itemsInCart.totalItems;
 
-        // if(this.itemsInCart <= 0){
-        //   this.itemsInCart = 
-        // }
+        if(this.itemsInCart <= 0){
+          this.itemsInCart = ""
+        }
 
 
       });
