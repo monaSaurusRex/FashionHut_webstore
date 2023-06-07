@@ -2,4 +2,30 @@
     background-color: var(--white);
 }
 
+.row{
+    margin-left: 90px;
+    margin-top: 19px;
+   
+}
+.col-12{
+    margin: 12px;
+  
+   
+}
+.col-4{
+    padding: 20px;
+    margin-top: 15px;
+}
 
+.col-5{
+    padding: 5px;
+    margin-left: 20px;
+}
+.form-c{
+    width: 40px;
+}
+
+.card-img-top{
+    width: 120px;
+    height: 160px;
+}
