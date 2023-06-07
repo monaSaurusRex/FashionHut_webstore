@@ -127,6 +127,7 @@ fa-icon,
 button {
     border-radius: var(--default-border-radius);
     height: var(--height-large);
+    font-family: var(--body-font);
 
     display: flex;
     flex-direction: row;

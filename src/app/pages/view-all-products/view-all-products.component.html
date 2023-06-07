@@ -1,17 +1,19 @@
-
 <!-- card -->
-<div class = "row">
-   <div class = "col-lg-3 col-md-4 col-sm-6 col-6 mb-4" *ngFor = "let product of products">
-      <div class ="card rounded-0" style="width: 10rem;">
-          <img src={{product.imageURL}} class="card-img-top rounded-0" alt="...">
-          <div class="card-body">
-            <h2 class="product-title">{{product.productName}}</h2>
-            <p class="product-price">{{product.price}}</p>
-            </div>
-            <div class="card-button d-flex justify-content-center">
-                <button class="btn btn-primary btn-block cart rounded-0"><fa-icon [icon]="cart"></fa-icon>Add to cart</button> 
-            </div>   
+<div card>
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-3  col-md-4 col-sm-6 col-6 mb-4" *ngFor="let product of products">
+      <div class="card">
+        <img src={{product.imageURL}} class="card-img-top rounded-0" alt="...">
+        <div class="card-body">
+          <h2 class="product-title">{{product.productName}}</h2>
+          <p class="product-price">{{product.price}}</p>
+          <div class="card-button d-flex justify-content-center">
+            <button class="btn btn-lg btn-block btn-secondary  rounded-0">
+              <fa-icon [icon]="cart"></fa-icon> Add to cart
+            </button>
           </div>
         </div>
+      </div>
     </div>
-    
+  </div>
+</div>
