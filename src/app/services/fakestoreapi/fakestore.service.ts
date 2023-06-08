@@ -39,4 +39,8 @@ export class FakestoreService {
     return this.http.get('/category' + category )
   }
 
+  getAllCategories(){
+    return this.http.get<any[]>('https://fakestoreapi.com/products/categories');
+  }
+
 }
