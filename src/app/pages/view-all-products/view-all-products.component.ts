@@ -56,8 +56,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   }
 
   //send product id to view details
-  viewProductDetails(id: number) {
-    this.router.navigate(['view-product/:id']);
+  viewProductDetails(id: any) {
+    console.log(id);
+    this.router.navigate(['view-product', id]);
   }
 
 

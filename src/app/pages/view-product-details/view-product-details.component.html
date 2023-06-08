@@ -1,36 +1,16 @@
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div class="col d-flex justify-content-center">
-            
-                <!-- <div class="col-3">
-                    <div class="row image-options">
-                        <div class="col-12 .small-image">
-                            <img src="https://cdn.discordapp.com/attachments/1093111353826344983/1115904430307549234/D2.webp"
-                                class="product-option" alt="Dark-green" />
-                        </div>
-
-                        <div class="col-12 .small-image">
-                            <img src="https://cdn.discordapp.com/attachments/1093111353826344983/1115904431163191326/D4.webp"
-                                class="product-option" alt="Dark-pink" />
-                        </div>
-                        <div class="col-12 .small-image">
-                            <img src="https://cdn.discordapp.com/attachments/1093111353826344983/1115904430706020393/D3.webp"
-                                class="product-option" alt="Light-pink" />
-                        </div>
-                    </div>
-                </div> -->
                 <div class="col-4 big-image d-flex justify-content-center .large-image">
-                    <img src="https://cdn.discordapp.com/attachments/1093111353826344983/1114085342824366160/D1.webp"
-                        class="card-img" alt="Lighter-green" />
+                    <img src={{product.image}} class="card-img"/>
                 </div>
                 <div class="col-5 card-description">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title">Product Title</h1>
-                            <p class="text-body-secondary">Price</p>
+                            <h1 class="card-title">{{product.title}}</h1>
+                            <p class="text-body-secondary">R {{product.price}}</p>
                             <p class="description">
-                                This is a longer card with supporting text below as a natural
-                                lead-in to additional content.
+                                {{product.description}}
                             </p>
                             <label for="sizes" class="form-label">Sizes:</label>
                             <br />
