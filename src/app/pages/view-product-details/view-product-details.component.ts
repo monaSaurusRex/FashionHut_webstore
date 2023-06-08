@@ -9,7 +9,9 @@ import {
   faShoppingCart,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
 
 @Component({
@@ -24,7 +26,7 @@ export class ViewProductDetailsComponent implements OnInit {
   productquantity: number = 1;
 
   cart = faShoppingCart;
-  addToCart = faCartPlus;
+  addToCartIcon = faCartPlus;
   increase = faPlus;
   decrease = faMinus;
   close = faTimes;
@@ -32,14 +34,22 @@ export class ViewProductDetailsComponent implements OnInit {
 
   id: any;
   product!: Product;
-
+  
+  itemsInCart: number = 0;
+  subscription!: Subscription;
   
 
-  constructor(private _fakeStoreService: FakestoreService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private _fakeStoreService: FakestoreService, private route: ActivatedRoute, private router: Router, private _cartService:CartService) {}
 
   ngOnInit(): void{
     console.log(this.id = this.route.snapshot.params['id']);
     this.getProductDetails(this.id = this.route.snapshot.params['id']);
+
+    this.subscription = this._cartService
+      .getTotalItemsInCart()
+      .subscribe((itemsInCart) => {
+        this.itemsInCart = itemsInCart.totalItems;
+      });
   }
 
 
@@ -56,6 +66,20 @@ export class ViewProductDetailsComponent implements OnInit {
       console.log('product:', data);
       this.product = data;
     });
+  }
+
+  addToCart(product: any) {
+    // console.log(product)
+    if (product) {
+      this.itemsInCart++;
+    }
+
+    console.log("Items in cart: ", this.itemsInCart);
+    let count = {
+      totalItems: this.itemsInCart,
+    };
+    // console.log(this._cartService.getTotalItemsInCart());
+    this._cartService.setTotalItemsInCart(count);
   }
 
   

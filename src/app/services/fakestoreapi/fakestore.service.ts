@@ -24,10 +24,6 @@ export class FakestoreService {
     return this.http.post('', body);
   }
 
-  // createProduct(body:Product){ //body means object
-  //   this.http.post("",body);
-  // }
-
   updateProduct(id: number, body: any) {
     //combination of getOne and create
     return this.http.put('' + id, body);
