@@ -1,10 +1,19 @@
-<div class="container-fluid" id="search-and-filter">
-
+<div class="container-fluid d-flex" id="search-and-filter">
     <div class="categories d-flex justify-content-start">
-
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop by category
+            </button>
+            <ul class="dropdown-menu">
+              <!-- <a *ngFor="let category of categories" class="dropdown-item">{{category}}</a> -->
+              <li *ngFor="let category of categories" class="dropdown-item">
+                {{category.categoryName}}
+              </li>
+            </ul>
+          </div>
     </div>
 
-    <div class="search d-flex justify-content-start">
+    <div class="search d-flex justify-content-end">
         <div class="input-group">
             <div class="form-outline">
                 <input type="search" id="header-search" class="form-control" />
@@ -14,7 +23,5 @@
                 <fa-icon [icon]="search"></fa-icon>
             </button>
         </div>
-    </div>
-
-    
+    </div>    
 </div>

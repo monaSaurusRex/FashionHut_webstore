@@ -43,8 +43,6 @@ export class NavbarComponent implements OnInit {
         if(this.itemsInCart <= 0){
           this.itemsInCart = ""
         }
-
-
       });
     // this.itemsInCart = this.subscription;
   }

@@ -49,7 +49,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
 
     this._fakeStoreService.getAll().subscribe((products: any) => {
       //arrow functions are already in the format of a promise
-      console.table(products);
+      // console.table(products);
       this.products = products;
     });
 

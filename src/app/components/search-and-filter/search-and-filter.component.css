@@ -4,14 +4,21 @@
     background-color: var(--white);
 }
 
+.search, .input-group{
+    width: 100%;
+    margin: var(--s-medium);
+}
+
 button{
     background-color: var(--dark);
-    border: var(--dark);;
+    border: var(--dark);
+    color: var(--white);
 }
 
 button:focus, button:hover, button:active{
     background-color: var(--darker);
     border: var(--darker);
+    color: var(--white);
 }
 
 label{

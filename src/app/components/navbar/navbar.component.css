@@ -68,9 +68,8 @@ button {
 p .cart-item-counter{
     font-size: var(--large);
     text-align: center;
+    color: var(--white);
 }
-
-
 
 fa-icon, .cart-item-counter{
     display: flex;
