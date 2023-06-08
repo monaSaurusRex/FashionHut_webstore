@@ -63,7 +63,7 @@ export class ViewProductDetailsComponent implements OnInit {
 
   getProductDetails(id: number) {
     this._fakeStoreService.getOneProduct(this.id).subscribe((data: any) => {
-      console.log('product:', data);
+      // console.log('product:', data);
       this.product = data;
     });
   }
@@ -71,7 +71,13 @@ export class ViewProductDetailsComponent implements OnInit {
   addToCart(product: any) {
     // console.log(product)
     if (product) {
-      this.itemsInCart++;
+      if(this.productquantity>=2){ //if the quantity selector is more than the default quantity
+        this.itemsInCart += this.productquantity;
+      }
+      else{
+        this.itemsInCart++;
+      }
+
     }
 
     console.log("Items in cart: ", this.itemsInCart);
