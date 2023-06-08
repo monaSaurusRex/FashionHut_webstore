@@ -64,7 +64,7 @@ body {
 h1,
 title {
     font-family: var(--heading-font);
-    color: var(--text-color);
+    color: var(--dark);
 
     font-size: var(--large);
     line-height: var(--large);
@@ -79,7 +79,7 @@ title {
 h2 {
     /*product title, description title*/
     font-family: var(--heading-font);
-    color: var(--text-color);
+    color: var(--dark);
 
     font-size: var(--medium);
     line-height: var(--medium);
@@ -92,7 +92,7 @@ h2 {
 
 p {
     font-family: var(--body-font);
-    color: var(--text-color);
+    color: var(--dark);
 
     font-size: var(--normal);
     line-height: var(--normal);
@@ -107,7 +107,7 @@ p {
 p .bold {
     /*price label, rating label*/
     font-family: var(--body-font);
-    color: var(--text-color);
+    color: var(--dark);
 
     font-size: var(--normal);
     line-height: var(--normal);
