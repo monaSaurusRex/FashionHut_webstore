@@ -173,6 +173,28 @@ hr{
 }
 @media only screen and (max-width: 768px) {
 
+    h1,
+    title {
+        font-size: var(--medium);
+        line-height: var(--medium);
+    }
+    
+    h2 {
+        font-size: var(--normal);
+        line-height: var(--normal);
+    }
+    
+    p {
+        font-size: var(--normal);
+        line-height: var(--normal);
+    }
+    
+    p .bold {
+        font-size: var(--normal);
+        line-height: var(--normal);
+    }
+
+
     .mobile-hide {
         /*class property assigned to html elements to hide them on mobile devices*/
         display: none !important;
@@ -180,5 +202,9 @@ hr{
 
     .container-fluid {
         padding: 0px 5px;
+    }
+
+    body{
+        margin-top: 50px;
     }
 }
