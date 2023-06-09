@@ -1,4 +1,4 @@
-button {
+.btn {
    padding: var(--s-large);
    display: flex;
    width: 100%;
@@ -9,23 +9,11 @@ button {
 
 }
 
-button:hover {
+.btn:hover{
    border-color: var(--primary-color);
    background-color: var(--primary-color);
+   color: var(--white);
 }
-
-/* 
-button:focus{
-    outline-color: transparent;
-    outline-style: solid;
-    box-shadow: 0 0 0 4px var(--primary-color);
-    color: var(--primary-color);
- } */
-p {
-   margin-top: 0;
-   margin-bottom: 1rem;
-}
-
 
 .card {
    padding: var(--s-medium);
@@ -53,4 +41,8 @@ img{
    text-overflow: ellipsis;
    white-space: nowrap;
    overflow: hidden; 
+}
+
+p .product-price{
+   font-weight: var(--bold);
 }
