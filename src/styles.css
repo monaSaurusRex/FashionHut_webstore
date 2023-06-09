@@ -157,7 +157,7 @@ fa-icon,
     justify-content: center;
     align-items: center;
 
-    margin: var(--s-large);
+    /* margin: var(--s-large); */
     gap: var(--s-large);
 }
 
