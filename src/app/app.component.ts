@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faFacebook, faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Icon, IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart, faCartPlus, faTrash, faPlus, faMinus, faStar, faBars, faTimes, faArrowLeft, faSearch} from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
@@ -10,21 +11,21 @@ import { faShoppingCart, faCartPlus, faTrash, faPlus, faMinus, faStar, faBars, f
 export class AppComponent implements OnInit {
   title = 'FashionHut';
 
-// solid-icons
-    cart = faShoppingCart;
-    addToCart = faCartPlus;
-    remove = faTrash;
-    increase = faPlus;
-    decrease = faMinus;
-    starRating = faStar;
-    bars = faBars;
-    close = faTimes;
-    back = faArrowLeft;
-    search = faSearch;
-
-    facebook = faFacebookF;
-    instagram = faInstagram;
-    twitter = faTwitter;
+    // solid icons
+    cartIcon = faShoppingCart;
+    addToCartIcon = faCartPlus;
+    removeIcon = faTrash;
+    increaseIcon = faPlus;
+    decreaseIcon = faMinus;
+    starRatingIcon = faStar;
+    barsIcon = faBars;
+    closeIcon = faTimes;
+    backIcon = faArrowLeft;
+    searchIcon = faSearch;
+    //brand icons
+    facebookIcon = faFacebookF as IconProp;
+    instagramIcon = faInstagram as IconProp;
+    twitterIcon = faTwitter as IconProp;
 
 
     
