@@ -1,35 +1,50 @@
-.container, .col{
-    background-color: var(--white);
-}
+.col-4 {
 
-  
-.col-4{
-  
     margin: var(--s-large);
     padding: var(--s-large);
 }
-    
 
-.col-5{
+
+.col-5 {
     padding: var(--s-large);
     margin: var(--s-large);
     height: 100%;
-    
-
 }
-.inputbox{
-    border-radius: var(--default-border-radius);
-    border-color: var(--light-grey);
+
+.input-box {
+    border-style: none;
     width: 40px;
+    border-bottom: var(--grey-border);
+    border-top: var(--grey-border);
+    text-align: center;
+
 }
 
+.btn-icon {
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
 
+    color: var(--dark);
+}
 
-.btn{
+.btn-icon:hover{
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
+
+    color: var(--darker);
+}
+
+.cart-btn {
+    border-color: var(--primary-color);
+    color: var(--white);
     background-color: var(--primary-color);
-    color: var(--white);
-    
 }
-.quantity{
+
+.quantity {
     color: var(--white);
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
 }
