@@ -49,10 +49,6 @@ img{
    height: 70%;
 }
 
-.card-body{
-   height: 30%;
-}
-
 .product-title{
    text-overflow: ellipsis;
    white-space: nowrap;

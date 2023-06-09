@@ -34,7 +34,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   constructor(
     private _cartService: CartService,
     private _fakeStoreService: FakestoreService,
-    router: Router
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -56,8 +56,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   }
 
   //send product id to view details
-  viewDetails(id: any) {
-    // this.router.navigate(['./view-product', id]);
+  viewProductDetails(id: any) {
+    // console.log(id);
+    this.router.navigate(['view-product', id]);
   }
 
 
@@ -68,7 +69,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
       this.itemsInCart++;
     }
 
-    console.log(this.itemsInCart);
+    console.log("Items in cart: ", this.itemsInCart);
     let count = {
       totalItems: this.itemsInCart,
     };
@@ -77,6 +78,8 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
