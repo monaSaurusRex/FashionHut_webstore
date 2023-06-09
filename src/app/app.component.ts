@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Icon, IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faShoppingCart, faCartPlus, faTrash, faPlus, faMinus, faStar, faBars, faTimes, faArrowLeft, faSearch} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faCartPlus, faTrash, faPlus, faMinus, faStar, faBars, faTimes, faArrowLeft, faSearch, faAngleDown} from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     closeIcon = faTimes;
     backIcon = faArrowLeft;
     searchIcon = faSearch;
+    dropdownIcon = faAngleDown
     //brand icons
     facebookIcon = faFacebookF as IconProp;
     instagramIcon = faInstagram as IconProp;
