@@ -64,16 +64,16 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   //add to cart button functionality on view all page
   addToCart(product: any) {
     // console.log(product)
-    if (product) {
-      this.itemsInCart++;
-    }
+    // if (product) {
+    //   this.itemsInCart++;
+    // }
 
-    console.log(this.itemsInCart);
-    let count = {
-      totalItems: this.itemsInCart,
-    };
-    // console.log(this._cartService.getTotalItemsInCart());
-    this._cartService.setTotalItemsInCart(count);
+    // console.log(this.itemsInCart);
+    // let count = {
+    //   totalItems: this.itemsInCart,
+    // };
+    // // console.log(this._cartService.getTotalItemsInCart());
+    // this._cartService.setTotalItemsInCart(count);
   }
 
   ngOnDestroy() {
