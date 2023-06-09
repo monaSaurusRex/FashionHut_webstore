@@ -1,82 +1,61 @@
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <div class="card">
-            <div class="col d-flex justify-content-center">
-                <div class="col-4 big-image d-flex justify-content-center .large-image">
-                    <img src={{product.image}} class="card-img" />
+<div class="card">
+    <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
+        <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
+            <img src={{product.image}} id="product-image"/>
+        </div>
+        <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
+            <div class="product-header">
+                <h1 class="product-title">{{product.title}}</h1>
+                <h2 class="text-body-secondary">Brand</h2>
+            </div>
+            <hr>
+            <div class="product-price">
+                <p class="price-label">R {{product.price}}</p>
+            </div>
+            <div class="product-decription">
+                <p class="description">{{product.description}}</p>
+            </div>
+            <hr>
+            <div class="product-specs d-flex justify-content-start flex-column">
+                
+                <div class="colours selector d-flex justify-content-start flex-column">
+                    <div class="input-group">
+
+                    </div>
+
                 </div>
-                <div class="col-5 card-description">
-
-                    <div class="card-body">
-                        <h1 class="card-title">{{product.title}}</h1>
-                        <p class="text-body-secondary">R {{product.price}}</p>
-                        <p class="description">
-                            {{product.description}}
-                        </p>
-                        <label for="sizes" class="form-label">Sizes:</label>
-                        <br />
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault1" />
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Small
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked />
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Medium
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault1" />
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Large
-                            </label>
-                        </div>
-                        <br />
-                        <label for="exampleColorInput" class="form-label">Colors:</label>
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                            value="#C6C5AE" title="Choose your color" />
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                            value="#205642" title="Choose your color" />
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                            value="#CA7090" title="Choose your color" />
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                            value="#DFB8BA" title="Choose your color" />
-                        <br />
-
-                        <hr>
-                        <div class="container" id="product-specs">
-                            <label for="product-specs" class="form-label"> Quantity:</label>
-                            <div class="quantity input-group d-flex justify-content-start" id="quantity">
-                                <button (click)="quantity('decrease')" class="btn btn-decrease btn-icon">
-                                    <fa-icon [icon]="decreaseIcon"></fa-icon>
-                                </button>
-                                <div class="form-outline">
-                                    <input class="input-box" text="text" disabled value="{{productQuantity}}">
-                                </div>
-                                <button (click)="quantity('increase')" class="btn btn-increase btn-icon">
-                                    <fa-icon [icon]="increaseIcon"></fa-icon>
-                                </button>
-                            </div>
-
-                        </div>
-
-
-                        <div (click)="addToCart(product)" class="d-flex justify-content-center btn-flex">
-                            <button class="btn btn-primary btn-block cart-btn">
-                                <fa-icon [icon]="addToCartIcon"></fa-icon>
-                                <span>Add to cart</span>
-                            </button>
-                        </div>
+                <div class="sizes selector d-flex justify-content-start flex-column">
+                    <h2>Sizes</h2>
+                    <div class="button-group d-flex justify-content-start flex-row">
+                        <button class="selector-option btn active">S</button>
+                        <button class="selector-option btn">M</button>
+                        <button class="selector-option btn">L</button>
                     </div>
                 </div>
-
+                <div class="quantity selector d-flex justify-content-end flex-column">
+                    <h2> Quantity</h2>
+                    <div class="input-group d-flex justify-content-start flex-row">
+                        <button (click)="quantity('decrease')" class="selector-option btn btn-decrease btn-icon">
+                            <fa-icon [icon]="decreaseIcon"></fa-icon>
+                        </button>
+                        <div class="form-outline">
+                            <input class="input-box" text="text" disabled value="{{productQuantity}}">
+                        </div>
+                        <button (click)="quantity('increase')" class="selector-option btn btn-increase btn-icon">
+                            <fa-icon [icon]="increaseIcon"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+        
             </div>
 
+            <div (click)="addToCart(product)" class="d-flex justify-content-center btn-flex">
+                <button class="btn btn-primary btn-block cart-btn">
+                    <fa-icon [icon]="addToCartIcon"></fa-icon>
+                    <span>Add to cart</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
