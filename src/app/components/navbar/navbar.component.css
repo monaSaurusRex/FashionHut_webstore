@@ -55,8 +55,6 @@ button {
     color: var(--white);
 }
 
-
-
 #mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
@@ -70,8 +68,6 @@ p .cart-item-counter {
     font-size: var(--large);
     text-align: center;
 }
-
-
 
 fa-icon,
 .cart-item-counter {
