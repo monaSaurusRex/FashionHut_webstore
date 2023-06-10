@@ -1,5 +1,5 @@
 img {
-    width: 80%;
+    width: 100%;
 }
 
 .input-box {
@@ -42,12 +42,15 @@ img {
 
 .selector {
     border-radius: var(--default-border-radius);
-    margin-bottom: var(--s-large);
 }
 
 .selector-option {
     width: var(--width-large);
+    
     margin: var(--s-medium);
+
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
 }
 
 .container {
