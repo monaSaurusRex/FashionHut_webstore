@@ -1,12 +1,19 @@
+h2{
+    margin-bottom: var(--s-small);
+}
+
 img {
     width: 100%;
 }
 
 .input-box {
+    width: var(--width-large);
+    height: var(--height-medium);
+
     border-style: none;
-    width: 40px;
     border-bottom: var(--grey-border);
     border-top: var(--grey-border);
+
     text-align: center;
 }
 
@@ -41,6 +48,8 @@ img {
 }
 
 .selector {
+    margin-bottom: var(--s-medium);
+
     border-radius: var(--default-border-radius);
 }
 
@@ -51,6 +60,7 @@ img {
 
 .selector-option {
     width: var(--width-large);
+    height: var(--height-medium);
 
     padding: var(--s-small);
 
@@ -59,11 +69,7 @@ img {
 }
 
 .size{
-    margin: var(--s-small);
-}
-
-.container {
-    margin: var(--s-medium);
+    margin-right: var(--s-small);
 }
 
 .product-details {

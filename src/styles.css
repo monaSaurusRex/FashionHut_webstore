@@ -43,7 +43,7 @@
     --s-small: 5px;
     --s-medium: 10px;
     --s-large: 15px;
-    --s-larger: 30px;
+    --s-larger: 25px;
 
     /* --s-default: 1rem;
     --s-x-small: var(--default) * .25;
@@ -190,7 +190,7 @@ input {
 hr {
     background-color: var(--grey);
     height: 2px;
-    margin: 5px 0px;
+    margin: var(--s-small) 0px;
 
     border: none !important;
 }

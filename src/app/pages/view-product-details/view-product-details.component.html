@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card mt-5">
     <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
         <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
-            <img src={{product.image}} id="product-image"/>
+            <img src={{product.image}} id="product-image" />
         </div>
         <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
             <div class="product-header">
@@ -17,7 +17,7 @@
             </div>
             <hr>
             <div class="product-specs d-flex justify-content-start flex-column">
-                
+
                 <div class="colours selector d-flex justify-content-start flex-column">
                     <div class="input-group">
 
@@ -26,9 +26,6 @@
                 </div>
                 <div class="sizes selector d-flex justify-content-start flex-column">
                     <h2>Sizes</h2>
-                    <div class="selector">
-                        
-                    </div>
                     <div class="button-group d-flex justify-content-start flex-row">
                         <button class="selector-option size btn active">S</button>
                         <button class="selector-option size btn">M</button>
@@ -50,7 +47,7 @@
                     </div>
                 </div>
                 <hr>
-        
+
             </div>
 
             <div (click)="addToCart(product)" class="d-flex justify-content-center btn-flex">
