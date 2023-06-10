@@ -1,30 +1,30 @@
-
 button {
     padding: 10px;
     margin-left: 5px;
 }
 
 
-.nav{
+.nav {
     height: 60px;
     padding: 10px 30px;
-    
+
     flex-direction: row;
     align-items: flex-start;
 }
 
-.navbar{
+.navbar {
     background-color: var(--dark);
 }
 
-.navbar-brand span, .logo{
+.navbar-brand span,
+.logo {
     font-family: var(--heading-font);
     font-weight: var(--bold);
     font-size: var(--xx-large);
     line-height: var(--xx-large);
 }
 
-.nav-item{
+.nav-item {
     font-family: var(--body-font);
     font-weight: var(--regular);
     font-size: var(--medium);
@@ -32,11 +32,12 @@ button {
     padding: 5px;
 }
 
-.nav-item a{
+.nav-item a {
     color: var(--white);
 }
 
-.navbar-toggler, .navbar-collapse{
+.navbar-toggler,
+.navbar-collapse {
     background-color: var(--dark);
     color: var(--white);
 
@@ -46,33 +47,30 @@ button {
 }
 
 
-.colour{
+.colour {
     color: var(--primary-color)
 }
 
-.white{
+.white {
     color: var(--white);
 }
 
-
-
-#mobile-left-sidebar{
+#mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
 }
 
-.offcanvas{
+.offcanvas {
     width: 100%;
 }
 
-p .cart-item-counter{
+p .cart-item-counter {
     font-size: var(--large);
     text-align: center;
 }
 
-
-
-fa-icon, .cart-item-counter{
+fa-icon,
+.cart-item-counter {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -80,20 +78,35 @@ fa-icon, .cart-item-counter{
 
 @media only screen and (max-width: 768px) {
 
-    .navbar-brand span, .logo{
+    .navbar-brand span,
+    .logo {
         font-size: var(--x-large);
         line-height: var(--x-large);
     }
 
-    .navbar-toggler, fa-icon{ /*make nav items smaller when on mobile devices*/
+    .navbar-toggler,
+    fa-icon {
+        /*make nav items smaller when on mobile devices*/
         font-weight: var(--light);
         font-size: var(--regular);
         line-height: var(--regular);
         padding: 3px;
     }
 
-    button{
+    button {
         margin-left: 0px;
+    }
+
+    body{
+        margin-top: 60px;
+    }
+
+    nav {
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        z-index: 50;
     }
 
 }

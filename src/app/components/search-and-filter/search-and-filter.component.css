@@ -1,19 +1,19 @@
-#search-and-filter{
+.search-and-filter{
     height: 60px;
     padding: 10px 30px;
     background-color: var(--white);
 }
 
-button{
+.btn-icon {
     background-color: var(--dark);
-    border: var(--dark);;
+    border: var(--dark);
+    color: var(--white);
 }
 
-button:focus, button:hover, button:active{
+.btn-icon:hover,
+.btn-icon:focus,
+.btn-icon:active {
     background-color: var(--darker);
     border: var(--darker);
-}
-
-label{
-    color: var(--dark);
+    color: var(--white);
 }

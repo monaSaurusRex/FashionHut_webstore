@@ -1,20 +1,16 @@
-<!-- card -->
-<div card>
-  <div class="row d-flex justify-content-center">
-    <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
-      <div class="card">
-        <img src={{product.image}} class="card-img-top">
-        <div class="card-body align-self-bottom">
-          <h2 class="product-title">{{product.title}}</h2>
-          <p class="product-price">R {{product.price}}</p>
+<div class="row g-5">
+  <div *ngFor="let product of products" class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
+      <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
+      <p class="product-price">R {{product.price}}</p>
 
-          <!-- *ngIf="!item.inCart"  -->
-          <div (click)="addToCart(product)" class="card-button d-flex justify-content-center">
-            <button class="btn btn-primary btn-block cart">
-              <fa-icon [icon]="cart"></fa-icon> Add to cart
-            </button>
-          </div>
-        </div>
+      <!-- *ngIf="!item.inCart"  -->
+      <div (click)="addToCart(product)" class="card-button d-flex justify-content-center btn-flex">
+        <button class="btn btn-primary cart">
+          <fa-icon [icon]="addToCartIcon"></fa-icon>
+          <span>Add to cart</span>
+        </button>
       </div>
     </div>
   </div>

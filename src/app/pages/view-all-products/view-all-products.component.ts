@@ -1,12 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  faShoppingCart,
-  faBars,
-  faTimes,
-  faUserAlt,
-  faSearch,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus,} from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -25,7 +19,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   products: Product[] = [];
 
   //icons
-  cart = faShoppingCart;
+  addToCartIcon = faCartPlus;;
 
   //cart services function variables
   itemsInCart: number = 0;
@@ -34,7 +28,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   constructor(
     private _cartService: CartService,
     private _fakeStoreService: FakestoreService,
-    router: Router
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -49,15 +43,16 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
 
     this._fakeStoreService.getAll().subscribe((products: any) => {
       //arrow functions are already in the format of a promise
-      console.table(products);
+      // console.table(products);
       this.products = products;
     });
 
   }
 
   //send product id to view details
-  viewDetails(id: any) {
-    // this.router.navigate(['./view-product', id]);
+  viewProductDetails(id: any) {
+    // console.log(id);
+    this.router.navigate(['view-product', id]);
   }
 
 
@@ -68,15 +63,17 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
     //   this.itemsInCart++;
     // }
 
-    // console.log(this.itemsInCart);
-    // let count = {
-    //   totalItems: this.itemsInCart,
-    // };
-    // // console.log(this._cartService.getTotalItemsInCart());
+    console.log("Items in cart: ", this.itemsInCart);
+    let count = {
+      totalItems: this.itemsInCart,
+    };
+    // console.log(this._cartService.getTotalItemsInCart());
     // this._cartService.setTotalItemsInCart(count);
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
