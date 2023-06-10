@@ -54,3 +54,10 @@ img{
    white-space: nowrap;
    overflow: hidden; 
 }
+
+.h2{
+   width: 100px;
+   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

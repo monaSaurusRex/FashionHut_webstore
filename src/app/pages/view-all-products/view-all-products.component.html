@@ -5,7 +5,7 @@
       <div class="card">
         <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
         <div class="card-body align-self-bottom">
-          <h2 class="product-title" (click)="viewProductDetails(product.id)">{{product.title}}</h2>
+          <h2 class ="d-inline-block text-truncate" style ="max-width: 150px;"(click)="viewProductDetails(product.id)">{{product.title}}</h2>
           <p class="product-price">R {{product.price}}</p>
 
           <!-- *ngIf="!item.inCart"  -->
@@ -19,3 +19,4 @@
     </div>
   </div>
 </div>
+
