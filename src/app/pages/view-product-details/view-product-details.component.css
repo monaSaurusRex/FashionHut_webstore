@@ -44,13 +44,22 @@ img {
     border-radius: var(--default-border-radius);
 }
 
+.input-group, .btn-group{
+        
+    margin: 0px;
+}
+
 .selector-option {
     width: var(--width-large);
-    
-    margin: var(--s-medium);
+
+    padding: var(--s-small);
 
     border: var(--grey-border);
     border-radius: var(--default-border-radius);
+}
+
+.size{
+    margin: var(--s-small);
 }
 
 .container {
