@@ -14,7 +14,7 @@ import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.servic
 export class ViewAllProductsComponent implements OnInit, OnDestroy {
   // dummy data to use
 
-
+  searchText : any;
   // cartItems: any [] = [];
   products: Product[] = [];
 
