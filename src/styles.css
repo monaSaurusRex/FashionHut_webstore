@@ -196,8 +196,8 @@ hr {
 }
 
 @media only screen and (max-width: 768px) {
-    body {
-        margin-top: 50px;
+    #body { 
+        margin-top: 70px; /*make space for sticky navbar on mobile screen*/
     }
 
     h1,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable, Subscription } from 'rxjs';
+
 import {
   faShoppingCart,
   faBars,
@@ -7,9 +9,10 @@ import {
   faUserAlt,
   faSearch,
 } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
 
 import { CartService } from 'src/app/services/cart/cart.service';
+
+import { Cart, Item } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-navbar',
@@ -17,39 +20,27 @@ import { CartService } from 'src/app/services/cart/cart.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  //cart services function variable
-  itemsInCart!: any;
-  subscription!: Subscription;
-  //icons
-  cart = faShoppingCart;
-  bars = faBars;
-  close = faTimes;
-  user = faUserAlt;
-  search = faSearch;
+  //cart services function variables
+  itemsInCart$: Observable<Item[]> | undefined;
+  cartItemsCount$: Observable<number> | undefined;
+  cartTotal$: Observable<number> | undefined;
 
-  constructor(private _cartService: CartService) {
-    // this.itemsInCart = this.subscription.
-  }
+  //ICONS
+  cartIcon = faShoppingCart;
+  barsIcon = faBars;
+  closeIcon = faTimes;
+  userIcon = faUserAlt;
+  searchIcon = faSearch;
+
+  constructor(private _cartService: CartService) {}
 
   ngOnInit() {
-    // call getTotalItemsInCart function for cart services
-    this.subscription = this._cartService.getTotalItemsInCart().subscribe();
-
-    this.subscription = this._cartService
-      .getTotalItemsInCart()
-      .subscribe((itemsInCart) => {
-        this.itemsInCart = itemsInCart.totalItems;
-
-        if(this.itemsInCart <= 0){
-          this.itemsInCart = ""
-        }
-
-
-      });
-    // this.itemsInCart = this.subscription;
+    this.itemsInCart$ = this._cartService.getCartItems();
+    this.cartItemsCount$ = this._cartService.getCartItemsCount();
+    console.log(`TOTAL ITEMS IN CART: ${this._cartService.getCartItemsCount()}`)
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }

@@ -21,14 +21,12 @@ button {
     font-family: var(--heading-font);
     font-weight: var(--bold);
     font-size: var(--xx-large);
-    line-height: var(--xx-large);
 }
 
 .nav-item {
     font-family: var(--body-font);
     font-weight: var(--regular);
     font-size: var(--medium);
-    line-height: var(--medium);
     padding: 5px;
 }
 
@@ -46,7 +44,6 @@ button {
     box-shadow: none;
 }
 
-
 .colour {
     color: var(--primary-color)
 }
@@ -60,13 +57,21 @@ button {
     color: var(--white);
 }
 
+#cart-item-list fa-icon{
+    background-color: var(--white);
+    color: var(--dark);
+}
+
 .offcanvas {
     width: 100%;
 }
 
-p .cart-item-counter {
+p, ng-template {
+    margin-left: var(--s-small);
+    color: var(--white);
     font-size: var(--large);
     text-align: center;
+    width: fit-content;
 }
 
 fa-icon,
@@ -81,7 +86,6 @@ fa-icon,
     .navbar-brand span,
     .logo {
         font-size: var(--x-large);
-        line-height: var(--x-large);
     }
 
     .navbar-toggler,
@@ -89,7 +93,6 @@ fa-icon,
         /*make nav items smaller when on mobile devices*/
         font-weight: var(--light);
         font-size: var(--regular);
-        line-height: var(--regular);
         padding: 3px;
     }
 
@@ -107,6 +110,10 @@ fa-icon,
         left: 0;
         top: 0;
         z-index: 50;
+    }
+
+    .vr{
+        display: none !important;
     }
 
 }
