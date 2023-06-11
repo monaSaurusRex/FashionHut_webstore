@@ -4,6 +4,10 @@
     background-color: var(--white);
 }
 
+.search{
+    max-width: 100%;
+}
+
 .btn-icon {
     background-color: var(--dark);
     border: var(--dark);
