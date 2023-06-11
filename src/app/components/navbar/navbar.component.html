@@ -52,48 +52,10 @@
                 type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-item-list"
                 aria-controls="cart-item-list">
                 <fa-icon [icon]="cartIcon"></fa-icon>
-                <P class="text-align-top text-align-center mb-0">{{ cartItemsCount$ | async}}</P>
+                
+                <P *ngIf="(cartItemsCount$ | async) === 0"class="text-align-top text-align-center mb-0"></P>
+                <ng-template #elseBlock>{{ cartItemsCount$ | async}}</ng-template> <!--if the total number of items in the cart is not 0-->
             </button>
-
-
-            <!-- <button class="btn btn-warning" [disabled]="(cartItemCount$ | async) === 0">Proceed to Checkout</button> -->
-
-            <!-- <div class="offcanvas offcanvas-end" id="cart-item-list">
-                <div class="offcanvas-header">
-                    <div *ngIf="(cartItemsCount$ | async)?.length === 0">
-                        <p>There's nothing in your cart...yet.</p>
-                    </div>
-                    <button
-                        class="btn-close btn-close-white shadow-none d-flex justify-content-center align-items-center"
-                        type="button" data-bs-dismiss="offcanvas" aria-label="close">
-                        <fa-icon [icon]="closeIcon"></fa-icon> 
-                    </button>
-                    <span class="cart-sidebar-title"> Cart Items </span>
-
-                    <div class="offcanvas-body">
-
-                        <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['']">Login</a>
-                            </li>
-                            <div class="vr mobile-hide align-self-center"></div>
-                            <hr>
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['']">Sign up</a>
-                            </li>
-                            <div class="vr mobile-hide align-self-center"></div>
-                            <hr>
-                        </ul>
-                    </div>
-                    <div class="offcanvas-footer">
-                        <div (click)="checkout()" class="card-button d-flex justify-content-center btn-flex">
-                            <button class="btn btn-primary cart" [disabled]="(cartItemsCount$ | async) === 0">
-                                <span>Checkout</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </nav>
