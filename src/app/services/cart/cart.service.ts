@@ -55,8 +55,11 @@ export class CartService {
   createCartItem(addedItem: Item) {
     const cart = { ...this.cart$.value };
 
-    console.log(addedItem);
+    cart.items.push(addedItem);
 
+    console.log(cart);
+
+    this.setCartItems(cart);
   }
 
   //update a cart item

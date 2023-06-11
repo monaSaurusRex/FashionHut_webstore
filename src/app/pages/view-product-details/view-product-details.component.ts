@@ -61,22 +61,21 @@ export class ViewProductDetailsComponent implements OnInit {
     });
   }
 
-  addToCart(product: any) {
-    // console.log(product)
-    if (product) {
-      if (this.productQuantity >= 2) {
-        //if the quantity selector is more than the default quantity
-        this.itemsInCart += this.productQuantity;
-      } else {
-        this.itemsInCart++;
-      }
-    }
+  //When item is added to the cart
+  addToCart(addedProduct: Product) {
 
-    console.log('Items in cart: ', this.itemsInCart);
-    let count = {
-      totalItems: this.itemsInCart,
+    // assign properties for Item attributes to allow values in line 63 to be recognized
+    type Item = {
+      id: number;
+      product: any;
+      quantity: number;
     };
-    // console.log(this._cartService.getTotalItemsInCart());
-    // this._cartService.setTotalItemsInCart(count);
+
+    if (addedProduct) {
+      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
+      let cartItem: Item = { id: 0, product: addedProduct, quantity: this.productQuantity};
+
+      this._cartService.createCartItem(cartItem);
+    }
   }
 }

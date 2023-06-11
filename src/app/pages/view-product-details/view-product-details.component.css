@@ -35,12 +35,6 @@ img {
     color: var(--darker);
 }
 
-.active {
-    background-color: var(--dark);
-    color: var(--white);
-    border-color: var(--dark);
-}
-
 .cart-btn {
     border-color: var(--primary-color);
     color: var(--white);
@@ -51,6 +45,12 @@ img {
     margin-bottom: var(--s-medium);
 
     border-radius: var(--default-border-radius);
+}
+
+.btn:checked{
+    background-color: var(--dark);
+    color: var(--white);
+    border-color: var(--dark);
 }
 
 .input-group, .btn-group{

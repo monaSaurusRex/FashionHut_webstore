@@ -37,12 +37,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.itemsInCart$ = this._cartService.getCartItems();
     this.cartItemsCount$ = this._cartService.getCartItemsCount();
-    // console.log(`TOTAL ITEMS IN CART:${this.cartItemsCount$}`)
+    console.log(`TOTAL ITEMS IN CART: ${this._cartService.getCartItemsCount()}`)
   }
-
-
-
-
 
   ngOnDestroy() {
     // this.subscription.unsubscribe();

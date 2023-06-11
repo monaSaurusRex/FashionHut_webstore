@@ -26,10 +26,17 @@
                 </div>
                 <div class="sizes selector d-flex justify-content-start flex-column">
                     <h2>Sizes</h2>
-                    <div class="button-group d-flex justify-content-start flex-row">
-                        <button class="selector-option size btn active">S</button>
-                        <button class="selector-option size btn">M</button>
-                        <button class="selector-option size btn">L</button>
+                    <div class="button-group d-flex justify-content-start flex-row" data-toggle="buttons">
+
+                        <input type="radio" class="btn-check" name="options" id="small" checked> <!--preselected option-->
+                        <label class="btn selector-option size" for="small">S</label>
+
+                        <input type="radio" class="btn-check" name="options" id="medium" autocomplete="off"> <!--preselected option-->
+                        <label class="btn selector-option size" for="medium">M</label>
+
+                        <input type="radio" class="btn-check" name="options" id="large" autocomplete="off"> <!--preselected option-->
+                        <label class="btn selector-option size" for="large">L</label>
+
                     </div>
                 </div>
                 <div class="quantity selector d-flex justify-content-end flex-column">

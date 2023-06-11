@@ -52,9 +52,11 @@
                 type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-item-list"
                 aria-controls="cart-item-list">
                 <fa-icon [icon]="cartIcon"></fa-icon>
-                
-                <P *ngIf="(cartItemsCount$ | async) === 0"class="text-align-top text-align-center mb-0"></P>
-                <ng-template #elseBlock>{{ cartItemsCount$ | async}}</ng-template> <!--if the total number of items in the cart is not 0-->
+
+                <P *ngIf="((cartItemsCount$ | async) === 0); else elseBlock" class="text-align-top text-align-center mb-0"></P>
+                <ng-template #elseBlock class="text-align-top text-align-center mb-0">
+                    <p class="text-align-top text-align-center mb-0">{{cartItemsCount$ | async}}</p>
+                    </ng-template> <!--if the total number of items in the cart is not 0-->
             </button>
         </div>
     </div>
