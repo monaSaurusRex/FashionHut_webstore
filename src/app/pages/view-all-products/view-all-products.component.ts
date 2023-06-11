@@ -44,26 +44,8 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
     // console.log(id);
     this.router.navigate(['view-product', id]);
   }
-
-  //add to cart button functionality on view all page
-  addToCart(addedProduct: Product) {
-    // console.log("Items in cart: ", this.itemsInCart)
-    const quantity = 1;
-
-    // assign properties for Item attributes to allow values in line 63 to be recognized
-    type Item = {
-      id: number;
-      product: any;
-      quantity: number;
-    };
-
-    if (addedProduct) {
-      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title}`);
-      let cartItem: Item = { id: 0, product: addedProduct, quantity: quantity};
-
-      this._cartService.createCartItem(cartItem);
-    }
-  }
+  
+  
 
   ngOnDestroy() {
     // if(this.subscription) {
