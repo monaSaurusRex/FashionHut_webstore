@@ -1,54 +1,99 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed top text" id="mainNav">
     <div class="container-fluid">
-        
+
         <div class="nav-left d-flex justify-content-start">
-            <button class="navbar-toggler navbar-toggler-start shadow-none" data-bs-toggle="offcanvas" data-bs-target="#mobile-left-sidebar" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
-                <fa-icon [icon]="bars"></fa-icon> 
+            <button class="navbar-toggler navbar-toggler-start shadow-none" data-bs-toggle="offcanvas"
+                data-bs-target="#mobile-left-sidebar" aria-controls="offcanvas" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <fa-icon [icon]="barsIcon"></fa-icon>
             </button>
             <a class="navbar-brand d-flex justify-content-start" [routerLink]="['/all-products']">
                 <span class="colour">Fashion</span><span class="white">Hut</span>
             </a>
         </div>
 
-        
-
         <div class="nav-right d-flex justify-content-end">
-            <div class="offcanvas offcanvas-start" id="mobile-left-sidebar" tabindex="-1" aria-label="mobile-left-sidebar-Lbl">
+            <div class="offcanvas offcanvas-start" id="mobile-left-sidebar" tabindex="-1"
+                aria-label="mobile-left-sidebar-Lbl">
                 <div class="offcanvas-header pe-6">
-                    <span class="logo">
+                    <h1 class="offcanvas-title">
                         <span class="colour">Fashion</span>
                         <span class="white">Hut</span>
-                    </span>
-                    <button class="btn-close btn-close-white shadow-none d-flex justify-content-center align-items-center" type="button" data-bs-dismiss="offcanvas" aria-label="close">
+                    </h1>
+                    <button
+                        class="btn-close btn-close-white shadow-none d-flex justify-content-center align-items-center"
+                        type="button" data-bs-dismiss="offcanvas" aria-label="close">
                         <!-- <fa-icon [icon]="close"></fa-icon>  -->
                     </button>
                 </div>
                 <div class="offcanvas-body">
-                    
+
                     <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
                         <li class="nav-item">
                             <a class="nav-link" [routerLink]="['']">Login</a>
                         </li>
-                        <div class="vr mobile-hide align-self-center"></div>
+                        <div class="vr align-self-center"></div>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link" [routerLink]="['']">Sign up</a>
                         </li>
-                        <div class="vr mobile-hide align-self-center"></div>
+                        <div class="vr align-self-center"></div>
                         <hr>
                     </ul>
                 </div>
             </div>
 
-            <button class="navbar-toggler shadow-none " data-bs-toggle="offcanvas" data-bs-target="#search-top-bar" aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
-                <fa-icon [icon]="search"></fa-icon> 
+            <button class="navbar-toggler shadow-none " data-bs-toggle="offcanvas" data-bs-target="#search-top-bar"
+                aria-controls="offcanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <fa-icon [icon]="searchIcon"></fa-icon>
             </button>
 
-            <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-item-list" aria-controls="cart-item-list">
-                    <fa-icon [icon]="cart"></fa-icon>
-                    <p class="cart-item-counter text-align-top text-align-center mb-0">{{itemsInCart}}</p>
+            <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center"
+                type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-item-list"
+                aria-controls="cart-item-list">
+                <fa-icon [icon]="cartIcon"></fa-icon>
+                <P class="text-align-top text-align-center mb-0">{{ cartItemsCount$ | async}}</P>
             </button>
-            
+
+
+            <!-- <button class="btn btn-warning" [disabled]="(cartItemCount$ | async) === 0">Proceed to Checkout</button> -->
+
+            <!-- <div class="offcanvas offcanvas-end" id="cart-item-list">
+                <div class="offcanvas-header">
+                    <div *ngIf="(cartItemsCount$ | async)?.length === 0">
+                        <p>There's nothing in your cart...yet.</p>
+                    </div>
+                    <button
+                        class="btn-close btn-close-white shadow-none d-flex justify-content-center align-items-center"
+                        type="button" data-bs-dismiss="offcanvas" aria-label="close">
+                        <fa-icon [icon]="closeIcon"></fa-icon> 
+                    </button>
+                    <span class="cart-sidebar-title"> Cart Items </span>
+
+                    <div class="offcanvas-body">
+
+                        <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['']">Login</a>
+                            </li>
+                            <div class="vr mobile-hide align-self-center"></div>
+                            <hr>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['']">Sign up</a>
+                            </li>
+                            <div class="vr mobile-hide align-self-center"></div>
+                            <hr>
+                        </ul>
+                    </div>
+                    <div class="offcanvas-footer">
+                        <div (click)="checkout()" class="card-button d-flex justify-content-center btn-flex">
+                            <button class="btn btn-primary cart" [disabled]="(cartItemsCount$ | async) === 0">
+                                <span>Checkout</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </nav>

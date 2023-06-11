@@ -1,8 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCartPlus,} from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+
+import { Observable, Subscription } from 'rxjs';
+
+import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
+
 import { CartService } from 'src/app/services/cart/cart.service';
 import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
 
@@ -12,18 +17,14 @@ import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.servic
   styleUrls: ['./view-all-products.component.css'],
 })
 export class ViewAllProductsComponent implements OnInit, OnDestroy {
-  // dummy data to use
+  products: Product[] = []; //empty array of products
 
-
-  // cartItems: any [] = [];
-  products: Product[] = [];
-
-  //icons
-  addToCartIcon = faCartPlus;;
+  //ICONS
+  addToCartIcon = faCartPlus;
 
   //cart services function variables
-  itemsInCart: number = 0;
-  subscription!: Subscription;
+  itemsInCart$: Observable<Item[]> | undefined;
+  cart$: Observable<Cart[]> | undefined;
 
   constructor(
     private _cartService: CartService,
@@ -32,48 +33,41 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // call getTotalItemsInCart function for cart services
-    // this.subscription = this._cartService.getTotalItemsInCart().subscribe();
-    this.subscription = this._cartService
-      .getTotalItemsInCart()
-      .subscribe((itemsInCart) => {
-        this.itemsInCart = itemsInCart.totalItems;
-      });
-    // console.log(this.itemsInCart)
-
     this._fakeStoreService.getAll().subscribe((products: any) => {
-      //arrow functions are already in the format of a promise
       // console.table(products);
-      this.products = products;
+      this.products = products; //populate products array with data from api service
     });
-
   }
 
-  //send product id to view details
+  //send product id the user wants to view to the product details page
   viewProductDetails(id: any) {
     // console.log(id);
     this.router.navigate(['view-product', id]);
   }
 
-
   //add to cart button functionality on view all page
-  addToCart(product: any) {
-    // console.log(product)
-    // if (product) {
-    //   this.itemsInCart++;
-    // }
+  addToCart(addedProduct: Product) {
+    // console.log("Items in cart: ", this.itemsInCart)
+    const quantity = 1;
 
-    console.log("Items in cart: ", this.itemsInCart);
-    let count = {
-      totalItems: this.itemsInCart,
+    // assign properties for Item attributes to allow values in line 63 to be recognized
+    type Item = {
+      id: number;
+      product: any;
+      quantity: number;
     };
-    // console.log(this._cartService.getTotalItemsInCart());
-    // this._cartService.setTotalItemsInCart(count);
+
+    if (addedProduct) {
+      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title}`);
+      let cartItem: Item = { id: 0, product: addedProduct, quantity: quantity};
+
+      this._cartService.createCartItem(cartItem);
+    }
   }
 
   ngOnDestroy() {
-    if(this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    // if(this.subscription) {
+    //   this.subscription.unsubscribe();
+    // }
   }
 }

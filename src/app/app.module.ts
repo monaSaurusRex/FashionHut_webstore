@@ -7,9 +7,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewAllProductsComponent } from './pages/view-all-products/view-all-products.component';
-import { SearchAndFilterComponent } from './components/search-and-filter/search-and-filter.component';
-import { FilterPipe } from './services/filter/filter.pipe';
 import { ViewProductDetailsComponent } from './pages/view-product-details/view-product-details.component';
+import { SearchAndFilterComponent } from './components/search-and-filter/search-and-filter.component';
+
+import { FilterPipe } from './services/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ViewProductDetailsComponent } from './pages/view-product-details/view-p
     ViewAllProductsComponent,
     SearchAndFilterComponent,
     FilterPipe,
-    ViewProductDetailsComponent
+    ViewProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

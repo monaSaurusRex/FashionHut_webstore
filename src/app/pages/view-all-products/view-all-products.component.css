@@ -68,10 +68,4 @@ p .product-price {
       color: var(--white);
       background-color: var(--primary-color);
    }
-
-   .card {
-      height: fit-content;
-
-   }
-
 }

@@ -1,5 +1,5 @@
 <div class="row g-5">
-  <div *ngFor="let product of products" class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+  <div *ngFor="let product of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card">
       <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
       <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>

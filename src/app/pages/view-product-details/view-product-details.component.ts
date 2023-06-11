@@ -44,11 +44,6 @@ export class ViewProductDetailsComponent implements OnInit {
     console.log((this.id = this.route.snapshot.params['id']));
     this.getProductDetails((this.id = this.route.snapshot.params['id']));
 
-    this.subscription = this._cartService
-      .getTotalItemsInCart()
-      .subscribe((itemsInCart) => {
-        this.itemsInCart = itemsInCart.totalItems;
-      });
   }
 
   quantity(value: string) {
