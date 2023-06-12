@@ -23,7 +23,7 @@
       <div class="card-body">
         <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
         <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
-        <p class="product-price">{{product.price | currency:'USD ':'symbol':'.2'}} </p>
+        <p class="product-price">{{product.price | currency:' ZAR ':'symbol':'.2'}} </p>
       </div>
       
       <!-- <div (click)="addToCart(product)" class="card-button d-flex justify-content-center btn-flex">
