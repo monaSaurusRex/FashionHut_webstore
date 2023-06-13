@@ -21,6 +21,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
 
   searchText : any;
 
+  
+  p: number= 1
+
   //icons
   addToCartIcon = faCartPlus;
   searchIcon = faSearch;

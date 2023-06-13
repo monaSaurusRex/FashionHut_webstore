@@ -1,68 +1,151 @@
 <div class="card mt-5">
-    <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
-        <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
-            <img src={{product.image}} id="product-image" />
-        </div>
-        <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
-            <div class="product-header">
-                <h1 class="product-title">{{product.title}}</h1>
-                <h2 class="text-body-secondary">Brand</h2>
-            </div>
-            <hr>
-            <div class="product-price">
-                <p class="price-label">{{product.price | currency:'R ':'symbol':'.2'}}</p>
-            </div>
-            <div class="product-decription">
-                <p class="description">{{product.description}}</p>
-            </div>
-            <hr>
-            <div class="product-specs d-flex justify-content-start flex-column">
-
-                <div class="colours selector d-flex justify-content-start flex-column">
-                    <div class="input-group">
-
-                    </div>
-
-                </div>
-                <div class="sizes selector d-flex justify-content-start flex-column">
-                    <h2>Sizes</h2>
-                    <div class="button-group d-flex justify-content-start flex-row" data-toggle="buttons">
-
-                        <input type="radio" class="btn-check" name="options" id="small" checked> <!--preselected option-->
-                        <label class="btn selector-option size" for="small">S</label>
-
-                        <input type="radio" class="btn-check" name="options" id="medium" autocomplete="off"> <!--preselected option-->
-                        <label class="btn selector-option size" for="medium">M</label>
-
-                        <input type="radio" class="btn-check" name="options" id="large" autocomplete="off"> <!--preselected option-->
-                        <label class="btn selector-option size" for="large">L</label>
-
-                    </div>
-                </div>
-                <div class="quantity selector d-flex justify-content-end flex-column">
-                    <h2> Quantity</h2>
-                    <div class="input-group d-flex justify-content-start flex-row">
-                        <button (click)="quantity('decrease')" class="selector-option btn btn-decrease btn-icon">
-                            <fa-icon [icon]="decreaseIcon"></fa-icon>
-                        </button>
-                        <div class="form-outline">
-                            <input class="input-box" text="text" disabled value="{{productQuantity}}">
-                        </div>
-                        <button (click)="quantity('increase')" class="selector-option btn btn-increase btn-icon">
-                            <fa-icon [icon]="increaseIcon"></fa-icon>
-                        </button>
-                    </div>
-                </div>
-                <hr>
-
-            </div>
-
-            <div (click)="addToCart(product)" class="d-flex justify-content-center btn-flex">
-                <button class="btn btn-primary btn-block cart-btn">
-                    <fa-icon [icon]="addToCartIcon"></fa-icon>
-                    <span>Add to cart</span>
-                </button>
-            </div>
-        </div>
+  <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
+    <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
+      <img src="{{ product.image }}" id="product-image" />
     </div>
+
+    <div
+      class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column"
+    >
+      <div class="product-header">
+        <h1 class="product-title">{{ product.title }}</h1>
+        <h2 class="text-body-secondary">Brand</h2>
+      </div>
+      <hr />
+      <div class="product-price">
+        <p class="price-label">
+          {{ product.price | currency : "R " : "symbol" : ".2" }}
+        </p>
+      </div>
+      <div class="product-decription">
+        <p class="description">{{ product.description }}</p>
+      </div>
+      <hr />
+      <div class="product-specs d-flex justify-content-start flex-column">
+        <div class="colours selector d-flex justify-content-start flex-column">
+          <div class="input-group"></div>
+        </div>
+        <div class="sizes selector d-flex justify-content-start flex-column">
+            <h2>Colors(selected):</h2><!--TODO:Map selected option here-->
+          <div
+            class="button-group d-flex justify-content-start flex-row"
+            data-toggle="buttons"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="green"
+              checked
+            />
+            <!--preselected option-->
+            <label class="btn selector-option size1" for="green">G</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="green2"
+              autocomplete="off"
+            />
+            <!--preselected option-->
+            <label class="btn selector-option size2" for="green2">G</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="pink"
+              autocomplete="off"
+            />
+            <!--preselected option-->
+            <label class="btn selector-option size3" for="pink">P</label>
+            
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="pink2"
+              autocomplete="off"
+            />
+            <label class="btn selector-option size4" for="pink2">P</label>
+          </div>
+        </div>
+        <div class="sizes selector d-flex justify-content-start flex-column">
+            <h2>Sizes</h2>
+            <div
+              class="button-group d-flex justify-content-start flex-row"
+              data-toggle="buttons"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="small"
+                checked
+              />
+              <!--preselected option-->
+              <label class="btn selector-option size" for="small">S</label>
+  
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="medium"
+                autocomplete="off"
+              />
+              <!--preselected option-->
+              <label class="btn selector-option size" for="medium">M</label>
+  
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="large"
+                autocomplete="off"
+              />
+              <!--preselected option-->
+              <label class="btn selector-option size" for="large">L</label>
+            </div>
+          </div>
+        <div class="quantity selector d-flex justify-content-end flex-column">
+          <h2>Quantity</h2>
+          <div class="input-group d-flex justify-content-start flex-row">
+            <button
+              (click)="quantity('decrease')"
+              class="selector-option btn btn-decrease btn-icon"
+            >
+              <fa-icon [icon]="decreaseIcon"></fa-icon>
+            </button>
+            <div class="form-outline">
+              <input
+                class="input-box"
+                text="text"
+                disabled
+                value="{{ productQuantity }}"
+              />
+            </div>
+            <button
+              (click)="quantity('increase')"
+              class="selector-option btn btn-increase btn-icon"
+            >
+              <fa-icon [icon]="increaseIcon"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <hr />
+      </div>
+
+      <div
+        (click)="addToCart(product)"
+        class="d-flex justify-content-center btn-flex"
+      >
+        <button class="btn btn-primary btn-block cart-btn">
+          <fa-icon [icon]="addToCartIcon"></fa-icon>
+          <span>Add to cart</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -29,6 +29,7 @@ img {
    border-radius: var(--default-border-radius);
    /* width: 100% important!; */
    object-fit: contain;
+   
 }
 
 img:hover{
