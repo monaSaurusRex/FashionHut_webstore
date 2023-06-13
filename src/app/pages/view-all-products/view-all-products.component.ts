@@ -24,6 +24,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   // cartItems: any [] = [];
   products: Product[] = [];
 
+  
+  p: number= 1
+
   //icons
   cart = faShoppingCart;
 

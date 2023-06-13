@@ -1,7 +1,7 @@
 <!-- card -->
 <div card>
   <div class="row d-flex justify-content-center">
-    <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+    <div *ngFor="let product of products | paginate: {itemsPerPage: 8, currentPage: p}" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
       <div class="card">
         <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
         <div class="card-body align-self-bottom">
@@ -17,5 +17,6 @@
         </div>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
