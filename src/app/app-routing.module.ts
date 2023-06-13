@@ -6,9 +6,14 @@ import { ViewProductDetailsComponent } from './pages/view-product-details/view-p
 const routes: Routes = [
   {path: '', component: ViewAllProductsComponent},
   {path: 'view-product/:id', component: ViewProductDetailsComponent},
+  {path: '', component:ViewAllProductsComponent , data: { breadcrumb: { label: 'All products' } } },
+  {path: '', component:ViewProductDetailsComponent , data: { breadcrumb: { label: 'Product Details' } } },
   {path: '**', redirectTo: '', pathMatch: 'full'}
+  
  
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
