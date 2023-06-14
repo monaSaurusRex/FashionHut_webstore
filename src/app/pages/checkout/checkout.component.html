@@ -1,0 +1,65 @@
+<form id="accordion">
+
+    <div class="list-group">
+  
+      <!-- Step 1 -->
+      <div class="list-group-item py-3" data-acc-step>
+        <h5 class="mb-0" data-acc-title>Contact Confirmation</h5>
+        <div data-acc-content>
+          <div class="my-3">
+            <div class="form-group">
+              <label for="first-name">Name:</label>
+              <input id="first-name" type="text" name="name" class="form-control" formControlName="firstName" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input id="email" type="text" name="email" class="form-control" formControlName="" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Step 2 -->
+      <div class="list-group-item py-3" data-acc-step>
+        <h5 class="mb-0" data-acc-title>Contact</h5>
+        <div data-acc-content>
+          <div class="my-3">
+            <div class="form-group">
+              <label>Telephone:</label>
+              <input type="text" name="telephone" class="form-control" />
+            </div>
+  
+            <div class="form-group">
+              <label>Mobile:</label>
+              <input type="text" name="mobile" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Step 3 -->
+      <div class="list-group-item py-3" data-acc-step>
+        <h5 class="mb-0" data-acc-title>Payment</h5>
+        <div data-acc-content>
+          <div class="my-3">
+            <div class="form-group">
+              <label>Credit card:</label>
+              <input type="text" name="card" class="form-control">
+            </div>
+            <div class="form-group form-row">
+              <div class="col-sm-4">
+                <label>Expiry:</label>
+                <input type="text" name="expiry" class="form-control">
+              </div>
+              <div class="col-sm-4">
+                <label>CVV:</label>
+                <input type="text" name="cvv" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  </form>
