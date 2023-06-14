@@ -1,35 +1,89 @@
-.container, .col{
-    background-color: var(--white);
+h2{
+    margin-bottom: var(--s-small);
 }
 
-  
-.col-4{
-  
-    margin: var(--s-large);
-    padding: var(--s-large);
+img {
+    width: 100%;
 }
-    
 
-.col-5{
-    padding: var(--s-large);
-    margin: var(--s-large);
-    height: 100%;
-    
+.input-box {
+    width: var(--width-large);
+    height: var(--height-medium);
 
+    border-style: none;
+    border-bottom: var(--grey-border);
+    border-top: var(--grey-border);
+
+    text-align: center;
 }
-.inputbox{
+
+.btn {
+    color: var(--dark);
+}
+
+.btn-icon {
+    border: var(--grey-border);
     border-radius: var(--default-border-radius);
-    border-color: var(--light-grey);
-    width: 40px;
+
+    color: var(--dark);
 }
 
+.btn-icon:hover .btn-icon:focus {
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
 
+    color: var(--darker);
+}
 
-.btn{
+.cart-btn {
+    border-color: var(--primary-color);
+    color: var(--white);
     background-color: var(--primary-color);
-    color: var(--white);
-    
 }
-.quantity{
+
+.selector {
+    margin-bottom: var(--s-medium);
+
+    border-radius: var(--default-border-radius);
+}
+
+.btn:checked{
+    background-color: var(--dark);
     color: var(--white);
+    border-color: var(--dark);
+}
+
+.input-group, .btn-group{
+        
+    margin: 0px;
+}
+
+.selector-option {
+    width: var(--width-large);
+    height: var(--height-medium);
+
+    padding: var(--s-small);
+
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
+}
+
+.size{
+    margin-right: var(--s-small);
+}
+
+.product-details {
+    padding: var(--s-medium)
+}
+
+.price-label {
+    font-weight: var(--bold);
+    font-size: var(--large);
+}
+
+@media only screen and (max-width: 768px) {
+    .product-details {
+        padding: var(--s-medium)
+    }
+
 }

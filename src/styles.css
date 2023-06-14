@@ -5,12 +5,16 @@
     /* colour palette */
     --background-color: #E9ECEF;
     --primary-color: #32AEAB;
-    --white: #F8F9FA; /*card background, header background, background color for containers*/
+    --white: #F8F9FA;
+    /*card background, header background, background color for containers*/
     --black: #212529;
-    --light-grey: #ced4da;
+    /* --light-grey: #ced4da; */
+    --grey: #ADB5DB;
+    --light-grey: #6C757D;
     --lighter-grey: #DEE2E6;
-    
-    --dark: #343A40; /*border outline, number input, box outline, checkbox outline */
+
+    --dark: #343A40;
+    /*border outline, number input, box outline, checkbox outline */
     --darker: #212529;
 
     /* font-family: */
@@ -20,7 +24,7 @@
     /* font-weights */
     --black: 900;
     --bold: 700;
-    --medium: 500;
+    --mediumBold: 500;
     --regular: 400;
     --light: 300;
     --thin: 100;
@@ -35,25 +39,29 @@
     --xx-large: 35px;
 
     /* spacing*/
-    --s-small: 3px;
-    --s-medium: 5px;
-    --s-large: 10px;
+    --s-smaller: 3px;
+    --s-small: 5px;
+    --s-medium: 10px;
+    --s-large: 15px;
+    --s-larger: 25px;
 
-    --s-default: 1rem;
+    /* --s-default: 1rem;
     --s-x-small: var(--default) * .25;
-    --s-small: var(--default) * .5;
-    --s-medium: var(--default) * 1.5;
-    --s-large: var(--default) * 3;
+    --s-small: var(--default) * .5; */
+    /* --s-medium: var(--default) * 1.5; */
+    /* --s-large: var(--default) * 3; */
 
     /* input & button heights*/
-    --height-x-large: 44px;
-    --height-large: 36px;
+    --height-large: 44px;
+    --height-medium: 36px;
     --height-small: 32px;
+    /* input & button widths*/
+    --width-large: 36px;
 
     /* borders */
     --default-border-radius: 3px;
-    --light-grey-border: 1px solid var(--light-grey);
-    --colourful-border:  1px solid var(--primary-color);
+    --grey-border: 1px solid var(--grey);
+    --colourful-border: 1px solid var(--primary-color);
     --dark-border: 1px solid var(--dark);
 }
 
@@ -61,139 +69,153 @@ body {
     background-color: var(--background-color);
 }
 
+.container{
+    margin: var(--s-medium);
+}
+
+.row{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.card {
+   padding: var(--s-large) !important;
+    width: 100%;
+
+    background-color: var(--white);
+    border-radius: var(--default-border-radius);
+}
+
 h1,
 title {
     font-family: var(--heading-font);
-    color: var(--dark);
-
-    font-size: var(--large);
-    line-height: var(--large);
-    ;
+    font-size: var(--x-large);
     font-weight: var(--bold);
     font-style: normal;
 
     display: flex;
     align-items: center;
+
+    color: var(--dark);
 }
 
 h2 {
     /*product title, description title*/
     font-family: var(--heading-font);
-    color: var(--dark);
-
     font-size: var(--medium);
-    line-height: var(--medium);
     font-weight: var(--semi-bold);
     font-style: normal;
 
     display: flex;
     align-items: center;
+
+    color: var(--dark);
+}
+
+.text-body-secondary, .greyed-headings{
+    font-family: var(--body-font);
+    font-size: var(--medium);
+    color: var(--light-grey);
 }
 
 p {
     font-family: var(--body-font);
-    color: var(--dark);
-
     font-size: var(--normal);
-    line-height: var(--normal);
     font-weight: var(--regular);
     font-style: normal;
+    height: auto !important;
 
     display: flex;
     align-items: center;
 
+    color: var(--dark);
 }
 
-p .bold {
-    /*price label, rating label*/
-    font-family: var(--body-font);
+label {
+    font-weight: var(--mediumBold);
     color: var(--dark);
-
-    font-size: var(--normal);
-    line-height: var(--normal);
-    font-weight: var(--regular);
-    font-style: normal;
-
-    display: flex;
-    align-items: center;
 }
 
 fa-icon,
 .cart-item-counter {
-    height: var(--x-large);
-    width: var(--x-large);
-    padding: var(--s-x-small);
+    height: auto !important;
+    width: var(--large);
 }
 
-button {
-    border-radius: var(--default-border-radius);
-    height: var(--height-large);
+.btn {
     font-family: var(--body-font);
+
+    border-radius: var(--default-border-radius);
+
+    height: var(--height-medium);
+    width: 100%;
 
     display: flex;
     flex-direction: row;
+
     justify-content: center;
     align-items: center;
-    padding: var(--s-large);
+
+    /* margin: var(--s-large); */
     gap: var(--s-large);
 }
 
-input{
-    height: var(--height-large);
+.btn-icon {
+    width: var(--width-large);
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
 }
 
-.form-control{
+input {
+    height: var(--height-medium);
+}
+
+.form-control {
     border-radius: var(--default-border-radius);
-    border-color: var(--light-grey);
+    border-color: var(--grey);
 }
 
-.vr{
-    background-color: var(--lighter-grey);
+.vr {
+    background-color: var(--grey);
     height: var(--x-large);
-    width: 1.5px;
+    width: 2px;
 
     border: none !important;
 }
 
-hr{
-    background-color: var(--lighter-grey);
-    height: 1.5px;
-    margin: 5px 0px;
+hr {
+    background-color: var(--grey);
+    height: 2px;
+    margin: var(--s-small) 0px;
 
-    border:none !important;
+    border: none !important;
 }
-/* image sizing styles */
-.large-image{
-    width: 100%;
-    height: 100%;
-}
-.small-image{
-    height: 100%;
 
-}
 @media only screen and (max-width: 768px) {
+    #body { 
+        margin-top: 70px; /*make space for sticky navbar on mobile screen*/
+    }
 
     h1,
     title {
-        font-size: var(--medium);
-        line-height: var(--medium);
-    }
-    
-    h2 {
-        font-size: var(--normal);
-        line-height: var(--normal);
-    }
-    
-    p {
-        font-size: var(--normal);
-        line-height: var(--normal);
-    }
-    
-    p .bold {
-        font-size: var(--normal);
-        line-height: var(--normal);
+        font-size: var(--large);
     }
 
+    h2 {
+        font-size: var(--medium);
+    }
+    
+    .text-body-secondary, .greyed-headings{
+        font-size: var(--normal);
+    }
+
+    p {
+        font-size: var(--normal);
+    }
 
     .mobile-hide {
         /*class property assigned to html elements to hide them on mobile devices*/
@@ -204,7 +226,4 @@ hr{
         padding: 0px 5px;
     }
 
-    body{
-        margin-top: 50px;
-    }
 }

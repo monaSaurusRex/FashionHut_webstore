@@ -1,76 +1,68 @@
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <div class="col d-flex justify-content-center">
-                <div class="col-4 big-image d-flex justify-content-center .large-image">
-                    <img src={{product.image}} class="card-img"/>
-                </div>
-                <div class="col-5 card-description">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="card-title">{{product.title}}</h1>
-                            <p class="text-body-secondary">R {{product.price}}</p>
-                            <p class="description">
-                                {{product.description}}
-                            </p>
-                            <label for="sizes" class="form-label">Sizes:</label>
-                            <br />
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Small
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked />
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Medium
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Large
-                                </label>
-                            </div>
-                            <br />
-                            <label for="exampleColorInput" class="form-label">Colors:</label>
-                            <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                                value="#C6C5AE" title="Choose your color" />
-                            <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                                value="#205642" title="Choose your color" />
-                            <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                                value="#CA7090" title="Choose your color" />
-                            <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                                value="#DFB8BA" title="Choose your color" />
-                            <br />
-                            <label for="exampleColorInput" class="form-label">
-                                Quantity:</label>
-                            <br />
-                            <div class="quantity">
-                                <button (click)="quantity('min')" class="btn btn-decrease">
-                                    
-                                    <fa-icon [icon]="decrease"></fa-icon>
-                                </button>
+<div class="card mt-5">
+    <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
+        <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
+            <img src={{product.image}} id="product-image" />
+        </div>
+        <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
+            <div class="product-header">
+                <h1 class="product-title">{{product.title}}</h1>
+                <h2 class="text-body-secondary">Brand</h2>
+            </div>
+            <hr>
+            <div class="product-price">
+                <p class="price-label">{{product.price | currency:'R ':'symbol':'.2'}}</p>
+            </div>
+            <div class="product-decription">
+                <p class="description">{{product.description}}</p>
+            </div>
+            <hr>
+            <div class="product-specs d-flex justify-content-start flex-column">
 
-                                <input class="inputbox" text="text" disabled value="{{productquantity}}">
-                                <button (click)="quantity('max')"class="btn btn-increase">
-                                    <fa-icon [icon]="increase"></fa-icon>       
-                                </button>
-                            
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button (click)="addToCart(product)" class="btn d-flex justify-content-center align-self-center" type="button">
-                                    <fa-icon [icon]="addToCartIcon"></fa-icon>Add to cart
-                                </button>
-                            </div>
-                        </div>
+                <div class="colours selector d-flex justify-content-start flex-column">
+                    <div class="input-group">
+
+                    </div>
+
+                </div>
+                <div class="sizes selector d-flex justify-content-start flex-column">
+                    <h2>Sizes</h2>
+                    <div class="button-group d-flex justify-content-start flex-row" data-toggle="buttons">
+
+                        <input type="radio" class="btn-check" name="options" id="small" checked> <!--preselected option-->
+                        <label class="btn selector-option size" for="small">S</label>
+
+                        <input type="radio" class="btn-check" name="options" id="medium" autocomplete="off"> <!--preselected option-->
+                        <label class="btn selector-option size" for="medium">M</label>
+
+                        <input type="radio" class="btn-check" name="options" id="large" autocomplete="off"> <!--preselected option-->
+                        <label class="btn selector-option size" for="large">L</label>
+
                     </div>
                 </div>
-           
+                <div class="quantity selector d-flex justify-content-end flex-column">
+                    <h2> Quantity</h2>
+                    <div class="input-group d-flex justify-content-start flex-row">
+                        <button (click)="quantity('decrease')" class="selector-option btn btn-decrease btn-icon">
+                            <fa-icon [icon]="decreaseIcon"></fa-icon>
+                        </button>
+                        <div class="form-outline">
+                            <input class="input-box" text="text" disabled value="{{productQuantity}}">
+                        </div>
+                        <button (click)="quantity('increase')" class="selector-option btn btn-increase btn-icon">
+                            <fa-icon [icon]="increaseIcon"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+
+            </div>
+
+            <div (click)="addToCart(product)" class="d-flex justify-content-center btn-flex">
+                <button class="btn btn-primary btn-block cart-btn">
+                    <fa-icon [icon]="addToCartIcon"></fa-icon>
+                    <span>Add to cart</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
-

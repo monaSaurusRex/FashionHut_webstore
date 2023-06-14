@@ -20,44 +20,37 @@ import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.servic
   styleUrls: ['./view-product-details.component.css'],
 })
 export class ViewProductDetailsComponent implements OnInit {
-  
-
   title = 'increment-decrement';
-  productquantity: number = 1;
+  productQuantity: number = 1;
 
-  cart = faShoppingCart;
-  addToCartIcon = faCartPlus;
-  increase = faPlus;
-  decrease = faMinus;
-  close = faTimes;
-  back = faArrowLeft;
+  addToCartIcon = faCartPlus;;
+  increaseIcon = faPlus;
+  decreaseIcon = faMinus;
 
   id: any;
   product!: Product;
-  
+
   itemsInCart: number = 0;
   subscription!: Subscription;
-  
 
-  constructor(private _fakeStoreService: FakestoreService, private route: ActivatedRoute, private router: Router, private _cartService:CartService) {}
+  constructor(
+    private _fakeStoreService: FakestoreService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _cartService: CartService
+  ) {}
 
-  ngOnInit(): void{
-    console.log(this.id = this.route.snapshot.params['id']);
-    this.getProductDetails(this.id = this.route.snapshot.params['id']);
+  ngOnInit(): void {
+    console.log((this.id = this.route.snapshot.params['id']));
+    this.getProductDetails((this.id = this.route.snapshot.params['id']));
 
-    this.subscription = this._cartService
-      .getTotalItemsInCart()
-      .subscribe((itemsInCart) => {
-        this.itemsInCart = itemsInCart.totalItems;
-      });
   }
 
-
   quantity(value: string) {
-    if (this.productquantity < 20 && value == 'max') {
-      this.productquantity += 1;
-    } else if (this.productquantity > 1 && value == 'min') {
-      this.productquantity -= 1;
+    if (this.productQuantity < 20 && value == 'increase') {
+      this.productQuantity += 1;
+    } else if (this.productQuantity > 1 && value == 'decrease') {
+      this.productQuantity -= 1;
     }
   }
 
@@ -68,25 +61,21 @@ export class ViewProductDetailsComponent implements OnInit {
     });
   }
 
-  addToCart(product: any) {
-    // console.log(product)
-    if (product) {
-      if(this.productquantity>=2){ //if the quantity selector is more than the default quantity
-        this.itemsInCart += this.productquantity;
-      }
-      else{
-        this.itemsInCart++;
-      }
+  //When item is added to the cart
+  addToCart(addedProduct: Product) {
 
-    }
-
-    console.log("Items in cart: ", this.itemsInCart);
-    let count = {
-      totalItems: this.itemsInCart,
+    // assign properties for Item attributes to allow values in line 63 to be recognized
+    type Item = {
+      id: number;
+      product: any;
+      quantity: number;
     };
-    // console.log(this._cartService.getTotalItemsInCart());
-    this._cartService.setTotalItemsInCart(count);
-  }
 
-  
+    if (addedProduct) {
+      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
+      let cartItem: Item = { id: 0, product: addedProduct, quantity: this.productQuantity};
+
+      this._cartService.createCartItem(cartItem);
+    }
+  }
 }

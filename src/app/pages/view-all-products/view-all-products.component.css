@@ -1,56 +1,115 @@
-button {
-   padding: var(--s-large);
-   display: flex;
-   width: 100%;
-   margin: var(--s-large);
-   border-color: var(--primary-color);
-   color: var(--primary-color);
-   background-color: var(--white);
-
-}
-
-button:hover {
-   border-color: var(--primary-color);
-   background-color: var(--primary-color);
-}
-
-/* 
-button:focus{
-    outline-color: transparent;
-    outline-style: solid;
-    box-shadow: 0 0 0 4px var(--primary-color);
-    color: var(--primary-color);
- } */
-p {
-   margin-top: 0;
-   margin-bottom: 1rem;
-}
-
-
 .card {
    padding: var(--s-medium);
+
    width: 100%;
-   height: 100%;;
+   height: 100%;
+
    background-color: var(--white);
    border-radius: var(-default-border-radius);
 }
 
-.row{
+.card-img-top {
+   height: 70%;
+}
+
+.card-body {
+   padding: 0px !important;
+   margin: var(--s-medium) 0px !important;
+   
+   min-width: 100%;
+   min-height: fit-content;
+   min-height: moz-fit-content;
+}
+
+.row {
    height: 30% !important;
 }
 
-img{
+img {
    border-radius: var(--default-border-radius);
    /* width: 100% important!; */
    object-fit: contain;
 }
 
-.card-img-top{
-   height: 70%;
+img:hover{
+   cursor: pointer;
 }
 
-.product-title{
-   text-overflow: ellipsis;
+h1{
+   margin: var(--s-medium) 0px !important;
+   
+   width: 100% !important;
+
+   overflow: hidden;
    white-space: nowrap;
-   overflow: hidden; 
+   text-overflow: ellipsis;
+}
+
+h1:hover{
+   text-decoration: underline;
+   cursor: pointer;
+}
+
+p .product-price {
+   font-weight: var(--bold);
+}
+
+.btn {
+   border-color: var(--primary-color);
+   color: var(--primary-color);
+   background-color: var(--white);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+   border-color: var(--primary-color);
+   color: var(--white);
+   background-color: var(--primary-color);
+}
+
+@media only screen and (max-width: 768px) {
+   .btn {
+      border-color: var(--primary-color);
+      color: var(--white);
+      background-color: var(--primary-color);
+   }
+
+   .btn:hover,
+   .btn:focus,
+   .btn:active {
+      border-color: var(--primary-color);
+      color: var(--white);
+      background-color: var(--primary-color);
+   }
+
+   .card {
+      height: fit-content;
+
+   }
+}
+
+.search-and-filter{
+   height: 60px;
+   padding: 10px 30px;
+   margin: 0px -10px;
+   background-color: var(--white);
+}
+
+.searchbar{
+   max-width: 100%;
+}
+
+.btn-icon {
+   background-color: var(--dark);
+   border: var(--dark);
+   color: var(--white);
+}
+
+.btn-icon:hover,
+.btn-icon:focus,
+.btn-icon:active {
+   background-color: var(--darker);
+   border: var(--darker);
+   color: var(--white);
 }
