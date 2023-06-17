@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FakestoreService } from './fakestore.service';
+import { FakestoreService } from './store.service';
 
 describe('FakestoreService', () => {
   let service: FakestoreService;
