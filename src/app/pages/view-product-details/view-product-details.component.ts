@@ -12,7 +12,7 @@ import {
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart/cart.service';
-import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
+import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
   selector: 'app-view-product-details',
@@ -34,7 +34,7 @@ export class ViewProductDetailsComponent implements OnInit {
   subscription!: Subscription;
 
   constructor(
-    private _fakeStoreService: FakestoreService,
+    private _storeService: StoreService,
     private route: ActivatedRoute,
     private router: Router,
     private _cartService: CartService
@@ -55,7 +55,7 @@ export class ViewProductDetailsComponent implements OnInit {
   }
 
   getProductDetails(id: number) {
-    this._fakeStoreService.getOneProduct(this.id).subscribe((data: any) => {
+    this._storeService.getOneProduct(this.id).subscribe((data: any) => {
       // console.log('product:', data);
       this.product = data;
     });

@@ -9,7 +9,7 @@ import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
 
 import { CartService } from 'src/app/services/cart/cart.service';
-import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
+import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
   selector: 'app-view-all-products',
@@ -32,12 +32,12 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private _cartService: CartService,
-    private _fakeStoreService: FakestoreService,
+    private _storeService: StoreService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this._fakeStoreService.getAll().subscribe((products: any) => {
+    this._storeService.getAll().subscribe((products: any) => {
       // console.table(products);
       this.products = products; //populate products array with data from api service
     });
