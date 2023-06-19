@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   //cart services function variables
   itemsInCart$: Observable<Item[]> | undefined;
   cartItemsCount$: Observable<number> | undefined;
-  cartTotal$: Observable<number> | undefined;
+  cartSubtotal$: Observable<number> | undefined;
 
   //ICONS
   cartIcon = faShoppingCart;
