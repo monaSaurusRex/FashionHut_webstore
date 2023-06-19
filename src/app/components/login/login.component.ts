@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import ValidateForm from '../helper/validateform';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,10 @@ onSubmit() {
       console.log(this.loginForm.value);
 }
 else {
-  console.log("form is not valid");
+  //console.log("form is not valid");
 
-  this.validateAllFormFields(this.loginForm);
-  alert("Form is not valid");
+  ValidateForm.validateAllFormFields(this.loginForm);
+  //alert("Form is not valid");
 }
 }
   type: string = "password";
@@ -31,20 +32,5 @@ else {
       email: ['', Validators.required],
       password: ['', Validators.required]
   })
-
-
-  
 }
-
-private validateAllFormFields(formGroup: FormGroup) {
-  Object.keys(formGroup.controls).forEach((field) => {
-    const control = formGroup.get(field);
-    if (control instanceof FormControl) {
-      control.markAsDirty({ onlySelf: true });
-    } else if (control instanceof FormGroup) {
-      this.validateAllFormFields(control);
-    }
-  });
-}
-
 }

@@ -9,11 +9,12 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter email">
                                 </div>
+                                <small *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')" class="text-danger">* Email is required</small>
                             </div>
                             <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')" class="text-danger">*email required</small>
                                     <div class="form-group pt-3">
@@ -32,12 +33,13 @@
                                             <a id=" forgot" class="font-weight-lighter">Forgot your password?</a>
                                         </div>
                                         <div class="pt-4 text muted" >Don't have account? <a id="forget" class="font-weight-lighter" routerLink="/register"> Register</a></div>
+                                    
+                                
                             
                         </form>
-                    
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

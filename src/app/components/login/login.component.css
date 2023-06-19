@@ -1,0 +1,8 @@
+.input-field.error input {
+    border-color: red;
+  }
+  
+  .input-field.error .text-danger {
+    display: block;
+  }
+  
