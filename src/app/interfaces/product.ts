@@ -10,3 +10,15 @@ export interface Product {
       count: number
     }
 }
+// export interface Product {
+//   id: number, 
+//   productName: string,
+//   category: string,
+//   size: string, //sizes in db stored as strings
+//   description: string,
+//   brand: string,
+//   colour: string,
+//   imageURL: string,
+//   price: number
+// }
+

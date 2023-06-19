@@ -9,8 +9,7 @@ export interface Cart {
 
 export interface Item{
     id: number;
-    product: Product[];
+    // product: Product[];
+    productId: number; // refers to the product added to the cart -> 
     quantity: number; //quantity of products added to the cart
-    // size: string; //size selected by the user
-    // color: string //color selected by the user
 }
