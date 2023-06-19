@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+// import cartlist component 
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',

@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
 import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
@@ -18,24 +17,24 @@ export class CartService {
   constructor() {
     // initializes cart with default values
     this.cart$ = new BehaviorSubject<Cart>({
-      id: 0,
+      id: this.setUniqueId(), //when a new cart is created, it will automatically assign a sing
       items: [],
       cartTotal: 0,
     });
 
     this.item$ = new BehaviorSubject<Item>({
       id: 0,
-      product: [],
+      productId: 0,
       quantity: 0,
     });
 
     this.product$ = new BehaviorSubject<Product>({
       id: 0,
-      title: "",
+      title: '',
       price: 0,
-      description: "",
-      category: "",
-      image: "",
+      description: '',
+      category: '',
+      image: '',
       rating: {
         rate: 0,
         count: 0,
@@ -43,12 +42,8 @@ export class CartService {
     });
   }
 
-  getId(){ 
-
-  }
-
-  setId(lastValue: number) {
-
+  setUniqueId(): number {
+    return Math.floor(Math.random() * Date.now());
   }
 
   //add an item to cart
@@ -57,21 +52,28 @@ export class CartService {
 
     cart.items.push(addedItem);
 
-    console.log(cart);
-
     this.setCartItems(cart);
   }
 
   //update a cart item
   setCartItems(cartItem: Cart) {
     this.cart$.next(cartItem);
+    // console.log(cartItem);
   }
 
   // get list of items added to the cart
   getCartItems(): Observable<Item[]> {
+    
     return this.cart$.pipe(
-      map((cart: any) => cart.items) //map allows for the return of a specific property to emit by the Observable
+      tap((items) => console.log(items)),
+      map((cart) => cart.items)
     );
+    // return this.cart$.pipe(
+    //   map((cart) => {  //map allows for the return of a specific property to emit by the Observable
+    //     console.log(cart.items);
+    //     return cart.items 
+    //   })
+    // );
   }
 
   // get the total number of items within the cart
@@ -118,8 +120,17 @@ export class CartService {
         const cartSubtotal = cart?.items
           .map((item) => item.quantity * product.price)
           .reduce((prevVal, currVal) => prevVal + currVal, 0);
+        console.log(`Cart Subtotal: ${cartSubtotal}`);
         return cartSubtotal;
       })
     );
   }
+
+  // method fot getting the product id of item added to the cart
+  getItemProductId(): Observable<number> {
+    return this.item$.pipe(
+      map((item:any) => item.productId)
+    );
+  }
+
 }

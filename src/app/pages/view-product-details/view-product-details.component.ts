@@ -9,7 +9,10 @@ import {
   faShoppingCart,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+
+import { Observable, Subscription } from 'rxjs';
+import { Cart, Item } from 'src/app/interfaces/cart';
+
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { StoreService } from 'src/app/services/store-api/store.service';
@@ -20,17 +23,23 @@ import { StoreService } from 'src/app/services/store-api/store.service';
   styleUrls: ['./view-product-details.component.css'],
 })
 export class ViewProductDetailsComponent implements OnInit {
+
+  // quantity selector
   title = 'increment-decrement';
   productQuantity: number = 1;
 
+  // icons
   addToCartIcon = faCartPlus;;
   increaseIcon = faPlus;
   decreaseIcon = faMinus;
 
-  id: any;
+  // product model variables
+  id: any; //used to store the current product's id that is being viewed
   product!: Product;
 
-  itemsInCart: number = 0;
+  // 
+  itemsInCart$: Observable<Item[]> | undefined;
+
   subscription!: Subscription;
 
   constructor(
@@ -41,7 +50,7 @@ export class ViewProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log((this.id = this.route.snapshot.params['id']));
+    // console.log((this.id = this.route.snapshot.params['id']));
     this.getProductDetails((this.id = this.route.snapshot.params['id']));
 
   }
@@ -67,15 +76,22 @@ export class ViewProductDetailsComponent implements OnInit {
     // assign properties for Item attributes to allow values in line 63 to be recognized
     type Item = {
       id: number;
-      product: any;
+      // product: any;
+      productId: number;
       quantity: number;
     };
 
     if (addedProduct) {
       console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
-      let cartItem: Item = { id: 0, product: addedProduct, quantity: this.productQuantity};
+      let cartItem: Item = { id: this._cartService.setUniqueId(), productId: addedProduct.id, quantity: this.productQuantity};
+
 
       this._cartService.createCartItem(cartItem);
+
+      this._cartService.getCartItems();
+      // if (addedProduct.id == this._cartService.getItemProductId()){
+
+      // }
     }
   }
 }
