@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { Observable, Subscription } from 'rxjs';
 
 import {
@@ -13,6 +14,7 @@ import {
 import { CartService } from 'src/app/services/cart/cart.service';
 
 import { Cart, Item } from 'src/app/interfaces/cart';
+
 
 @Component({
   selector: 'app-navbar',
@@ -31,8 +33,11 @@ export class NavbarComponent implements OnInit {
   closeIcon = faTimes;
   userIcon = faUserAlt;
   searchIcon = faSearch;
+  
 
-  constructor(private _cartService: CartService) {}
+  constructor(private _cartService: CartService, ) {}
+
+  
 
   ngOnInit() {
     this.itemsInCart$ = this._cartService.getCartItems();
@@ -43,4 +48,5 @@ export class NavbarComponent implements OnInit {
   ngOnDestroy() {
     // this.subscription.unsubscribe();
   }
+  
 }
