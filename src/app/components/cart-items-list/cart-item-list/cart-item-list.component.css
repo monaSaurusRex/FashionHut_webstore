@@ -1,0 +1,16 @@
+/* cart list displayed on smaller screens */
+@media only screen and (max-width: 768px) {
+
+
+}
+
+/* .cart-list
+    container-type: inline-size;
+}
+
+@container(min-width: 700px){
+    .cart-list > *{
+
+
+    }
+} */

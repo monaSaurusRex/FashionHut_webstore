@@ -58,6 +58,11 @@
                     <p class="text-align-top text-align-center mb-0">{{cartItemsCount$ | async}}</p>
                     </ng-template> <!--if the total number of items in the cart is not 0-->
             </button>
+
+            <button class="navbar-toggler shadow-none " [routerLink]="['checkout']">
+            </button>
+
+            <!--  -->
         </div>
     </div>
 </nav>
