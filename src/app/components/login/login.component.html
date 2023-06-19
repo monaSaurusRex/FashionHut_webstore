@@ -14,11 +14,10 @@
                                     <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter email">
                                 </div>
-                                <small *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')" class="text-danger">* Email is required</small>
                             </div>
                             <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')" class="text-danger">*email required</small>
                                     <div class="form-group pt-3">
-                                        <div class="input-field">
+                                        <div class="input-field"[class.error]="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')">
                                             <label for="exampleInputPassword1">Password</label>
                                             <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
                                                 placeholder="Password">
