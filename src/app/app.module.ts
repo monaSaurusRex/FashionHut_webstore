@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewAllProductsComponent } from './pages/view-all-products/view-all-products.component';
 import { SearchAndFilterComponent } from './components/search-and-filter/search-and-filter.component';
 import { ViewProductDetailsComponent } from './pages/view-product-details/view-product-details.component';
-
+import { Validators } from '@angular/forms';
 import { FilterPipe } from './services/filter/filter.pipe';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 

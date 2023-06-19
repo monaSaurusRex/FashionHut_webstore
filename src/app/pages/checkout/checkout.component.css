@@ -1,0 +1,21 @@
+
+  /* .data-acc-content { display: none;  }
+  .data-acc-step:not(.open) { background: #f2f2f2;  }
+  .data-acc-step:not(.open) h5 { color: #777;  }
+  .data-acc-step:not(.open) .badge-primary { background: #ccc;  }  */
+  /* div[data-acc-content] { display: none;  }
+  div[data-acc-step]:not(.open) { background: #f2f2f2;  }
+  div[data-acc-step]:not(.open) h5 { color: #777;  }
+  div[data-acc-step]:not(.open) .badge-primary { background: #ccc;  } */
+  .card{
+    width: 40%;
+  }
+  .form{
+    width: 80%;
+  }
+  .payment{
+    width: 80%;
+  }
+  .btn {
+    color: var(--dark);
+}
