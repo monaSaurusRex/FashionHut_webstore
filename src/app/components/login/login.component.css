@@ -6,3 +6,7 @@
     display: block;
   }
   
+  .input-field.valid input {
+    border-color: green;
+  }
+  

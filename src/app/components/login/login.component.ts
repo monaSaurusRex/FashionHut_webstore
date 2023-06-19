@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import ValidateForm from '../helper/validateform';
 
 @Component({
@@ -9,18 +9,6 @@ import ValidateForm from '../helper/validateform';
 })
 export class LoginComponent implements OnInit {
 
-onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-}
-else {
-  //console.log("form is not valid");
-
-  ValidateForm.validateAllFormFields(this.loginForm);
-  //alert("Form is not valid");
-}
-}
-  type: string = "password";
   loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder){
@@ -29,8 +17,18 @@ else {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-  })
-}
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/)]]
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+      // Proceed with login logic
+    } else {
+      ValidateForm.validateAllFormFields(this.loginForm);
+      // Handle form validation errors
+    }
+  }
 }
