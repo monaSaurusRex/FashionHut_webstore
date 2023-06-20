@@ -77,7 +77,7 @@
                             <h1 *ngIf="((cartItemsCount$ | async) === 0); else elseBlock">
                                 <!--if the total number of items in the cart is not 0-->
                                 <ng-template #elseBlock class="text-align-top text-align-center mb-0">
-                                    {{observables.cartItemCount}}
+                                    <h1>{{observables.cartItemCount}}</h1>
                                 </ng-template>
                             </h1>
 
@@ -94,15 +94,12 @@
                     </div>
                     <!-- Cart Footer Buttons -->
                     <div class="offcanvas-footer row">
-                        <div class="col-6">
-                            <button class="btn shadow-none " [routerLink]="['checkout']">View Cart</button>
+                        <div class="col-6 d-flex justify-content-center align-self-center">
+                            <button class="btn btn-block cart-btn" [routerLink]="['cart']">View Cart</button>
                         </div>
-                        <div class="col-6">
-                            <button class="btn shadow-none " [routerLink]="['checkout']">Checkout</button>
+                        <div class="col-6 d-flex justify-content-center align-self-center">
+                            <button class="btn btn-block checkout-btn" [routerLink]="['checkout']">Checkout</button>
                         </div>
-                        
-                        
-                        
                     </div>
 
                     <!-- View Cart Button -->

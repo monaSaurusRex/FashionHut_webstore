@@ -88,10 +88,27 @@ fa-icon, div .cart-item-counter {
 }
 
 .offcanvas-footer{
-    height:40px;
+    height:fit-content;
     width:100%;
+    
     position:absolute;
     bottom:0;
+}
+
+.cart-sb-btn, .cart-sb-btn:focus, .cart-sb-btn:active, .cart-sb-btn{
+    padding: var(--s-medium);
+}
+
+.checkout-btn, .checkout-btn:focus, .checkout-btn:active{
+    border-color: var(--primary-color);
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.cart-btn, .cart-sb-btn:focus, .cart-btn:active{
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--white);
 }
 
 
