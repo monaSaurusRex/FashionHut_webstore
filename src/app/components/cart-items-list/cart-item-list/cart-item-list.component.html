@@ -1,18 +1,21 @@
-<div *ngIf="(itemsInCart$  | async)?.length === 0">Nothing has been added to your cart... yet.</div>
-<div *ngFor="let item of (itemsInCart$ | async)" class="card mb-3">
+<div *ngIf="(itemsInCart$  | async)?.length === 0" class="d-flex justify-content-center" >
+    <p>Nothing has been added to your cart... yet.</p> 
+</div>
+<div *ngFor="let item of (itemsInCart$ | async)">
     <div class="row">
+        <!-- image -->
         <div class="col-3">
             <img src={{product.image}} id="product-image" />
         </div>
-        <div class="col-6">
+        <!-- product name, and selection details -->
+        <div class="col-6"> 
             <div class="quantity selector d-flex justify-content-end flex-column">
-                <h2> Quantity</h2>
                 <div class="input-group d-flex justify-content-start flex-row">
                     <button (click)="quantity('decrease')" class="selector-option btn btn-decrease btn-icon">
                         <fa-icon [icon]="decreaseIcon"></fa-icon>
                     </button>
                     <div class="form-outline">
-                        <input class="input-box" text="text" disabled value="{{productQuantity}}">
+                        <input class="input-box" text="text" disabled value="{{itemQuantity$}}">
                     </div>
                     <button (click)="quantity('increase')" class="selector-option btn btn-increase btn-icon">
                         <fa-icon [icon]="increaseIcon"></fa-icon>
@@ -20,8 +23,10 @@
                 </div>
             </div>
         </div>
+        <!-- cart item price -->
         <div class="col-3">
-            <p class="h5 text-end text-nowrap">{{product.price | currency:'USD':'symbol':'.2'}}</p>
+            <p class="h5 text-end text-nowrap">{{product.price | currency:'ZAR':'symbol':'.2'}}</p>
         </div>
     </div>
+    <hr>
 </div>

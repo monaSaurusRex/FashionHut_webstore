@@ -1,3 +1,19 @@
+.input-box {
+    width: var(--width-large);
+    height: var(--height-medium);
+
+    border-style: none;
+    border-bottom: var(--grey-border);
+    border-top: var(--grey-border);
+
+    text-align: center;
+}
+
+.btn {
+    color: var(--dark);
+}
+
+
 /* cart list displayed on smaller screens */
 @media only screen and (max-width: 768px) {
 

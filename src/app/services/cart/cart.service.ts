@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, find, map, tap } from 'rxjs';
 
 import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
@@ -17,7 +17,7 @@ export class CartService {
   constructor() {
     // initializes cart with default values
     this.cart$ = new BehaviorSubject<Cart>({
-      id: this.setUniqueId(), //when a new cart is created, it will automatically assign a sing
+      id: 0, //this.setUniqueId() when a new cart is created, it will automatically assign a sing
       items: [],
       cartTotal: 0,
     });
@@ -63,17 +63,10 @@ export class CartService {
 
   // get list of items added to the cart
   getCartItems(): Observable<Item[]> {
-    
     return this.cart$.pipe(
       tap((items) => console.log(items)),
       map((cart) => cart.items)
     );
-    // return this.cart$.pipe(
-    //   map((cart) => {  //map allows for the return of a specific property to emit by the Observable
-    //     console.log(cart.items);
-    //     return cart.items 
-    //   })
-    // );
   }
 
   // get the total number of items within the cart
@@ -98,11 +91,22 @@ export class CartService {
     this.setCartItems(cart);
   }
 
+  // if item is already in cart, then update quantity in cart
+  setItemQuantityInCart(updateQuantity: number, productId: number) {
+    const cart = { ...this.cart$.value };
+    cart.items = cart.items.map((item) => {
+      item.quantity =
+        item.productId === productId ? +updateQuantity : item.quantity;
+      return item;
+    });
+    this.setCartItems(cart);
+  }
+
   getItemQuantity(): Observable<number> {
     const cart = { ...this.cart$.value };
 
     return this.item$.pipe(
-      map((item: any) => item.quantity) //map allows for the return of a specific property to emit by
+      map((item) => item.quantity)
     );
   }
 
@@ -128,9 +132,17 @@ export class CartService {
 
   // method fot getting the product id of item added to the cart
   getItemProductId(): Observable<number> {
+    return this.item$.pipe(map((item: any) => item.productId));
+  }
+
+  // checks if an item already exists within the cart
+  productExistsInCart(productId: number): Observable<boolean> {
+    console.log(productId);
+    
     return this.item$.pipe(
-      map((item:any) => item.productId)
+      map(items => !!items && Array.isArray(items) && items.find(item => item.productId === productId)) //!! converts the value returned to boolean value
     );
   }
 
+  
 }

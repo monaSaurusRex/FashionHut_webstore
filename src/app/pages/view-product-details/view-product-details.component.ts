@@ -84,13 +84,21 @@ export class ViewProductDetailsComponent implements OnInit {
     if (addedProduct) {
       console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
       let cartItem: Item = { id: this._cartService.setUniqueId(), productId: addedProduct.id, quantity: this.productQuantity};
-
+      this._cartService.createCartItem(cartItem);
 
       this._cartService.createCartItem(cartItem);
 
-      this._cartService.getCartItems();
-      // if (addedProduct.id == this._cartService.getItemProductId()){
+      // check to see if a product has already been added to the cart
+      // if (this._cartService.productExistsInCart(addedProduct.id)){
+      //   console.log(`Updated product quantity`);
+      //   let result = this._cartService.setItemQuantityInCart(addedProduct.id, this.productQuantity); 
+      //   console.log(result):
+      // }
+      // else{
+      //   console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
+      //   let cartItem: Item = { id: this._cartService.setUniqueId(), productId: addedProduct.id, quantity: this.productQuantity};
 
+      //   this._cartService.createCartItem(cartItem);
       // }
     }
   }
