@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import ValidateForm from '../helper/validateform';
 
 @Component({
@@ -8,32 +8,40 @@ import ValidateForm from '../helper/validateform';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  onSubmit() {
-    if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-}
-else {
-  //console.log("form is not valid");
 
-  ValidateForm.validateAllFormFields(this.registerForm);
-  //alert("Form is not valid");
-}
-}
   type: string = "password";
   registerForm!: FormGroup;
+submitted: any;
 
   constructor(private formbuilder: FormBuilder){
-
   }
+
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['',  [ Validators.required,
+        Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),]],
+      
       password: ['', Validators.required],
       confirm:['', Validators.required]
   })
 }
+get f(){
+  return this.registerForm.controls;
+}
+onSubmit() {
+
+  if (this.registerForm.valid) {
+    console.log(this.registerForm.value);
+    // Proceed with login logic
+  } else {
+    ValidateForm.validateAllFormFields(this.registerForm);
+    // Handle form validation errors
+  }
+  
+}
+
 }

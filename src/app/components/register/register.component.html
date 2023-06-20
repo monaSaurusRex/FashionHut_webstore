@@ -14,25 +14,33 @@
                                     <input formControlName="firstName" class="form-control" id="firstNameInput">
                                     </div>
                                     </div>
-                                    <small *ngIf="registerForm.controls['lastName'].dirty && registerForm.hasError('required', 'lastName')" class="text-danger">*first name required</small>  
-                                        <div class="form-group pt-3">
+                                    <small *ngIf="registerForm.controls['firstName'].dirty && registerForm.hasError('required')" class="text-danger">*first name required</small>
+                                    <small *ngIf="registerForm.controls['firstName'].invalid && registerForm.hasError('firstName')" class="text-danger">*invalid first name</small>
+                                     
+                                    <div class="form-group pt-3">
                                             <div class="input-field" [class.error]="registerForm.controls['lastName'].dirty && registerForm.controls['lastName'].hasError('required')">
-                                                <label for="lastNameInput">Last Name</label>
-                                                <input formControlName="lastName" class="form-control" id="lastNameInput">
+                                            <label for="lastNameInput">Last Name</label>
+                                            <input formControlName="lastName" class="form-control" id="lastNameInput">
                                             </div>
                                             </div>
-                                            <small *ngIf="registerForm.controls['lastName'].dirty && registerForm.hasError('required', 'lastName')" class="text-danger">*last name required</small>
+                                            <small *ngIf="registerForm.controls['lastName'].dirty && registerForm.hasError('required')" class="text-danger">*last name required</small>
+                                            <small *ngIf="registerForm.controls['lastName'].invalid && registerForm.hasError('lastName')" class="text-danger">*invalid last name</small>
+                                            <div class="form-group pt-3">
+                                            <div class="input-field" [class.error]="registerForm.controls['email'].dirty && registerForm.controls['email'].hasError('required')">
+                                           <label for="exampleInputEmail1">Email address</label>
+                                           <input formControlName="email" class="form-control" id="exampleInputEmail1">
+                                           </div>
+                                           </div>
+                                           <small *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')" class="text-danger">*email required</small> 
                                           <div class="form-group pt-3">
-                                         <div class="input-field" [class.error]="registerForm.controls['email'].dirty && registerForm.controls['email'].hasError('required')">
-                                         <label for="exampleInputEmail1">Email address</label>
-                                          <input formControlName="email" class="form-control" id="exampleInputEmail1">
-                                         </div>
-                                          </div>
-                                          <small *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')" class="text-danger">*email required</small> 
-                                          <div class="form-group pt-3">
-                                            <div class="input-field" [class.error]="registerForm.controls['phoneNumber'].dirty && registerForm.controls['phoneNumber'].hasError('required')">
-                                                <label for="phoneNumber">Phone Number</label>
-                                                <input formControlName="phoneNumber" class="form-control" id="phoneNumber">
+                                          <div class="input-field" [class.error]="registerForm.controls['phoneNumber'].dirty && registerForm.controls['phoneNumber'].hasError('required')">
+                                          <label for="phoneNumber">Phone Number</label>
+                                         <input formControlName ="phoneNumber" class="form-control" id="phoneNumber">
+                                         <!-- <div *ngIf='f.phoneNumber.errors?.required'>Please enter mobile number</div>
+                                         <div *ngIf='f.phoneNumber.errors?.pattern'>Mobile number is not 10 digit</div> -->
+                                 
+
+                                       
                                             </div>
                                             </div>
                                             <small *ngIf="registerForm.controls['phoneNumber'].dirty && registerForm.hasError('required', 'phoneNumber')" class="text-danger">*phone number required</small>
@@ -59,7 +67,7 @@
                                                         </div>
                                                         <div class="pt-4 text muted" >Already have an account? <a id="forget" class="font-weight-lighter" routerLink="/login">Login</a></div>                
                                        
-                           
+
                                 </form>
                              </div>
                         </div>
