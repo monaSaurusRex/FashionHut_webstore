@@ -19,3 +19,11 @@
   .btn {
     color: var(--dark);
 }
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
