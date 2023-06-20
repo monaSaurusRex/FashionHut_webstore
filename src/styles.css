@@ -87,7 +87,7 @@ body {
 }
 
 h1,
-title {
+title{
     font-family: var(--heading-font);
     font-size: var(--x-large);
     font-weight: var(--bold);
@@ -130,7 +130,7 @@ h3{
     color: var(--light-grey);
 }
 
-p {
+p{
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--regular);
@@ -180,7 +180,7 @@ fa-icon,
     width: var(--large);
 }
 
-.btn {
+.btn{
     font-family: var(--body-font);
 
     border-radius: var(--default-border-radius);
@@ -236,11 +236,6 @@ hr {
 @media only screen and (max-width: 768px) {
     #body { 
         margin-top: 70px; /*make space for sticky navbar on mobile screen*/
-    }
-
-    h1,
-    title {
-        font-size: var(--large);
     }
 
     h2 {

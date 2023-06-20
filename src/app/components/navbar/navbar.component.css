@@ -3,7 +3,6 @@ button {
     margin-left: 5px;
 }
 
-
 .nav {
     height: 60px;
     padding: 10px 30px;
@@ -55,31 +54,46 @@ button {
 #mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
+    width: 100%;
 }
 
-#cart-item-list fa-icon{
+#cart-sidebar fa-icon{
     background-color: var(--white);
     color: var(--dark);
 }
 
-.offcanvas {
-    width: 100%;
+#cart-sidebar p{
+    font-family: var(--heading-font);
+    font-size: var(--x-large);
+    font-weight: var(--bold);
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+    color: var(--dark);
 }
 
 p, ng-template {
-    margin-left: var(--s-small);
+    margin-left: var(--s-medium);
     color: var(--white);
     font-size: var(--large);
     text-align: center;
     width: fit-content;
 }
 
-fa-icon,
-.cart-item-counter {
+fa-icon, div .cart-item-counter {
     display: flex;
     justify-content: center;
     align-self: center;
 }
+
+.offcanvas-footer{
+    height:40px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+}
+
 
 @media only screen and (max-width: 768px) {
 
@@ -114,6 +128,10 @@ fa-icon,
 
     .vr{
         display: none !important;
+    }
+
+    .offcanvas {
+        width: 100%;
     }
 
 }
