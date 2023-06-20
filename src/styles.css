@@ -112,6 +112,18 @@ h2 {
     color: var(--dark);
 }
 
+h3{
+    font-family: var(--body-font);
+    font-size: var(--normal);
+    font-weight: var(--bold);
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--dark);
+}
+
 .text-body-secondary, .greyed-headings{
     font-family: var(--body-font);
     font-size: var(--medium);
@@ -129,6 +141,32 @@ p {
     align-items: center;
 
     color: var(--dark);
+}
+
+p .bold {
+    font-family: var(--body-font);
+    font-size: var(--normal);
+    font-weight: var(--bold);
+    font-style: normal;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--dark);
+}
+
+p .greyed, label .greyed {
+    font-family: var(--body-font);
+    font-size: var(--normal);
+    font-weight: var(--normal);
+    font-style: normal;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--light-grey);
 }
 
 label {
@@ -179,7 +217,7 @@ input {
     border-color: var(--grey);
 }
 
-.vr {
+/* .vr {
     background-color: var(--grey);
     height: var(--x-large);
     width: 2px;
@@ -193,7 +231,7 @@ hr {
     margin: var(--s-small) 0px;
 
     border: none !important;
-}
+} */
 
 @media only screen and (max-width: 768px) {
     #body { 
