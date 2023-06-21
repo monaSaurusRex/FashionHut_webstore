@@ -23,13 +23,12 @@ import { StoreService } from 'src/app/services/store-api/store.service';
   styleUrls: ['./view-product-details.component.css'],
 })
 export class ViewProductDetailsComponent implements OnInit {
-
   // quantity selector
   title = 'increment-decrement';
   productQuantity: number = 1;
 
   // icons
-  addToCartIcon = faCartPlus;;
+  addToCartIcon = faCartPlus;
   increaseIcon = faPlus;
   decreaseIcon = faMinus;
 
@@ -37,7 +36,7 @@ export class ViewProductDetailsComponent implements OnInit {
   id: any; //used to store the current product's id that is being viewed
   product!: Product;
 
-  // 
+  //
   itemsInCart$: Observable<Item[]> | undefined;
 
   subscription!: Subscription;
@@ -52,7 +51,6 @@ export class ViewProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     // console.log((this.id = this.route.snapshot.params['id']));
     this.getProductDetails((this.id = this.route.snapshot.params['id']));
-
   }
 
   quantity(value: string) {
@@ -72,26 +70,32 @@ export class ViewProductDetailsComponent implements OnInit {
 
   //When item is added to the cart
   addToCart(addedProduct: Product) {
-
     // assign properties for Item attributes to allow values in line 63 to be recognized
     type Item = {
       id: number;
-      // product: any;
-      productId: number;
-      quantity: number;
+      productId: number; 
+      productName: string;
+      quantity: number; 
+      price: number;
     };
 
     if (addedProduct) {
-      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
-      let cartItem: Item = { id: this._cartService.setUniqueId(), productId: addedProduct.id, quantity: this.productQuantity};
-      this._cartService.createCartItem(cartItem);
-
-      this._cartService.createCartItem(cartItem);
+      console.log(
+        `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
+      );
+      let cartItem: Item = {
+        id: this._cartService.setUniqueId(),
+        productId: addedProduct.id,
+        productName:  addedProduct.title,
+        quantity: this.productQuantity,
+        price: addedProduct.price
+      };
+      this._cartService.addItemToCart(cartItem);
 
       // check to see if a product has already been added to the cart
       // if (this._cartService.productExistsInCart(addedProduct.id)){
       //   console.log(`Updated product quantity`);
-      //   let result = this._cartService.setItemQuantityInCart(addedProduct.id, this.productQuantity); 
+      //   let result = this._cartService.setItemQuantityInCart(addedProduct.id, this.productQuantity);
       //   console.log(result):
       // }
       // else{
