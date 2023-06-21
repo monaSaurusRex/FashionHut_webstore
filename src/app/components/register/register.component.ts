@@ -11,37 +11,28 @@ export class RegisterComponent implements OnInit {
 
   type: string = "password";
   registerForm!: FormGroup;
-submitted: any;
+  submitted: any;
 
-  constructor(private formbuilder: FormBuilder){
-  }
-
+  constructor(private formbuilder: FormBuilder) {}
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      phoneNumber: ['',  [ Validators.required,
-        Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),]],
-      
-      password: ['', Validators.required],
-      confirm:['', Validators.required]
-  })
-}
-get f(){
-  return this.registerForm.controls;
-}
-onSubmit() {
-
-  if (this.registerForm.valid) {
-    console.log(this.registerForm.value);
-    // Proceed with login logic
-  } else {
-    ValidateForm.validateAllFormFields(this.registerForm);
-    // Handle form validation errors
+      firstName: ['', [Validators.required, Validators.pattern('[A-Za-z]+')]], 
+      lastName: ['',[ Validators.required, Validators.pattern('[A-Za-z]+')]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required,  Validators.pattern(/^(\+27|0)\d{9}$/) ]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*]).{6,}$/)]],
+      confirm: ['', Validators.required]
+    });
   }
-  
-}
 
+  onSubmit() {
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+      // Proceed with registration logic
+    } else {
+      ValidateForm.validateAllFormFields(this.registerForm);
+      // Handle form validation errors
+    }
+  }
 }

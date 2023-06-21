@@ -9,7 +9,7 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')">
+                                <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')" >
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter email">
