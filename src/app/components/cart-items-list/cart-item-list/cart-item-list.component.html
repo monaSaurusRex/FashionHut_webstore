@@ -6,21 +6,21 @@
     <div *ngIf="(observables.cartItems)?.length === 0" class="d-flex justify-content-center">
         <p>Nothing has been added to your cart... yet.</p>
     </div>
-    <div *ngFor="let item of (observables.cartItems)">
+    <div *ngFor="let item of (cartItems$ | async)">
         <div class="row">
             <!-- image -->
             <div class="col-3">
-                <img src="" id="product-image" alt={{item.productId}} />
+                <img src="" id="product-image" alt=/>
             </div>
             <!-- product name, and selection details -->
             <div class="col-6">
                 <div class="row">
 
                     <div class="col-12 product-details">
-                        <h3>{{item.productName}}</h3>
+                        <!-- <h3>{{item.product.title}}</h3> -->
                         
                         <div class="selection-details justify-content-start flex-row">
-                            <p class="greyed">{{product.category}}</p>
+                            <!-- <p class="greyed">{{product.category}}</p> -->
                             <!-- <p class="greyed">{{product.size}}</p> -->
                             <!-- <p class="greyed">{{product.color}}</p> -->
                         </div>
@@ -50,7 +50,7 @@
             </div>
             <!-- cart item price -->
             <div class="col-3">
-                <p class="h5 text-end text-nowrap">{{product.price | currency:'ZAR':'symbol':'.2'}}</p>
+                <p class="h5 text-end text-nowrap">{{item.product[1]?.price | currency:'ZAR':'symbol':'.2'}}</p>
             </div>
         </div>
         <hr>

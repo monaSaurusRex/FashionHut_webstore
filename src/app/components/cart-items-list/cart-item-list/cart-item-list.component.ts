@@ -4,7 +4,7 @@ import { faCartPlus, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 import { Observable } from 'rxjs';
 
-import { Item } from 'src/app/interfaces/cart';
+import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
 
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -24,6 +24,12 @@ export class CartItemListComponent implements OnInit {
   decreaseIcon = faMinus;
 
   //cart services observable variable
+  cartItems: Cart = {
+    id: 0,
+    items: [],
+    cartTotal: 0
+  };
+  
   cartItems$: Observable<Item[]> | undefined;
   cartItemProduct$: Observable<Product[]> | undefined;
   itemQuantity$: Observable<number> | undefined;
@@ -38,7 +44,7 @@ export class CartItemListComponent implements OnInit {
   constructor(private _cartService: CartService, private _storeService: StoreService) {}
 
   ngOnInit() {
-    this.cartItems$ = this._cartService.getCartItems(); //get the items in the cart
+    this.cartItems$ = this._cartService.getCartItems();
     this.itemQuantity$ = this._cartService.getItemQuantity(); //get the quantity of the cart item
   }
 

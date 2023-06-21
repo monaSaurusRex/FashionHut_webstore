@@ -69,31 +69,35 @@ export class ViewProductDetailsComponent implements OnInit {
   }
 
   //When item is added to the cart
-  addToCart(addedProduct: Product) {
+  addToCart(addedProduct: any) {
     // assign properties for Item attributes to allow values in line 63 to be recognized
-    type Item = {
-      id: number;
-      productId: number; 
-      productName: string;
-      quantity: number; 
-      price: number;
-    };
+    // type Item = {
+    //   id: number;
+    //   productId: number;
+    //   productName: string;
+    //   quantity: number;
+    //   price: number;
+    // };
+
+    // if (addedProduct) {
+    //   console.log(
+    //     `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
+    //   );
+    //   let cartItem: Item = {
+    //     id: this._cartService.setUniqueId(),
+    //     productId: addedProduct.id,
+    //     productName:  addedProduct.title,
+    //     quantity: this.productQuantity,
+    //     price: addedProduct.price
+    //   };
 
     if (addedProduct) {
-      console.log(
-        `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
-      );
-      let cartItem: Item = {
-        id: this._cartService.setUniqueId(),
-        productId: addedProduct.id,
-        productName:  addedProduct.title,
-        quantity: this.productQuantity,
-        price: addedProduct.price
-      };
-      this._cartService.addItemToCart(cartItem);
+      // console.log(
+      //   `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
+      // );
+      console.log(`Product Added: ${addedProduct.title}  Qty: ${this.productQuantity}`)
+      this._cartService.addItemToCart(addedProduct, this.productQuantity);
       // this._cartService.addItemToCart(addedProduct, this.productQuantity);
-
-      
     }
   }
 }

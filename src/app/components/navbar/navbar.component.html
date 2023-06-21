@@ -95,10 +95,10 @@
                         </div>
 
                         <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['cart']">View Cart</button>
+                            <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['cart']" data-bs-dismiss="offcanvas">View Cart</button>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block checkout-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['checkout']">Checkout</button>
+                            <button class="btn btn-block checkout-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['checkout']" data-bs-dismiss="offcanvas">Checkout</button>
                         </div>
                     </div>
 
