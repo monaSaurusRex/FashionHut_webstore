@@ -24,7 +24,7 @@ export class CartItemListComponent implements OnInit {
   decreaseIcon = faMinus;
 
   //cart services observable variable
-  itemsInCart$: Observable<Item[]> | undefined;
+  cartItems$: Observable<Item[]> | undefined;
   cartItemProduct$: Observable<Product[]> | undefined;
   itemQuantity$: Observable<number> | undefined;
 
@@ -38,7 +38,7 @@ export class CartItemListComponent implements OnInit {
   constructor(private _cartService: CartService, private _storeService: StoreService) {}
 
   ngOnInit() {
-    this.itemsInCart$ = this._cartService.getCartItems(); //get the items in the cart
+    this.cartItems$ = this._cartService.getCartItems(); //get the items in the cart
     this.itemQuantity$ = this._cartService.getItemQuantity(); //get the quantity of the cart item
   }
 
