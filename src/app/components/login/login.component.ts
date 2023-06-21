@@ -20,27 +20,28 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const email = this.loginForm.value.email;
-      const password = this.loginForm.value.password;
+ onSubmit() {
+//     if (this.loginForm.valid) {
+//       const email = this.loginForm.value.email;
+//       const password = this.loginForm.value.password;
   
-      // Call the login method of the AuthService to perform authentication
-      this._userService.login(email, password).subscribe(
-        (response) => {
-          // Login successful, redirect to the checkout page
-          //this.router.navigate(['/checkout']);
-        },
-        (error) => {
-          // Login failed, handle the error
-          console.log('Login failed', error);
-        }
-      );
-    } else {
-      ValidateForm.validateAllFormFields(this.loginForm);
-      // Handle form validation errors
-    }
-  }
+//       // Call the login method of the AuthService to perform authentication
+//       //this._userService.login(email, password).subscribe(
+//         //(response) => {
+//           // Login successful, redirect to the checkout page
+//           //this.router.navigate(['/checkout']);
+//         },
+//         (error) => {
+//           // Login failed, handle the error
+//           console.log('Login failed', error);
+//         }
+//       );
+//     } else {
+//       ValidateForm.validateAllFormFields(this.loginForm);
+//       // Handle form validation errors
+//     }
+//   }
   
   
+ }
 }
