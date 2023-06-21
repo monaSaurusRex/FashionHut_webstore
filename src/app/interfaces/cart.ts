@@ -10,6 +10,7 @@ export interface Cart {
 
 export interface CartItem{
     id: number;
+    customerId: number; //will be empty if the customer isn't logged in
     product: Product[];
     price: number;
     quantity: number;

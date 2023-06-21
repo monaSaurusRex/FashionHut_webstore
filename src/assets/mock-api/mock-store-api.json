@@ -113,15 +113,20 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "getA",
+      "endpoint": "products",
       "responses": [
         {
           "uuid": "ce5c7822-ecad-4a1e-9e30-f13c13edeb62",
-          "body": "{}",
+          "body": "// Sample body\n[\n  {{# repeat 10}}\n  {\n    \"productId\": \"{{urlParam 'id'}}\",\n    \"tags\": \"{{someOf (array 'Getting started' 'https' 'proxy mode' 'headers' 'templating') 1 3}}\"\n    \n    \"userName\": \n    {{#switch (urlParam 'id')}}\n      {{#case '1'}}\"Men\"{{/case}}\n      {{#case '2'}}\"Women\"{{/case}}\n      {{#default}}\"Men\"{{/default}}\n    {{/switch}}\n  }\n  {{/ repeat}}\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
-          "headers": [],
+          "headers": [
+            {
+              "key": "",
+              "value": "application/json"
+            }
+          ],
           "bodyType": "INLINE",
           "filePath": "",
           "databucketID": "",

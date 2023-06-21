@@ -35,11 +35,7 @@ export class CartService {
       price: 0,
       description: '',
       category: '',
-      image: '',
-      rating: {
-        rate: 0,
-        count: 0,
-      },
+      image: ''
     });
   }
 
