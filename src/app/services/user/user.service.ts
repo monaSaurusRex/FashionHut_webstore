@@ -7,12 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  private url: string = "https://fakestoreapi.com/"
 
+  constructor(private http: HttpClient) {}
   private url: string = "http://localhost:3000"
 
-  login(body: any){
-    return this.http.post(`${this.url}/login`, body);
+  login(username: string, password: string): Observable<any> {
+    const body = {
+      username: " mor_2314",
+      password: password
+    };
+    return this.http.post<any>(`${this.url}auth/login`, body);
   }
   
 }

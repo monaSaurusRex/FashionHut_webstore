@@ -14,6 +14,7 @@ import { SearchAndFilterComponent } from './components/search-and-filter/search-
 import { ViewProductDetailsComponent } from './pages/view-product-details/view-product-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilterPipe } from './services/filter/filter.pipe';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FilterPipe } from './services/filter/filter.pipe';
     SearchAndFilterComponent,
     FilterPipe,
     ViewProductDetailsComponent,
+    RegisterComponent,
     LoginComponent
     
   ],

@@ -23,22 +23,18 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      let body: any = {
-        email: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      };
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
   
-      this._userService.login(body).subscribe(
-        (response: any) => {
-          // Login successful, handle the response here
-          console.log('Login successful', response);
-          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
-          // this.router.navigate(['/checkout']);
+      // Call the login method of the AuthService to perform authentication
+      this._userService.login(email, password).subscribe(
+        (response) => {
+          // Login successful, redirect to the checkout page
+          //this.router.navigate(['/checkout']);
         },
-        (error: any) => {
+        (error) => {
           // Login failed, handle the error
           console.log('Login failed', error);
-          // You can display an error message to the user indicating that the login credentials are invalid
         }
       );
     } else {
@@ -46,5 +42,6 @@ export class LoginComponent implements OnInit {
       // Handle form validation errors
     }
   }
+  
   
 }
