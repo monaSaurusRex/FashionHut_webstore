@@ -26,6 +26,7 @@ export class CartService {
       id: 0,
       productId: 0,
       quantity: 0,
+      productName: '',
     });
 
     this.product$ = new BehaviorSubject<Product>({
@@ -47,7 +48,7 @@ export class CartService {
   }
 
   //add an item to cart
-  createCartItem(addedItem: Item) {
+  addItemToCart(addedItem: Item) {
     const cart = { ...this.cart$.value };
 
     cart.items.push(addedItem);
