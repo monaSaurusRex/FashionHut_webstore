@@ -7,11 +7,15 @@
   div[data-acc-step]:not(.open) { background: #f2f2f2;  }
   div[data-acc-step]:not(.open) h5 { color: #777;  }
   div[data-acc-step]:not(.open) .badge-primary { background: #ccc;  } */
-  .card{
-    width: 40%;
-  }
+.accordion-body{
+  background-color: var(--white);
+}
+
+.accordion{
+  width: 100%;
+}
   .form{
-    width: 80%;
+    margin: var(--s-medium);
   }
   .payment{
     width: 80%;
@@ -29,3 +33,12 @@
   color: green;
 }
 
+.btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+button{
+  background-color: var(--dark);
+  color: var(--white);
+  border-inline-color: var(--primary-color);
+}

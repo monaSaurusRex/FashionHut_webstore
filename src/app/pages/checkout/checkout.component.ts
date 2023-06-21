@@ -26,49 +26,24 @@ Validators.pattern('^[0-9]{16}$')
     Validators.required,
     Validators.pattern('^[0-9]{3}$')
   ]);
+  orderInfo: any = {};
 
   
-  get streetAddressValue() {
-    return this.streetAddressControl.value;
-  }
-
-  get streetAddress2Value() {
-    return this.streetAddress2Control.value;
-  }
-
-  get suburbCityValue() {
-    return this.suburbCityControl.value;
-  }
-
-  get provinceValue() {
-    return this.provinceControl.value;
-  }
-
-  get postalCodeValue() {
-    return this.postalCodeControl.value;
-  }
-
-  get countryValue() {
-    return this.countryControl.value;
-  }
-
-  get cardNameValue() {
-    return this.cardNameControl.value;
-  }
-
-  get cardNumberValue() {
-    return this.cardNumberControl.value;
-  }
-
-  get cardExpirationValue() {
-    return this.cardExpirationControl.value;
-  }
-
-  get securityCodeValue() {
-    return this.securityCodeControl.value;
-  }
+  updateOrderReview() {
+    this.orderInfo = {
+      streetAddress: this.streetAddressControl.value,
+      streetAddress2: this.streetAddress2Control.value,
+      suburbCity: this.suburbCityControl.value,
+      province: this.provinceControl.value,
+      postalCode: this.postalCodeControl.value,
+      country: this.countryControl.value,
+      cardName: this.cardNameControl.value,
+      cardNumber: this.cardNumberControl.value,
+      cardExpiration: this.cardExpirationControl.value,
+      securityCode: this.securityCodeControl.value
+    };
   
-
+  }
   
   
   get showErrorMessage() {
