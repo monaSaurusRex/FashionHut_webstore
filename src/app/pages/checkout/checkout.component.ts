@@ -28,7 +28,45 @@ Validators.pattern('^[0-9]{16}$')
   ]);
 
   
-  
+  get streetAddressValue() {
+    return this.streetAddressControl.value;
+  }
+
+  get streetAddress2Value() {
+    return this.streetAddress2Control.value;
+  }
+
+  get suburbCityValue() {
+    return this.suburbCityControl.value;
+  }
+
+  get provinceValue() {
+    return this.provinceControl.value;
+  }
+
+  get postalCodeValue() {
+    return this.postalCodeControl.value;
+  }
+
+  get countryValue() {
+    return this.countryControl.value;
+  }
+
+  get cardNameValue() {
+    return this.cardNameControl.value;
+  }
+
+  get cardNumberValue() {
+    return this.cardNumberControl.value;
+  }
+
+  get cardExpirationValue() {
+    return this.cardExpirationControl.value;
+  }
+
+  get securityCodeValue() {
+    return this.securityCodeControl.value;
+  }
   
 
   
