@@ -6,7 +6,7 @@ export interface Product {
     category: string,
     image: string, //imageUrl
 
-    // product specificaitons
+    // product specifications
     // brand: string;
     // colour: string;
     // size: string;

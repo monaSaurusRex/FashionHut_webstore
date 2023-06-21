@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, find, map, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  combineLatest,
+  find,
+  map,
+  of,
+  tap,
+} from 'rxjs';
 
 import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
@@ -24,8 +32,12 @@ export class CartService {
 
     this.items$ = new BehaviorSubject<Item>({
       id: 0,
-      product: [],
       quantity: 0,
+      productId: 0,
+      productTitle: '',
+      productPrice: 0,
+      productCategory: '',
+      productImageURL: '',
     });
 
     this.product$ = new BehaviorSubject<Product>({
@@ -55,11 +67,15 @@ export class CartService {
     const cart = { ...this.cart$.value };
     // console.log(`Product Added: ${addedProduct.title}  Qty: ${quantity}`)
 
-    const newItem ={
+    const newItem = {
       id: this.setUniqueId(),
-      product: addedProduct,
-      quantity: quantity
-    }
+      quantity: quantity,
+      productId: addedProduct.id,
+      productTitle: addedProduct.title,
+      productPrice: addedProduct.price,
+      productCategory: addedProduct.category,
+      productImageURL: addedProduct.image, //imageUrl
+    };
 
     cart.items.push(newItem);
 
@@ -68,9 +84,7 @@ export class CartService {
 
   // get list of items added to the cart
   getCartItems(): Observable<Item[]> {
-    return this.cart$.pipe(
-      map((cart) => cart.items)
-    );
+    return this.cart$.pipe(map((cart) => cart.items));
   }
 
   setItemQuantity(updateQuantity: number, updateItem: Item) {
@@ -89,8 +103,6 @@ export class CartService {
     // console.log(cartItem);
   }
 
-  
-
   // get the total number of items within the cart
   getCartItemsCount(): Observable<any> {
     return this.cart$.pipe(
@@ -102,9 +114,6 @@ export class CartService {
       })
     );
   }
-
-  
-
 
   getItemQuantity(): Observable<number> {
     const cart = { ...this.cart$.value };

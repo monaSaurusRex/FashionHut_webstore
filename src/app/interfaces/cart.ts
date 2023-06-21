@@ -18,7 +18,17 @@ export interface Cart {
 
 export interface Item{
     id: number;
-    product: Product[]; // refers to the product added to the cart
+    // product: Product[]; // refers to the product added to the cart
     quantity: number; //quantity of a product added to the cart
     // price: number; //price of the product when it was added to the cart
+    productId: number; 
+    productTitle: string; //title of the product when it was added to the cart
+    productPrice: number; //price of the product when it was added to the cart
+    productCategory: string;
+    productImageURL: string; //imageUrl
+
+    // product specifications
+    // brand: string;
+    // colour: string;
+    // size: string;
 }

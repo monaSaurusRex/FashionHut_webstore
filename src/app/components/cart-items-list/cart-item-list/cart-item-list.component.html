@@ -9,49 +9,50 @@
     <div *ngFor="let item of (cartItems$ | async)">
         <div class="row">
             <!-- image -->
-            <div class="col-3">
-                <img src="" id="product-image" alt=/>
+            <div class="col-5">
+                <img class="d-flex justify-content-center" src={{item.productImageURL}} id="product-image"/>
             </div>
             <!-- product name, and selection details -->
-            <div class="col-6">
+            <div class="col-7">
                 <div class="row">
 
                     <div class="col-12 product-details">
-                        <!-- <h3>{{item.product.title}}</h3> -->
-                        
+                        <h3>{{item.productTitle}}</h3>
+
                         <div class="selection-details justify-content-start flex-row">
-                            <!-- <p class="greyed">{{product.category}}</p> -->
+                            <p class="greyed">{{item.productCategory}}</p>
                             <!-- <p class="greyed">{{product.size}}</p> -->
                             <!-- <p class="greyed">{{product.color}}</p> -->
                         </div>
-
-
                     </div>
                     <div class="qauntity selector col-12">
                         <div class="quantity selector d-flex justify-content-end flex-column">
                             <div class="input-group d-flex justify-content-start flex-row">
-                                <button (click)="quantity('decrease')" class="selector-option btn btn-decrease btn-icon">
+                                <button (click)="quantity('decrease')"
+                                    class="selector-option btn btn-decrease btn-icon">
                                     <fa-icon [icon]="decreaseIcon"></fa-icon>
                                 </button>
                                 <div class="form-outline">
                                     <input class="input-box" text="text" disabled value="{{item.quantity}}">
                                 </div>
-                                <button (click)="quantity('increase')" class="selector-option btn btn-increase btn-icon">
+                                <button (click)="quantity('increase')"
+                                    class="selector-option btn btn-increase btn-icon">
                                     <fa-icon [icon]="increaseIcon"></fa-icon>
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
-                        
+
+                    </div>
+                    <!-- cart item price -->
+                    <div class="col-12">
+                        <h3 class=" text-end text-nowrap">{{item.productPrice | currency:'ZAR ':'symbol':'.2'}}</h3>
                     </div>
                 </div>
-                
+
             </div>
-            <!-- cart item price -->
-            <div class="col-3">
-                <p class="h5 text-end text-nowrap">{{item.product[1]?.price | currency:'ZAR':'symbol':'.2'}}</p>
-            </div>
+
         </div>
         <hr>
     </div>
