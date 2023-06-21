@@ -85,19 +85,25 @@
 
                     <!-- Cart List  -->
                     <div class="offcanvas-body">
-
                         <div><app-cart-item-list></app-cart-item-list></div>
-
-
                     </div>
                     <!-- Cart Footer Buttons -->
                     <div class="offcanvas-footer row">
-                        <app-subtotal></app-subtotal>
+                        
+                        <div *ngIf="((cartItemsCount$ | async) === 0); else elseBlock">
+                            <!--if the total number of items in the cart is not 0-->
+                            <ng-template #elseBlock class="text-align-top text-align-center mb-0">
+                                <app-subtotal></app-subtotal>
+                            </ng-template>
+                        </div>
+
+
+                        
                         <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block cart-btn" [routerLink]="['cart']">View Cart</button>
+                            <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['cart']">View Cart</button>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block checkout-btn" [routerLink]="['checkout']">Checkout</button>
+                            <button class="btn btn-block checkout-btn" [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['checkout']">Checkout</button>
                         </div>
                     </div>
 
