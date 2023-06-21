@@ -143,9 +143,9 @@ p{
     color: var(--dark);
 }
 
-p .bold {
+.bold {
     font-family: var(--body-font);
-    font-size: var(--normal);
+    font-size: var(--medium);
     font-weight: var(--bold);
     font-style: normal;
     height: auto !important;
@@ -156,7 +156,7 @@ p .bold {
     color: var(--dark);
 }
 
-p .greyed, label .greyed {
+.greyed{
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--normal);
