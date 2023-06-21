@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import ValidateForm from '../helper/validateform';
-import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import ValidateForm from '../helper/validateform';
 
 @Component({
   selector: 'app-register',
@@ -12,28 +11,29 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
   type: string = "password";
   registerForm!: FormGroup;
-  submitted: any;
-  password: any;
-  RetypePassword: any;
-  retypePass!: string;
+  passwordMismatch: boolean = false;
 
-  constructor(private http:HttpClient, private formbuilder: FormBuilder, private _userService: UserService, private router: Router) {}
+  constructor(private http: HttpClient, private formbuilder: FormBuilder, private _userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
       firstName: ['', [Validators.required, Validators.pattern('[A-Za-z]+')]], 
-      lastName: ['',[ Validators.required, Validators.pattern('[A-Za-z]+')]],
+      lastName: ['', [Validators.required, Validators.pattern('[A-Za-z]+')]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required,  Validators.pattern(/^(\+27|0)\d{9}$/) ]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^(\+27|0)\d{9}$/)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/)]],
       confirm: ['', Validators.required]
     });
   }
 
   onSubmit() {
+    if (this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value) {
+      this.passwordMismatch = true;
+      return; // Stop form submission
+    }
+
     if (this.registerForm.valid) {
       let body: any = {
         firstName: this.registerForm.value.firstName,
@@ -45,15 +45,16 @@ export class RegisterComponent implements OnInit {
 
       this._userService.createUser(body).subscribe(
         (response: any) => {
-          // Login successful, handle the response here
-          console.log('registered successful', response);
-          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
-          // this.router.navigate(['/checkout']);
+          // Registration successful, handle the response here
+          console.log('Registered successfully', response);
+          this.router.navigate(['/login']);
+          // You can perform any necessary actions after successful registration, such as displaying a success message or redirecting to a different page
+          // this.router.navigate(['/home']);
         },
         (error: any) => {
-          // Login failed, handle the error
-          console.log(' failed', error);
-          // You can display an error message to the user indicating that the login credentials are invalid
+          // Registration failed, handle the error
+          console.log('Registration failed', error);
+          // You can display an error message to the user indicating that the registration failed
         }
       );
     } else {
@@ -61,5 +62,4 @@ export class RegisterComponent implements OnInit {
       // Handle form validation errors
     }
   }
-
-  }
+}

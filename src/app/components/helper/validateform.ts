@@ -1,4 +1,5 @@
 import { FormControl, FormGroup } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export default class ValidateForm{
     static validateAllFormFields(formGroup: FormGroup) {
@@ -11,4 +12,4 @@ export default class ValidateForm{
           }
         });
       }
-}
+}  
