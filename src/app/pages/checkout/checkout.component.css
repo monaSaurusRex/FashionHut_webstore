@@ -42,3 +42,6 @@ button{
   color: var(--white);
   border-inline-color: var(--primary-color);
 }
+.card{
+  background-color: var(--white);
+}

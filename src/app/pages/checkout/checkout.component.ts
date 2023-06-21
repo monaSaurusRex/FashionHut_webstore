@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
+
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -42,9 +45,18 @@ Validators.pattern('^[0-9]{16}$')
       cardExpiration: this.cardExpirationControl.value,
       securityCode: this.securityCodeControl.value
     };
+
   
   }
-  
+  update(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your order has been successfully purchased',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
   
   get showErrorMessage() {
     return this.cardExpirationControl.invalid && this.cardExpirationControl.touched;
@@ -75,3 +87,5 @@ Validators.pattern('^[0-9]{16}$')
     }
   
   
+  
+
