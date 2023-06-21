@@ -111,39 +111,20 @@ export class CartService {
     );
   }
 
-  setCartTotal(total: number) {
-    this.cart$.pipe(
-      map((cart: any) => (cart.cartTotal = total)) //set the cart total to the value passed to method
-    );
-  }
 
-  getCartTotal(): Observable<number> {
+// method to calculate subtotal for items in cart
+  getSubtotal(): Observable<number> {
     const product = { ...this.product$.value };
 
     return this.cart$.pipe(
       map((cart) => {
-        const cartSubtotal = cart?.items
+        const subtotal = cart?.items
           .map((item) => item.quantity * product.price)
           .reduce((prevVal, currVal) => prevVal + currVal, 0);
-        console.log(`Cart Subtotal: ${cartSubtotal}`);
-        return cartSubtotal;
+        console.log(`Cart Subtotal: ${subtotal}`);
+        return subtotal;
       })
     );
   }
 
-  // method fot getting the product id of item added to the cart
-  getItemProductId(): Observable<number> {
-    return this.item$.pipe(map((item: any) => item.productId));
-  }
-
-  // checks if an item already exists within the cart
-  productExistsInCart(productId: number): Observable<boolean> {
-    console.log(productId);
-    
-    return this.item$.pipe(
-      map(items => !!items && Array.isArray(items) && items.find(item => item.productId === productId)) //!! converts the value returned to boolean value
-    );
-  }
-
-  
 }

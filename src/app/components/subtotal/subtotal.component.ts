@@ -12,6 +12,7 @@ export class SubtotalComponent implements OnInit {
   subTotal$: Observable<number> | undefined;
 
   constructor(){
+    
 
   }
 
