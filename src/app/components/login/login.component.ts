@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import ValidateForm from '../helper/validateform';
 import { UserService } from 'src/app/services/user/user.service';
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private _userService: UserService, /*private router: Router)*/) {
@@ -19,21 +19,26 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/)]]
     });
   }
+  ngOnInit() {}
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const email = this.loginForm.value.email;
-      const password = this.loginForm.value.password;
+      let body: any = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      };
   
-      // Call the login method of the AuthService to perform authentication
-      this._userService.login(email, password).subscribe(
-        (response) => {
-          // Login successful, redirect to the checkout page
-          //this.router.navigate(['/checkout']);
+      this._userService.login(body).subscribe(
+        (response: any) => {
+          // Login successful, handle the response here
+          console.log('Login successful', response);
+          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
+          // this.router.navigate(['/checkout']);
         },
-        (error) => {
+        (error: any) => {
           // Login failed, handle the error
           console.log('Login failed', error);
+          // You can display an error message to the user indicating that the login credentials are invalid
         }
       );
     } else {
@@ -41,6 +46,5 @@ export class LoginComponent {
       // Handle form validation errors
     }
   }
-  
   
 }
