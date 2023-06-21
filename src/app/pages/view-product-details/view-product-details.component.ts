@@ -91,19 +91,9 @@ export class ViewProductDetailsComponent implements OnInit {
         price: addedProduct.price
       };
       this._cartService.addItemToCart(cartItem);
+      // this._cartService.addItemToCart(addedProduct, this.productQuantity);
 
-      // check to see if a product has already been added to the cart
-      // if (this._cartService.productExistsInCart(addedProduct.id)){
-      //   console.log(`Updated product quantity`);
-      //   let result = this._cartService.setItemQuantityInCart(addedProduct.id, this.productQuantity);
-      //   console.log(result):
-      // }
-      // else{
-      //   console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
-      //   let cartItem: Item = { id: this._cartService.setUniqueId(), productId: addedProduct.id, quantity: this.productQuantity};
-
-      //   this._cartService.createCartItem(cartItem);
-      // }
+      
     }
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable, find, map, tap } from 'rxjs';
 
-import { Cart, Item } from 'src/app/interfaces/cart';
+import { Cart, CartItem, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class CartService {
   private cart$: BehaviorSubject<Cart>;
   private item$: BehaviorSubject<Item>;
   private product$: BehaviorSubject<Product>;
+  private cartItem$: BehaviorSubject<CartItem>;
 
   constructor() {
     // initializes cart with default values
@@ -37,6 +38,14 @@ export class CartService {
       category: '',
       image: ''
     });
+
+    this.cartItem$ = new BehaviorSubject<CartItem>({
+      id: 0,
+      customerId: 0, //will be empty if the customer isn't logged in
+      product: [],
+      price: 0,
+      quantity: 0,
+    });
   }
 
   setUniqueId(): number {
@@ -51,6 +60,16 @@ export class CartService {
 
     this.setCartItems(cart);
   }
+
+  // addItemToCart(addedItem: Product, quantity: number){
+
+    
+    
+
+  // }
+
+
+
 
   //update a cart item
   setCartItems(cartItem: Cart) {
