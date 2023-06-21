@@ -8,26 +8,31 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  streetAddressControl: FormControl = new FormControl('', Validators.required);
+  streetAddress2Control: FormControl = new FormControl('', Validators.required);
+
+  suburbCityControl: FormControl = new FormControl('', Validators.required);
+  provinceControl: FormControl = new FormControl('', Validators.required);
+  postalCodeControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
+  countryControl: FormControl = new FormControl('', Validators.required);
   cardNameControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]);
-  cardNumberControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('^[0-9]{16}$')
+  cardNumberControl: FormControl = new FormControl('', [ Validators.required,
+Validators.pattern('^[0-9]{16}$')
     
   ]);
-  cardExpirationControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('^((0[1-9])|(1[0-2]))\/(\d{2})$')
-  ]);
+  cardExpirationControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/[0-9]{2}$')]);
+  
   securityCodeControl: FormControl = new FormControl('', [
     Validators.required,
     Validators.pattern('^[0-9]{3}$')
   ]);
 
-  suburbCityControl: FormControl = new FormControl('', Validators.required);
-  provinceControl: FormControl = new FormControl('', Validators.required);
-  countryControl: FormControl = new FormControl('', Validators.required);
-  postalCodeControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
+  
+  
+  
 
+  
+  
   get showErrorMessage() {
     return this.cardExpirationControl.invalid && this.cardExpirationControl.touched;
   }

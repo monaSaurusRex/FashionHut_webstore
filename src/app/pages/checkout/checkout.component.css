@@ -20,7 +20,9 @@
     color: var(--dark);
 }
 .error {
+  border-color:  red;
   color: red;
+ 
 }
 
 .success {

@@ -23,30 +23,34 @@
           >
             <div class="accordion-body">
               <form>
+                <div class="row">
                 <div class="form-group">
-                  <div class="row">
-                    <label for="deliveryAddress">Delivery Address:</label>
+                  
+                    <!-- <label for="deliveryAddress">Delivery Address:</label>
                     <input
                       type="text"
                       class="form-control"
                       id="deliveryAddress"
-                    />
+                    /> -->
                   </div>
                   <div class="form-group">
                     <label for="streetAddress">Street Address:</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="streetAddress"
-                    />
+                    <input type="text" class="form-control" id="streetAddress" [formControl]="streetAddressControl" />
+                    <span *ngIf="streetAddressControl.invalid && streetAddressControl.touched" class="error">
+                      <small *ngIf="streetAddressControl.errors?.['required']">*Street Address is required</small>
+                    </span>
                   </div>
+                  
                   <div class="form-group">
                     <label for="streetAddress2">Street Address Line 2:</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="streetAddress2"
-                    />
+                      id="streetAddress2" [formControl]="streetAddress2Control"/>
+                      <span *ngIf="streetAddress2Control.invalid && streetAddress2Control.touched" class="error">
+                        <small *ngIf="streetAddress2Control.errors?.['required']">*Street Address Line 2 is required</small>
+
+                      </span>
                   </div>
                 </div>
                 <div class="row">
@@ -64,8 +68,8 @@
                       "
                       class="error"
                     >
-                      <span *ngIf="suburbCityControl.errors?.['required']"
-                        >Suburb/City is required</span
+                      <small *ngIf="suburbCityControl.errors?.['required']"
+                        >*Suburb/City is required</small
                       >
                     </span>
                   </div>
@@ -82,15 +86,15 @@
                       *ngIf="provinceControl.invalid && provinceControl.touched"
                       class="error"
                     >
-                      <span *ngIf="provinceControl.errors?.['required']"
-                        >Province is required</span
+                      <small *ngIf="provinceControl.errors?.['required']"
+                        >*Province is required</small
                       >
                     </span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="postalCode">Postal Code:</label>
+                    <label for="postalCode">*Postal Code:</label>
                     <input
                       type="text"
                       class="form-control"
@@ -103,11 +107,11 @@
                       "
                       class="error"
                     >
-                      <span *ngIf="postalCodeControl.errors?.['required']"
-                        >Postal Code is required</span
+                      <small *ngIf="postalCodeControl.errors?.['required']"
+                        >*Postal Code is required</small
                       >
-                      <span *ngIf="postalCodeControl.errors?.['pattern']"
-                        >Postal Code should contain only numbers</span
+                      <small *ngIf="postalCodeControl.errors?.['pattern']"
+                        >*Postal Code should contain only numbers</small
                       >
                     </span>
                   </div>
@@ -124,8 +128,8 @@
                       *ngIf="countryControl.invalid && countryControl.touched"
                       class="error"
                     >
-                      <span *ngIf="countryControl.errors?.['required']"
-                        >Country is required</span
+                      <small *ngIf="countryControl.errors?.['required']"
+                        >*Country is required</small
                       >
                     </span>
                   </div>
@@ -159,8 +163,9 @@
           >
             <div class="accordion-body">
               <form>
+                <div class="row">
                 <div class="form-group">
-                  <div class="row">
+                
                     <label for="cardName">Name of card</label>
                     <input
                       type="text"
@@ -172,11 +177,11 @@
                       *ngIf="cardNameControl.invalid && cardNameControl.touched"
                       class="error"
                     >
-                      <span *ngIf="cardNameControl.errors?.['required']"
-                        >Name of card is required</span
+                      <small *ngIf="cardNameControl.errors?.['required']"
+                        >*Name of card is required</small
                       >
-                      <span *ngIf="cardNameControl.errors?.['pattern']"
-                        >Please enter a valid string (no numbers allowed)</span
+                      <small *ngIf="cardNameControl.errors?.['pattern']"
+                        >*Please enter a valid string (no numbers allowed)</small
                       >
                     </span>
                   </div>
@@ -189,14 +194,14 @@
                       [formControl]="cardNumberControl"
                       (input)="limitCharacterCount($event)"
                     />
-                    <span
+                    <small
                       *ngIf="
                         cardNumberControl.invalid && cardNumberControl.touched
                       "
                       class="error"
                     >
-                      Please enter a valid 16-digit number
-                    </span>
+                      *Please enter a valid 16-digit number
+                    </small>
                   </div>
 
                   <!-- <div class="form-group">
@@ -213,16 +218,16 @@
                       id="cardExpiration"
                       [formControl]="cardExpirationControl"
                     />
-                    <span
+                    <small
                       *ngIf="
-                        cardExpirationControl.invalid &&
-                        cardExpirationControl.touched
+                        cardExpirationControl.invalid && cardExpirationControl.touched
                       "
                       class="error"
                     >
-                      Please enter a valid expiration date (MM/YY)
-                    </span>
+                      *Please enter a valid expiration date (MM/YY format)
+                    </small>
                   </div>
+                  
 
                   <div class="form-group col-md-6">
                     <label for="securityCode">Security Code</label>
@@ -233,15 +238,15 @@
                       [formControl]="securityCodeControl"
                       (input)="limitCharacterCount($event)"
                     />
-                    <span
+                    <small
                       *ngIf="
                         securityCodeControl.invalid &&
                         securityCodeControl.touched
                       "
                       class="error"
                     >
-                      Please enter a valid 3-digit security code
-                    </span>
+                      *Please enter a valid 3-digit security code
+                    </small>
                   </div>
                 </div>
                 <br />
