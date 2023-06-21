@@ -73,15 +73,13 @@
                         <!-- <h1 id="offcanvasRightLabel">Items in cart ({{cartItemsCount$ | async}})</h1> -->
 
                         <div class="offcanvas-title d-flex justify-content-start align-self-center">
-                            <h1 class="text-align-top text-align-center mb-0">Items in cart: </h1>
                             <h1 *ngIf="((cartItemsCount$ | async) === 0); else elseBlock">
                                 <!--if the total number of items in the cart is not 0-->
                                 <ng-template #elseBlock class="text-align-top text-align-center mb-0">
                                     <h1>{{observables.cartItemCount}}</h1>
                                 </ng-template>
                             </h1>
-
-
+                            <h1 class="text-align-top text-align-center ms-2 mb-0">Items in cart</h1>
                         </div>
                     </div>
 
