@@ -20,6 +20,7 @@ import { CartComponent } from './pages/cart/cart.component';
 
 // PIPES
 import { FilterPipe } from './services/filter/filter.pipe';
+import { SubtotalComponent } from './components/subtotal/subtotal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FilterPipe } from './services/filter/filter.pipe';
     ViewProductDetailsComponent,
     CartItemListComponent,
     CartComponent,
+    SubtotalComponent,
   ],
   imports: [
     BrowserModule,

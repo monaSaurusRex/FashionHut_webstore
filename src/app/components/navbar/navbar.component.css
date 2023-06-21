@@ -3,6 +3,10 @@ button {
     margin-left: 5px;
 }
 
+.offcanvas div{
+    padding: var(--s-medium);
+}
+
 .nav {
     height: 60px;
     padding: 10px 30px;

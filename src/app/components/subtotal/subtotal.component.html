@@ -1,0 +1,12 @@
+<div class="cart-subtotal">
+    <p class="bold"></p>
+</div>
+
+<div class="row">
+    <div class="bold subtotal-label col-6">
+        Subtotal
+    </div>
+    <div class="bold subtotal-value col-6 ">
+        {{subTotal$ | async | currency:'ZAR ':'symbol':'.2'}}
+    </div>
+</div>
