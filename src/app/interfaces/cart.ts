@@ -8,6 +8,13 @@ export interface Cart {
     // customer id
 }
 
+export interface CartItem{
+    id: number;
+    product: Product[];
+    price: number;
+    quantity: number;
+}
+
 export interface Item{
     id: number;
     // product: Product[];
