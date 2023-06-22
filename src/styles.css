@@ -69,17 +69,17 @@ body {
     background-color: var(--background-color);
 }
 
-.container{
+.container {
     margin: var(--s-medium);
 }
 
-.row{
+.row {
     margin: 0px !important;
     padding: 0px !important;
 }
 
 .card {
-   padding: var(--s-large) !important;
+    padding: var(--s-large) !important;
     width: 100%;
 
     background-color: var(--white);
@@ -87,7 +87,7 @@ body {
 }
 
 h1,
-title{
+title {
     font-family: var(--heading-font);
     font-size: var(--x-large);
     font-weight: var(--bold);
@@ -112,7 +112,7 @@ h2 {
     color: var(--dark);
 }
 
-h3{
+h3 {
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--bold);
@@ -124,13 +124,14 @@ h3{
     color: var(--dark);
 }
 
-.text-body-secondary, .greyed-headings{
+.text-body-secondary,
+.greyed-headings {
     font-family: var(--body-font);
     font-size: var(--medium);
     color: var(--light-grey);
 }
 
-p{
+p {
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--regular);
@@ -156,7 +157,7 @@ p{
     color: var(--dark);
 }
 
-.greyed{
+.greyed {
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--normal);
@@ -180,7 +181,7 @@ fa-icon,
     width: var(--large);
 }
 
-.btn{
+.btn {
     font-family: var(--body-font);
 
     border-radius: var(--default-border-radius);
@@ -212,6 +213,13 @@ input {
     height: var(--height-medium);
 }
 
+img {
+    border-radius: var(--default-border-radius);
+    /* width: 100% important!; */
+    height: 80%;
+    object-fit: contain;
+}
+
 .form-control {
     border-radius: var(--default-border-radius);
     border-color: var(--grey);
@@ -234,15 +242,17 @@ hr {
 } */
 
 @media only screen and (max-width: 768px) {
-    #body { 
-        margin-top: 70px; /*make space for sticky navbar on mobile screen*/
+    #body {
+        margin-top: 70px;
+        /*make space for sticky navbar on mobile screen*/
     }
 
     h2 {
         font-size: var(--medium);
     }
-    
-    .text-body-secondary, .greyed-headings{
+
+    .text-body-secondary,
+    .greyed-headings {
         font-size: var(--normal);
     }
 

@@ -2,10 +2,6 @@ h2{
     margin-bottom: var(--s-small);
 }
 
-img {
-    width: 100%;
-}
-
 .input-box {
     width: var(--width-large);
     height: var(--height-medium);
@@ -81,9 +77,17 @@ img {
     font-size: var(--large);
 }
 
+img {
+    width:100%;
+}
+
 @media only screen and (max-width: 768px) {
     .product-details {
-        padding: var(--s-medium)
+        padding: var(--s-medium);
+    }
+
+    .card{
+        margin: var(--s-medium);
     }
 
 }
