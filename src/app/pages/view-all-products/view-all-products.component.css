@@ -15,10 +15,10 @@
 .card-body {
    padding: 0px !important;
    margin: var(--s-medium) 0px !important;
-   
+
    min-width: 100%;
-   min-height: fit-content;
-   min-height: moz-fit-content;
+   /* min-height: fit-content;
+   min-height: moz-fit-content; */
 }
 
 .row {
@@ -28,17 +28,18 @@
 img {
    border-radius: var(--default-border-radius);
    /* width: 100% important!; */
+   height: 20%;
    object-fit: contain;
    
 }
 
-img:hover{
+img:hover {
    cursor: pointer;
 }
 
-h1{
+h1 {
    margin: var(--s-medium) 0px !important;
-   
+
    width: 100% !important;
 
    overflow: hidden;
@@ -46,7 +47,7 @@ h1{
    text-overflow: ellipsis;
 }
 
-h1:hover{
+h1:hover {
    text-decoration: underline;
    cursor: pointer;
 }
@@ -85,20 +86,19 @@ p .product-price {
       background-color: var(--primary-color);
    }
 
-   .card {
-      height: fit-content;
-
+   .col-6{
+      padding: var(--s-medium);
    }
 }
 
-.search-and-filter{
+.search-and-filter {
    height: 60px;
    padding: 10px 30px;
    margin: 0px -10px;
    background-color: var(--white);
 }
 
-.searchbar{
+.searchbar {
    max-width: 100%;
 }
 

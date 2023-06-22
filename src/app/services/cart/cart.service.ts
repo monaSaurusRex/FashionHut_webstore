@@ -1,7 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  combineLatest,
+  find,
+  map,
+  of,
+  tap,
+} from 'rxjs';
 
 import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
@@ -12,66 +19,101 @@ import { Product } from 'src/app/interfaces/product';
 export class CartService {
   //behaviour subject object created for cart
   private cart$: BehaviorSubject<Cart>;
-  private item$: BehaviorSubject<Item>;
+  private items$: BehaviorSubject<Item>;
   private product$: BehaviorSubject<Product>;
 
   constructor() {
     // initializes cart with default values
     this.cart$ = new BehaviorSubject<Cart>({
-      id: 0,
+      id: 0, //this.setUniqueId() when a new cart is created, it will automatically assign a sing
       items: [],
       cartTotal: 0,
     });
 
-    this.item$ = new BehaviorSubject<Item>({
+    this.items$ = new BehaviorSubject<Item>({
       id: 0,
-      product: [],
       quantity: 0,
+      productId: 0,
+      productTitle: '',
+      productPrice: 0,
+      productCategory: '',
+      productImageURL: '',
     });
 
     this.product$ = new BehaviorSubject<Product>({
       id: 0,
-      title: "",
+      title: '',
       price: 0,
-      description: "",
-      category: "",
-      image: "",
-      rating: {
-        rate: 0,
-        count: 0,
-      },
+      description: '',
+      category: '',
+      image: '',
     });
   }
 
-  getId(){ 
-
-  }
-
-  setId(lastValue: number) {
-
+  setUniqueId(): number {
+    return Math.floor(Math.random() * Date.now());
   }
 
   //add an item to cart
-  createCartItem(addedItem: Item) {
+  // addItemToCart(addedItem: Item) {
+  //   const cart = { ...this.cart$.value };
+
+  //   cart.items.push(addedItem);
+
+  //   this.setCartItems(cart);
+  // }
+
+  addItemToCart(addedProduct: any, quantity: number) {
     const cart = { ...this.cart$.value };
+    // console.log(`Product Added: ${addedProduct.title}  Qty: ${quantity}`)
+    const productId = addedProduct.id;
 
-    cart.items.push(addedItem);
+    //check if a product has already been added to the cart
+    const itemExists = cart.items.find(item => item.productId === productId);
 
-    console.log(cart);
+    console.log(itemExists);
 
-    this.setCartItems(cart);
+    if(itemExists){
+      console.log(`Product Added:has already been added`);
+      cart.items = this.setItemQuantity(quantity, productId);
+
+    }else{
+      const newItem = {
+        id: this.setUniqueId(),
+        quantity: quantity,
+        productId: addedProduct.id,
+        productTitle: addedProduct.title,
+        productPrice: addedProduct.price,
+        productCategory: addedProduct.category,
+        productImageURL: addedProduct.image, //imageUrl
+      };
+  
+      cart.items.push(newItem);
+    }
+
+    this.cart$.next(cart);
+  }
+
+  // get list of items added to the cart
+  getCartItems(): Observable<Item[]> {
+    return this.cart$.pipe(map((cart) => cart.items));
+  }
+
+  setItemQuantity(updateQuantity: number, productId: number) {
+    const cart = { ...this.cart$.value };
+    cart.items = cart.items.map((item) => {
+      item.quantity =
+        item.productId === productId ? +updateQuantity : item.quantity;
+      return item;
+    });
+    // this.setCartItems(cart);
+    return cart.items;
   }
 
   //update a cart item
   setCartItems(cartItem: Cart) {
     this.cart$.next(cartItem);
-  }
-
-  // get list of items added to the cart
-  getCartItems(): Observable<Item[]> {
-    return this.cart$.pipe(
-      map((cart: any) => cart.items) //map allows for the return of a specific property to emit by the Observable
-    );
+    // console.log(cartItem);
   }
 
   // get the total number of items within the cart
@@ -86,39 +128,22 @@ export class CartService {
     );
   }
 
-  setItemQuantity(updateQuantity: number, updateItem: Item) {
-    const cart = { ...this.cart$.value };
-    cart.items = cart.items.map((item) => {
-      item.quantity =
-        item.id === updateItem.id ? +updateQuantity : item.quantity;
-      return item;
-    });
-    this.setCartItems(cart);
-  }
-
   getItemQuantity(): Observable<number> {
     const cart = { ...this.cart$.value };
 
-    return this.item$.pipe(
-      map((item: any) => item.quantity) //map allows for the return of a specific property to emit by
-    );
+    return this.items$.pipe(map((item) => item.quantity));
   }
 
-  setCartTotal(total: number) {
-    this.cart$.pipe(
-      map((cart: any) => (cart.cartTotal = total)) //set the cart total to the value passed to method
-    );
-  }
-
-  getCartTotal(): Observable<number> {
-    const product = { ...this.product$.value };
+  // method to calculate subtotal for items in cart
+  getSubtotal(): Observable<number> {
 
     return this.cart$.pipe(
       map((cart) => {
-        const cartSubtotal = cart?.items
-          .map((item) => item.quantity * product.price)
+        const subtotal = cart?.items
+          .map((item) => item.quantity * item.productPrice)
           .reduce((prevVal, currVal) => prevVal + currVal, 0);
-        return cartSubtotal;
+        console.log(`Cart Subtotal: ${subtotal}`);
+        return subtotal;
       })
     );
   }

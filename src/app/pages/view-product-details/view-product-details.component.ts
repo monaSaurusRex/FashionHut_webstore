@@ -9,10 +9,13 @@ import {
   faShoppingCart,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+
+import { Observable, Subscription } from 'rxjs';
+import { Cart, Item } from 'src/app/interfaces/cart';
+
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart/cart.service';
-import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.service';
+import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
   selector: 'app-view-product-details',
@@ -20,30 +23,34 @@ import { FakestoreService } from 'src/app/services/fakestoreapi/fakestore.servic
   styleUrls: ['./view-product-details.component.css'],
 })
 export class ViewProductDetailsComponent implements OnInit {
+  // quantity selector
   title = 'increment-decrement';
   productQuantity: number = 1;
 
-  addToCartIcon = faCartPlus;;
+  // icons
+  addToCartIcon = faCartPlus;
   increaseIcon = faPlus;
   decreaseIcon = faMinus;
 
-  id: any;
+  // product model variables
+  id: any; //used to store the current product's id that is being viewed
   product!: Product;
 
-  itemsInCart: number = 0;
+  //
+  itemsInCart$: Observable<Item[]> | undefined;
+
   subscription!: Subscription;
 
   constructor(
-    private _fakeStoreService: FakestoreService,
+    private _storeService: StoreService,
     private route: ActivatedRoute,
     private router: Router,
     private _cartService: CartService
   ) {}
 
   ngOnInit(): void {
-    console.log((this.id = this.route.snapshot.params['id']));
+    // console.log((this.id = this.route.snapshot.params['id']));
     this.getProductDetails((this.id = this.route.snapshot.params['id']));
-
   }
 
   quantity(value: string) {
@@ -55,27 +62,42 @@ export class ViewProductDetailsComponent implements OnInit {
   }
 
   getProductDetails(id: number) {
-    this._fakeStoreService.getOneProduct(this.id).subscribe((data: any) => {
+    this._storeService.getOneProduct(this.id).subscribe((data: any) => {
       // console.log('product:', data);
       this.product = data;
     });
   }
 
   //When item is added to the cart
-  addToCart(addedProduct: Product) {
-
+  addToCart(addedProduct: any) {
     // assign properties for Item attributes to allow values in line 63 to be recognized
-    type Item = {
-      id: number;
-      product: any;
-      quantity: number;
-    };
+    // type Item = {
+    //   id: number;
+    //   productId: number;
+    //   productName: string;
+    //   quantity: number;
+    //   price: number;
+    // };
+
+    // if (addedProduct) {
+    //   console.log(
+    //     `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
+    //   );
+    //   let cartItem: Item = {
+    //     id: this._cartService.setUniqueId(),
+    //     productId: addedProduct.id,
+    //     productName:  addedProduct.title,
+    //     quantity: this.productQuantity,
+    //     price: addedProduct.price
+    //   };
 
     if (addedProduct) {
-      console.log(`Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity}`);
-      let cartItem: Item = { id: 0, product: addedProduct, quantity: this.productQuantity};
-
-      this._cartService.createCartItem(cartItem);
+      // console.log(
+      //   `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
+      // );
+      console.log(`Product Added: ${addedProduct.title}  Qty: ${this.productQuantity}`)
+      this._cartService.addItemToCart(addedProduct, this.productQuantity);
+      // this._cartService.addItemToCart(addedProduct, this.productQuantity);
     }
   }
 }

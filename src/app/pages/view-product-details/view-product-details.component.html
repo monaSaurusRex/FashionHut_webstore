@@ -1,45 +1,27 @@
 <div class="card mt-5">
-  <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
-    <div class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center">
-      <img src="{{ product.image }}" id="product-image" />
-    </div>
-    <!-- <div class="row">
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="{{ product.image }}" id="product-image" />
-          </div>
+    <div class="row d-flex justify-content-center flex-sm-column flex-md-row">
+        <div class="product-image col-sm-12 col-md-5 col-lg-5">
+            <img src={{product.image}} id="product-image" />
         </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="{{ product.image }}" id="product-image" />
+        <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
+            <div class="product-header">
+                <h1 class="product-title">{{product.title}}</h1>
+                <h2 class="text-body-secondary">Brand</h2>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="{{ product.image }}" id="product-image" />
+            <hr>
+            <div class="product-price">
+                <p class="price-label">{{product.price | currency:'ZAR ':'symbol':'.2'}}</p>
             </div>
-          </div>
-           -->
+            <div class="product-decription">
+                <p class="description">{{product.description}}</p>
+            </div>
+            <hr>
+            <div class="product-specs d-flex justify-content-start flex-column">
 
-    <div class="product-details col-sm-12 col-md-7 col-lg-7 d-flex justify-content-start flex-column">
-      <div class="product-header">
-        <h1 class="product-title">{{ product.title }}</h1>
-        <h2 class="text-body-secondary">Brand</h2>
-      </div>
-      <hr />
-      <div class="product-price">
-        <p class="price-label">
-          {{ product.price | currency : "R " : "symbol" : ".2" }}
-        </p>
-      </div>
-      <div class="product-decription">
-        <p class="description">{{ product.description }}</p>
-      </div>
-      <hr />
-      <div class="product-specs d-flex justify-content-start flex-column">
-        <div class="colours selector d-flex justify-content-start flex-column">
-          <div class="input-group"></div>
-        </div>
+                <div class="colours selector d-flex justify-content-start flex-column">
+                    <div class="input-group">
+
+                    </div>
 
         <!-- <div class="sizes selector d-flex justify-content-start flex-column">
           <h2>Colors(selected):</h2>

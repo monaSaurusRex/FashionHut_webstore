@@ -9,7 +9,8 @@
       <!-- <button type="button" class="btn btn-icon clear-search-btn">
         <fa-icon [icon]="closeIcon"></fa-icon>
       </button> -->
-      <input class="form-control searchbar" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search for product...">
+      <input class="form-control searchbar" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="Search for product...">
       <button type="button" class="btn btn-icon search-btn">
         <fa-icon [icon]="searchIcon"></fa-icon>
       </button>
@@ -17,11 +18,14 @@
   </div>
 </div>
 
-<div class="row g-5">
-  <div *ngFor="let product of products | paginate: {itemsPerPage: 8, currentPage: p} | filter: searchText" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="row g-4 d-flex flex-row">
+  <div *ngFor="let product of products | filter: searchText" class="col-6 col-sm-6 col-md-4 col-lg-3">
+    <!-- <div *ngIf="(itemsInCart$  | async)?.length === 0">The product you were looking for was not found.</div> -->
     <div class="card">
       <div class="card-body">
         <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
+        <div class="card-image"></div>
+
         <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
         <p class="product-price">{{product.price | currency:' ZAR ':'symbol':'.2'}} </p>
       </div>

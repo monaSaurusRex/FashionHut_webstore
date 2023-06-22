@@ -69,17 +69,17 @@ body {
     background-color: var(--background-color);
 }
 
-.container{
+.container {
     margin: var(--s-medium);
 }
 
-.row{
+.row {
     margin: 0px !important;
     padding: 0px !important;
 }
 
 .card {
-   padding: var(--s-large) !important;
+    padding: var(--s-large) !important;
     width: 100%;
 
     background-color: var(--white);
@@ -112,7 +112,20 @@ h2 {
     color: var(--dark);
 }
 
-.text-body-secondary, .greyed-headings{
+h3 {
+    font-family: var(--body-font);
+    font-size: var(--normal);
+    font-weight: var(--bold);
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--dark);
+}
+
+.text-body-secondary,
+.greyed-headings {
     font-family: var(--body-font);
     font-size: var(--medium);
     color: var(--light-grey);
@@ -129,6 +142,32 @@ p {
     align-items: center;
 
     color: var(--dark);
+}
+
+.bold {
+    font-family: var(--body-font);
+    font-size: var(--medium);
+    font-weight: var(--bold);
+    font-style: normal;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--dark);
+}
+
+.greyed {
+    font-family: var(--body-font);
+    font-size: var(--normal);
+    font-weight: var(--normal);
+    font-style: normal;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--light-grey);
 }
 
 label {
@@ -174,12 +213,19 @@ input {
     height: var(--height-medium);
 }
 
+img {
+    border-radius: var(--default-border-radius);
+    /* width: 100% important!; */
+    height: 80%;
+    object-fit: contain;
+}
+
 .form-control {
     border-radius: var(--default-border-radius);
     border-color: var(--grey);
 }
 
-.vr {
+/* .vr {
     background-color: var(--grey);
     height: var(--x-large);
     width: 2px;
@@ -193,23 +239,20 @@ hr {
     margin: var(--s-small) 0px;
 
     border: none !important;
-}
+} */
 
 @media only screen and (max-width: 768px) {
-    #body { 
-        margin-top: 70px; /*make space for sticky navbar on mobile screen*/
-    }
-
-    h1,
-    title {
-        font-size: var(--large);
+    #body {
+        margin-top: 70px;
+        /*make space for sticky navbar on mobile screen*/
     }
 
     h2 {
         font-size: var(--medium);
     }
-    
-    .text-body-secondary, .greyed-headings{
+
+    .text-body-secondary,
+    .greyed-headings {
         font-size: var(--normal);
     }
 
