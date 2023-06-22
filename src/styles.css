@@ -79,7 +79,7 @@ body {
 }
 
 .card {
-    padding: var(--s-medium) !important;
+    padding: var(--s-large) !important;
     width: 100%;
 
     background-color: var(--white);
@@ -144,7 +144,8 @@ p {
     color: var(--dark);
 }
 
-.bold {
+.bold,
+label {
     font-family: var(--body-font);
     font-size: var(--medium);
     font-weight: var(--bold);
@@ -248,6 +249,12 @@ hr {
         /*make space for sticky navbar on mobile screen*/
     }
 
+    h1,
+    title {
+        font-size: var(--large);
+        margin: var(--s-small) 0px !important;
+    }
+
     h2 {
         font-size: var(--medium);
     }
@@ -258,7 +265,8 @@ hr {
     }
 
     p {
-        font-size: var(--normal);
+        font-size: var(--small);
+        margin: var(--s-small) 0px !important;
     }
 
     .mobile-hide {
@@ -268,6 +276,10 @@ hr {
 
     .container-fluid {
         padding: 0px 5px;
+    }
+
+    .card {
+        padding: var(--s-medium) !important;
     }
 
 }
