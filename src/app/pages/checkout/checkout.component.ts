@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -33,7 +34,9 @@ Validators.pattern('^[0-9]{16}$')
     Validators.pattern('^[0-9]{3}$')
   ]);
   orderInfo: any = {};
-  constructor() { }
+  
+  constructor(private router: Router) { }
+
   
   updateOrderReview() {
 
@@ -53,15 +56,18 @@ Validators.pattern('^[0-9]{16}$')
   
   }
   
-  update(){
+  update() {
     Swal.fire({
       position: 'center',
       icon: 'success',
       title: 'Your order has been successfully purchased',
       showConfirmButton: false,
       timer: 1500
+    }).then(() => {
+      this.router.navigate(['all-products']);
     });
   }
+  
   
   get showErrorMessage() {
     return this.cardExpirationControl.invalid && this.cardExpirationControl.touched;
