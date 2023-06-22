@@ -109,9 +109,11 @@ Validators.pattern('^[0-9]{16}$')
     );
   }
   
+  isOrderFormValid(): boolean {
+    return this.isDeliveryFormValid() && this.isPaymentFormValid();
     }
     
   
-  
+}
   
 

@@ -185,7 +185,7 @@
         <p>{{ orderInfo.cardNumber }}</p>
         <p>{{ orderInfo.cardExpiration }}</p>
         <p>{{ orderInfo.securityCode }}</p>
-        <button class="btn btn-primary btn-block cart-btn" (click)="update()">
+        <button class="btn btn-primary btn-block cart-btn" [disabled]="!isOrderFormValid()" (click)="update()">
          
           <span>Complete Order</span>
         </button>
