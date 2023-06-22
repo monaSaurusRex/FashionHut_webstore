@@ -24,9 +24,13 @@
 
 
 
- .outer{
-    background-color: var(--white);
- }
+ .outer {
+        background-color: var(--white);
+        border-radius: 3px;
+      }
+ 
+      
+ 
 
  a{
     color: var(--primary-color) 
