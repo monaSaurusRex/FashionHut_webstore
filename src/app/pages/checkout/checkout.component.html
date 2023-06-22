@@ -4,8 +4,8 @@
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h1 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="false" aria-controls="collapseOne">
                 Delivery/Shipping
               </button>
             </h1>
@@ -86,7 +86,7 @@
                     </div>
                   </div>
                   <br />
-                  <button class="btn btn-primary btn-block cart-btn" (click)="updateOrderReview()">
+                  <button class="btn btn-primary btn-block cart-btn" [disabled]="!isDeliveryFormValid()" (click)="updateOrderReview()">
                     <span>Continue</span>
                   </button>
                 </form>
@@ -94,12 +94,12 @@
             </div>
           </div>
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
+            <h3 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Payment
               </button>
-            </h2>
+            </h3>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample">
               <div class="accordion-body">
@@ -155,7 +155,7 @@
                     </div>
                   </div>
                   <br />
-                  <button class="btn btn-primary btn-block cart-btn" (click)="updateOrderReview()">
+                  <button class="btn btn-primary btn-block cart-btn" [disabled]="!isPaymentFormValid()" (click)="updateOrderReview()">
                     <span>Continue</span>
                   </button>
                 </form>
@@ -185,7 +185,7 @@
         <p>{{ orderInfo.cardNumber }}</p>
         <p>{{ orderInfo.cardExpiration }}</p>
         <p>{{ orderInfo.securityCode }}</p>
-        <button class="btn btn-primary btn-block cart-btn" (click)="update()">
+        <button class="btn btn-primary btn-block cart-btn" [disabled]="!isOrderFormValid()" (click)="update()">
          
           <span>Complete Order</span>
         </button>
