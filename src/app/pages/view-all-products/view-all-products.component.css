@@ -59,6 +59,7 @@ p .product-price {
    border-color: var(--primary-color);
    color: var(--primary-color);
    background-color: var(--white);
+   
 }
 
 .btn:hover,
