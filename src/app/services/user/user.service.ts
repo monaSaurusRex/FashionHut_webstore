@@ -6,9 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  checkIfUserxists(email: any) {
-    throw new Error('Method not implemented.');
-  }
+
   checkAccountExistence(email: any) {
     throw new Error('Method not implemented.');
   }
@@ -21,9 +19,6 @@ export class UserService {
   createUser(body: any){
     return this.http.post(`${this.url}/register`, body);
   }
-    checkIfUserExists(email: string): Observable<any> {
-      return this.http.get<any>(`/${email}`);
-    }
     
   }
   

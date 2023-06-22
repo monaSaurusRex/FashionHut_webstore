@@ -43,7 +43,7 @@ throw new Error('Method not implemented.');
       this.passwordMismatch = true;
       return; // Stop form submission
     }
-  
+
     if (this.registerForm.valid) {
       let body: any = {
         firstName: this.registerForm.value.firstName,
@@ -52,34 +52,25 @@ throw new Error('Method not implemented.');
         phoneNumber: this.registerForm.value.phoneNumber,
         password: this.registerForm.value.password
       };
-  
-      this._userService.checkIfUserExists(body.email).subscribe(
+
+      this._userService.createUser(body).subscribe(
         (response: any) => {
-          if (response.exists) {
-            Swal.fire('Account Exists', 'An account with this email already exists. Please login instead.', 'warning');
-            this.router.navigate(['/login']);
-          } else {
-            this._userService.createUser(body).subscribe(
-              (response: any) => {
-                console.log('registered successfully', response);
-                this.router.navigate(['/login']);
-              },
-              (error: any) => {
-                console.log('failed', error);
-              }
-            );
-          }
+          console.log('registered successful', response);
+          this.router.navigate(['/login'])
+          
         },
         (error: any) => {
           console.log('failed', error);
         }
       );
+      
     } else {
       ValidateForm.validateAllFormFields(this.registerForm);
     }
+  
   }
+  
   checkPasswordMismatch() {
     this.passwordMismatch = this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value;
   }
 }
- 
