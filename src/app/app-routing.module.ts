@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path:'login', component: LoginComponent},
@@ -15,8 +16,11 @@ const routes: Routes = [
   {path: 'view-product/:id', component: ViewProductDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: '**', redirectTo: 'all-products', pathMatch: 'full'},
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
