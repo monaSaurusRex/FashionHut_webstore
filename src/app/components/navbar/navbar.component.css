@@ -67,7 +67,7 @@ button {
 #mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
-    width: 100%;
+    /* width: 100%; */
 }
 
 #cart-sidebar fa-icon {
