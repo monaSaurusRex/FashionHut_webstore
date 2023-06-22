@@ -4,7 +4,9 @@
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div class="panel border bg-white">
                     <div class="panel-heading d-flex justify-content-center">
-                        <h3 class="pt-3 font-weight-bold p-2">Login <button class="cancel-button" [routerLink]="['/all-products']" (click)="goBack()">&#10005;</button></h3>
+                        <h1 class="pt-3 font-weight-bold p-2">Login <button class="cancel-button" [routerLink]="['/all-products']" (click)="goBack()">
+                            <fa-icon [icon]="closeIcon"></fa-icon>
+                        </button></h1>
                       </div>
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">

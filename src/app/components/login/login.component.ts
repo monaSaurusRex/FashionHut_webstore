@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import ValidateForm from '../helper/validateform';
 import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -16,7 +16,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loggedInUser: string | null = null;
+  // icons
   userIcon = faUser;
+  closeIcon = faTimes;
+
 
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
