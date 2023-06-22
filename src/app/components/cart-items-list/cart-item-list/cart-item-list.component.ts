@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faCartPlus, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faPlus, faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { Observable } from 'rxjs';
 
@@ -22,6 +22,8 @@ export class CartItemListComponent implements OnInit {
   addToCartIcon = faCartPlus;
   increaseIcon = faPlus;
   decreaseIcon = faMinus;
+  removeIcon = faTrash;
+
 
   //cart services observable variable
   cartItems: Cart = {
@@ -48,11 +50,7 @@ export class CartItemListComponent implements OnInit {
     this.itemQuantity$ = this._cartService.getItemQuantity(); //get the quantity of the cart item
   }
 
-  quantity(value: string) {
-    if (this.productQuantity < 20 && value == 'increase') {
-      this.productQuantity += 1;
-    } else if (this.productQuantity > 1 && value == 'decrease') {
-      this.productQuantity -= 1;
-    }
+  removeItem(item: Item) {
+    this._cartService.deleteItem(item);
   }
 }

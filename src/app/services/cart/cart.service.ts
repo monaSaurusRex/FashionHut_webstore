@@ -159,4 +159,10 @@ export class CartService {
       })
     );
   }
+
+  deleteItem(deleteItem: Item) {
+    const cart = { ...this.cart$.value };
+    cart.items = cart.items.filter((item) => deleteItem.id !== item.id);
+    this.setCartItems(cart);
+  }
 }

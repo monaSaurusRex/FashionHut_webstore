@@ -91,20 +91,25 @@
                     <div class="offcanvas-footer row">
                         <hr>
                         <div *ngIf="((cartItemsCount$ | async) != 0)">
-                            <app-subtotal></app-subtotal>
-                        </div>
-
-                        <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0"
-                                [routerLink]="['cart']" data-bs-dismiss="offcanvas">View Cart</button>
-                        </div>
-                        <div class="col-6 d-flex justify-content-center align-self-center">
-                            <button class="btn btn-block checkout-btn" [disabled]="(cartItemsCount$ | async) === 0"
-                                [routerLink]="['checkout']" data-bs-dismiss="offcanvas">Checkout</button>
+                            <div class="div">
+                                <app-subtotal></app-subtotal>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 d-flex justify-content-center align-self-center">
+                                    <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0"
+                                        [routerLink]="['cart']" data-bs-dismiss="offcanvas">View Cart
+                                    </button>
+                                </div>
+                                <div class="col-6 d-flex justify-content-center align-self-center">
+                                    <button class="btn btn-block checkout-btn"
+                                        [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['checkout']"
+                                        data-bs-dismiss="offcanvas">Checkout
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </nav>

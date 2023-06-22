@@ -26,12 +26,16 @@
                             <!-- <p class="greyed">{{product.color}}</p> -->
                         </div>
                     </div>
-                    <div class="col-12">
-
-                    </div>
                     <!-- cart item price -->
                     <div class="col-12">
                         <h3 class=" text-end text-nowrap">{{item.productPrice * item.quantity | currency:'ZAR ':'symbol':'.2'}}</h3>
+                    </div>
+                    <!-- remove button -->
+                    <div class="col-12 justify-content-start flex-row">
+                        <button (click)="removeItem(item)" class="btn btn-decrease btn-icon">
+                            <fa-icon [icon]="removeIcon"></fa-icon>
+                            <p>Remove</p>
+                        </button>
                     </div>
                 </div>
 

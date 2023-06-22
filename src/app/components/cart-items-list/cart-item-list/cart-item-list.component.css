@@ -13,23 +13,11 @@
     color: var(--dark);
 }
 
-.selector {
-    margin-bottom: var(--s-medium);
-
-    border-radius: var(--default-border-radius);
-}
-
 .btn-icon {
-    border: var(--grey-border);
-    border-radius: var(--default-border-radius);
-
     color: var(--dark);
 }
 
 .btn-icon:hover, .btn-icon:focus {
-    border: var(--grey-border);
-    border-radius: var(--default-border-radius);
-
     color: var(--darker);
 }
 

@@ -7,7 +7,7 @@ button {
 }
 
 .offcanvas div{
-    padding: var(--s-medium);
+    padding: var(--s-small);
 }
 
 .nav {
