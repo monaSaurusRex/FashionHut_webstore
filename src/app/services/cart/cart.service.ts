@@ -154,8 +154,21 @@ export class CartService {
         const subtotal = cart?.items
           .map((item) => item.quantity * item.productPrice)
           .reduce((prevVal, currVal) => prevVal + currVal, 0);
-        console.log(`Cart Subtotal: ${subtotal}`);
+        // console.log(`Cart Subtotal: ${subtotal}`);
         return subtotal;
+      })
+    );
+  }
+
+  getTotal(): Observable<number> {
+
+    return this.cart$.pipe(
+      map((cart) => {
+        const total = cart?.items
+          .map((item) => item.quantity * item.productPrice)
+          .reduce((prevVal, currVal) => prevVal + currVal, 0);
+        // console.log(`Cart Subtotal: ${total}`);
+        return total + 100;
       })
     );
   }

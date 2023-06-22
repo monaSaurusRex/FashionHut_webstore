@@ -17,6 +17,7 @@ export class CartComponent implements OnInit{
   itemQuantity$: Observable<number> | undefined;
   cartItemsCount$: Observable<number> | undefined;
   subTotal$: Observable<number> | undefined;
+  total$: Observable<number> | undefined;
 
   constructor(private _cartService: CartService, private _storeService: StoreService){}
 
@@ -25,6 +26,7 @@ export class CartComponent implements OnInit{
     this.itemQuantity$ = this._cartService.getItemQuantity(); //get the quantity of the cart item
     this.cartItemsCount$ = this._cartService.getCartItemsCount();
     this.subTotal$ = this._cartService.getSubtotal();
+    this.total$ = this._cartService.getTotal();
       
   }
 
