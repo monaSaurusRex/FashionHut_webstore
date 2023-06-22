@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import ValidateForm from '../helper/validateform';
 import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @Component({
   selector: 'app-login',
@@ -10,8 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
   loggedInUser: string | null = null;
+  userIcon = faUser;
+
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -25,12 +31,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-    this.router.navigate(['/all-products']); //comment out with functionality done
     if (this.loginForm.valid) {
       const body: any = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       };
+      this.router.navigate(['/all-products']); //comment out with functionality done
 
       this.userService.login(body).subscribe(
         (response: any) => {
@@ -51,6 +57,8 @@ export class LoginComponent implements OnInit {
       // Handle form validation errors
     }
   }
-
+  goBack() {
+    throw new Error('Method not implemented.');
+    }
   
 }
