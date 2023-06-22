@@ -47,5 +47,5 @@ button{
   background-color: var(--white);
 }
 .accordion-button{
-  color: var();
+  color: var(--white);
 }

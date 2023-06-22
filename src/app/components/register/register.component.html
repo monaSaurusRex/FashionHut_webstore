@@ -3,8 +3,11 @@
         <div class="row">
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div class="panel border bg-white">
-                    <div class="panel-heading">
-                        <h3 class="pt-3 font-weight-bold p-3">Register</h3>
+                    <div class="panel-heading d-flex justify-content-center">
+                        <h3 class="pt-3 font-weight-bold p-2">
+                            Register<button class="cancel-button" [routerLink]="['../home']"
+                                (click)="goBack()">&#10005;
+                            </button></h3>
                     </div>
                     <div class="panel-body p-3">
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -75,7 +78,7 @@
                                     [class.valid]="registerForm.controls['password'].valid">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input formControlName="password" type="password" class="form-control"
-                                        id="exampleInputPassword1" placeholder="Password">
+                                        id="exampleInputPassword1">
                                 </div>
                                 <small
                                     *ngIf="registerForm.controls['password'].dirty && registerForm.controls['password'].hasError('required')"
@@ -90,23 +93,21 @@
 
                             <div class="form-group pt-3">
                                 <div class="input-field"
-                                  [class.error]="registerForm.controls['confirm'].dirty && registerForm.controls['confirm'].hasError('required')"
-                                  [class.valid]="registerForm.controls['confirm'].valid">
-                                  <label for="confirm">Confirm Password</label>
-                                  <input formControlName="confirm" type="password" class="form-control" id="confirm" (input)="checkPasswordMismatch()">
+                                    [class.error]="registerForm.controls['confirm'].dirty && registerForm.controls['confirm'].hasError('required')"
+                                    [class.valid]="registerForm.controls['confirm'].valid">
+                                    <label for="confirm">Confirm Password</label>
+                                    <input formControlName="confirm" type="password" class="form-control" id="confirm"
+                                        (input)="checkPasswordMismatch()">
                                 </div>
-                              </div>
-                              <small *ngIf="registerForm.controls['confirm'].dirty && registerForm.hasError('required', 'confirm')"
-                                class="text-danger">*confirm password required</small> <br>
-                              <small *ngIf="passwordMismatch" class="text-danger"> *Passwords do not match</small>
-
-                                <!-- <div class = "text-danger" *ngIf="confirm === 'mismatch' && (confirm.dirty ||confirm.touched)"> password do not match</div> -->
-                            <div class="form-group pt-5">
-                                <button type="submit" class="btn btn-success pt-6">Register</button>
                             </div>
-                            
-                            <div class="form-inline fr mt-4">
-                                <a id=" forgot" class="font-weight-lighter">Forgot your password?</a>
+                            <small
+                                *ngIf="registerForm.controls['confirm'].dirty && registerForm.hasError('required', 'confirm')"
+                                class="text-danger">*confirm password required</small> <br>
+                            <small *ngIf="passwordMismatch" class="text-danger"> *Passwords do not match</small>
+
+                            <!-- <div class = "text-danger" *ngIf="confirm === 'mismatch' && (confirm.dirty ||confirm.touched)"> password do not match</div> -->
+                            <div class="form-group pt-1">
+                                <button type="submit" class="btn btn-primary pt-6" >Register</button>
                             </div>
                             <div class="pt-4 text muted">Already have an account? <a id="forget"
                                     class="font-weight-lighter" routerLink="/login">Login</a></div>
@@ -119,3 +120,4 @@
             </div>
         </div>
     </div>
+</div>

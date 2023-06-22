@@ -3,15 +3,17 @@
         <div class="row">
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div class="panel border bg-white">
-                    <div class="panel-heading">
-                        <h3 class="pt-3 font-weight-bold p-3">Login</h3>
-                    </div>
+                    <div class="panel-heading d-flex justify-content-center">
+                        <h1 class="pt-3 font-weight-bold p-2">Login <button class="cancel-button" [routerLink]="['/all-products']" (click)="goBack()">
+                            <fa-icon [icon]="closeIcon"></fa-icon>
+                        </button></h1>
+                      </div>
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
                                 <div class="input-field" [class.error]="loginForm.controls['email'].dirty && (loginForm.controls['email'].hasError('required') || loginForm.controls['email'].hasError('email'))" [class.valid]="loginForm.controls['email'].valid">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                   </div>
                                   <small *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('required')" class="text-danger">* Email is required</small>
                                   <small *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].hasError('email')" class="text-danger">* Invalid email format</small>
@@ -21,18 +23,19 @@
                                 <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')" [class.valid]="loginForm.controls['password'].valid">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
+                                        >
                                 </div>
                                 <small *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')" class="text-danger">* Password is required</small>
                                 <small *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('pattern')" class="text-danger"> Password must contain at least 8 characters, including uppercase, lowercase, numeric, and special characters</small>
                             </div>
-                            <div class="form-group pt-5">
-                                <button (click)="onSubmit()" class="btn btn-success pt-6">Login</button>
+                            <div class="form-group pt-4">
+                                <button (click)="onSubmit()" class="btn pt-6" [disabled]="!loginForm.valid"> <fa-icon [icon]="userIcon"></fa-icon>
+                                    Login</button>
                             </div>
-                            <div class="form-inline fr mt-4">
-                                <a id="forgot" class="font-weight-lighter">Forgot your password?</a>
+                            <div class="form-inline fr mt-2">
+                                <a id="forgot" class="font-weight-medium" [routerLink]="['/forgot-password']">Forgot your password?</a>
                             </div>
-                            <div class="pt-4 text-muted">Don't have an account? <a id="forget" class="font-weight-lighter" routerLink="/register"> Register</a></div>
+                            <div class="pt-2 text-muted">Don't have an account? <a id="forget" class="font-weight-medium" routerLink="/register"> Register</a></div>
                         </form>
                     </div>
                 </div>

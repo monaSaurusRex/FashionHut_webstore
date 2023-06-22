@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2';
+
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
@@ -12,6 +15,9 @@ import ValidateForm from '../helper/validateform';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+goBack() {
+throw new Error('Method not implemented.');
+}
   type: string = "password";
   registerForm!: FormGroup;
   submitted: any;
@@ -31,7 +37,7 @@ export class RegisterComponent implements OnInit {
       confirm: ['', Validators.required]
     });
   }
-
+  
   onSubmit() {
     if (this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value) {
       this.passwordMismatch = true;
@@ -49,24 +55,21 @@ export class RegisterComponent implements OnInit {
 
       this._userService.createUser(body).subscribe(
         (response: any) => {
-          // Login successful, handle the response here
           console.log('registered successful', response);
-          this.router.navigate(['/login']);
-          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
-          // this.router.navigate(['/checkout']);
+          this.router.navigate(['/login'])
+          
         },
         (error: any) => {
-          // Login failed, handle the error
           console.log('failed', error);
-          // You can display an error message to the user indicating that the login credentials are invalid
         }
       );
+      
     } else {
       ValidateForm.validateAllFormFields(this.registerForm);
-      // Handle form validation errors
     }
+  
   }
-
+  
   checkPasswordMismatch() {
     this.passwordMismatch = this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value;
   }

@@ -2,16 +2,22 @@ button {
     padding: 10px;
     margin-left: 5px;
 }
-.offcanvas{
+
+.offcanvas {
     background-color: var(--white);
 }
 
-.offcanvas div{
-    padding: var(--s-small);
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.offcanvas div {
+    padding: var(--s-medium);
 }
 
 .nav {
-    height: 60px;
     padding: 10px 30px;
 
     flex-direction: row;
@@ -61,15 +67,15 @@ button {
 #mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
-    width: 100%;
+    /* width: 100%; */
 }
 
-#cart-sidebar fa-icon{
+#cart-sidebar fa-icon {
     background-color: var(--white);
     color: var(--dark);
 }
 
-#cart-sidebar p{
+#cart-sidebar p {
     font-family: var(--heading-font);
     font-size: var(--x-large);
     font-weight: var(--bold);
@@ -79,8 +85,9 @@ button {
     align-items: center;
     color: var(--dark);
 }
-
-p, ng-template {
+    
+p,
+ng-template {
     margin: 0px !important;
     color: var(--white);
     font-size: var(--large);
@@ -88,38 +95,46 @@ p, ng-template {
     width: fit-content;
 }
 
-fa-icon, .cart-item-counter {
+fa-icon,
+div .cart-item-counter {
     margin-right: var(--s-small);
     display: flex;
     justify-content: center;
     align-self: center;
 }
 
-.offcanvas-footer{
-    height:fit-content;
-    width:100%;
+.offcanvas-footer {
+    height: fit-content;
+    width: 100%;
 
     padding: var(--s-medium);
-    
-    position:absolute;
-    bottom:0; 
-        
+
+    position: absolute;
+    bottom: 0;
+
     z-index: 10;
 
     background-color: var(--white);
 }
 
-.cart-sb-btn, .cart-sb-btn:focus, .cart-sb-btn:active, .cart-sb-btn{
+.cart-sb-btn,
+.cart-sb-btn:focus,
+.cart-sb-btn:active,
+.cart-sb-btn {
     padding: var(--s-medium);
 }
 
-.checkout-btn, .checkout-btn:focus, .checkout-btn:active{
+.checkout-btn,
+.checkout-btn:focus,
+.checkout-btn:active {
     border-color: var(--primary-color);
     color: var(--white);
     background-color: var(--primary-color);
 }
 
-.cart-btn, .cart-sb-btn:focus, .cart-btn:active{
+.cart-btn,
+.cart-sb-btn:focus,
+.cart-btn:active {
     border-color: var(--primary-color);
     color: var(--primary-color);
     background-color: var(--white);
@@ -145,7 +160,7 @@ fa-icon, .cart-item-counter {
         margin-left: 0px;
     }
 
-    body{
+    body {
         margin-top: 60px;
     }
 
@@ -157,7 +172,7 @@ fa-icon, .cart-item-counter {
         z-index: 50;
     }
 
-    .vr{
+    .vr {
         display: none !important;
     }
 
