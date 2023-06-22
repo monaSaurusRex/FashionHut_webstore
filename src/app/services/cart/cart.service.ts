@@ -66,18 +66,30 @@ export class CartService {
   addItemToCart(addedProduct: any, quantity: number) {
     const cart = { ...this.cart$.value };
     // console.log(`Product Added: ${addedProduct.title}  Qty: ${quantity}`)
+    const productId = addedProduct.id;
 
-    const newItem = {
-      id: this.setUniqueId(),
-      quantity: quantity,
-      productId: addedProduct.id,
-      productTitle: addedProduct.title,
-      productPrice: addedProduct.price,
-      productCategory: addedProduct.category,
-      productImageURL: addedProduct.image, //imageUrl
-    };
+    //check if a product has already been added to the cart
+    const itemExists = cart.items.find(item => item.productId === productId);
 
-    cart.items.push(newItem);
+    console.log(itemExists);
+
+    if(itemExists){
+      console.log(`Product Added:has already been added`);
+      cart.items = this.setItemQuantity(quantity, productId);
+
+    }else{
+      const newItem = {
+        id: this.setUniqueId(),
+        quantity: quantity,
+        productId: addedProduct.id,
+        productTitle: addedProduct.title,
+        productPrice: addedProduct.price,
+        productCategory: addedProduct.category,
+        productImageURL: addedProduct.image, //imageUrl
+      };
+  
+      cart.items.push(newItem);
+    }
 
     this.cart$.next(cart);
   }
@@ -87,14 +99,15 @@ export class CartService {
     return this.cart$.pipe(map((cart) => cart.items));
   }
 
-  setItemQuantity(updateQuantity: number, updateItem: Item) {
+  setItemQuantity(updateQuantity: number, productId: number) {
     const cart = { ...this.cart$.value };
     cart.items = cart.items.map((item) => {
       item.quantity =
-        item.id === updateItem.id ? +updateQuantity : item.quantity;
+        item.productId === productId ? +updateQuantity : item.quantity;
       return item;
     });
-    this.setCartItems(cart);
+    // this.setCartItems(cart);
+    return cart.items;
   }
 
   //update a cart item
