@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2';
+
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
@@ -34,13 +37,13 @@ throw new Error('Method not implemented.');
       confirm: ['', Validators.required]
     });
   }
-
+  
   onSubmit() {
     if (this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value) {
       this.passwordMismatch = true;
       return; // Stop form submission
     }
-
+  
     if (this.registerForm.valid) {
       let body: any = {
         firstName: this.registerForm.value.firstName,
@@ -49,28 +52,34 @@ throw new Error('Method not implemented.');
         phoneNumber: this.registerForm.value.phoneNumber,
         password: this.registerForm.value.password
       };
-
-      this._userService.createUser(body).subscribe(
+  
+      this._userService.checkIfUserExists(body.email).subscribe(
         (response: any) => {
-          // Login successful, handle the response here
-          console.log('registered successful', response);
-          this.router.navigate(['/login']);
-          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
-          // this.router.navigate(['/checkout']);
+          if (response.exists) {
+            Swal.fire('Account Exists', 'An account with this email already exists. Please login instead.', 'warning');
+            this.router.navigate(['/login']);
+          } else {
+            this._userService.createUser(body).subscribe(
+              (response: any) => {
+                console.log('registered successfully', response);
+                this.router.navigate(['/login']);
+              },
+              (error: any) => {
+                console.log('failed', error);
+              }
+            );
+          }
         },
         (error: any) => {
-          // Login failed, handle the error
           console.log('failed', error);
-          // You can display an error message to the user indicating that the login credentials are invalid
         }
       );
     } else {
       ValidateForm.validateAllFormFields(this.registerForm);
-      // Handle form validation errors
     }
   }
-
   checkPasswordMismatch() {
     this.passwordMismatch = this.registerForm.controls['password'].value !== this.registerForm.controls['confirm'].value;
   }
 }
+ 
