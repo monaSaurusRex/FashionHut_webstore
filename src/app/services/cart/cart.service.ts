@@ -123,12 +123,11 @@ export class CartService {
 
   // method to calculate subtotal for items in cart
   getSubtotal(): Observable<number> {
-    const product = { ...this.product$.value };
 
     return this.cart$.pipe(
       map((cart) => {
         const subtotal = cart?.items
-          .map((item) => item.quantity * product.price)
+          .map((item) => item.quantity * item.productPrice)
           .reduce((prevVal, currVal) => prevVal + currVal, 0);
         console.log(`Cart Subtotal: ${subtotal}`);
         return subtotal;
