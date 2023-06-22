@@ -75,7 +75,7 @@ export class CartService {
 
     if(itemExists){
       console.log(`Product Added:has already been added`);
-      cart.items = this.setItemQuantity(quantity, productId);
+      cart.items = this.addToItemQuantity(quantity, productId);
 
     }else{
       const newItem = {
@@ -104,6 +104,18 @@ export class CartService {
     cart.items = cart.items.map((item) => {
       item.quantity =
         item.productId === productId ? +updateQuantity : item.quantity;
+      return item;
+    });
+    // this.setCartItems(cart);
+    return cart.items;
+  }
+
+  
+  addToItemQuantity(quantity: number, productId: number){
+    const cart = { ...this.cart$.value };
+    cart.items = cart.items.map((item) => {
+      item.quantity =
+        item.productId === productId ? item.quantity + quantity : item.quantity;
       return item;
     });
     // this.setCartItems(cart);
