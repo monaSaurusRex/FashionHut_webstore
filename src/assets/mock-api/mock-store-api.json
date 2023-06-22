@@ -1,0 +1,195 @@
+{
+  "uuid": "a4b0892a-da2a-4c6b-8b7e-639ec00998d4",
+  "lastMigration": 27,
+  "name": "Mock store api",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "af037260-5447-4fa5-be30-45f62a9e4911",
+      "type": "http",
+      "documentation": "Get the cart stored in the database",
+      "method": "get",
+      "endpoint": "cart",
+      "responses": [
+        {
+          "uuid": "04291edc-9ba2-482f-b4f6-7fa5dcec95e5",
+          "body": "{\n  \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8c4538e1-e3de-473a-b957-b4c5217ee531",
+      "type": "http",
+      "documentation": "Create a cart to be stored",
+      "method": "post",
+      "endpoint": "cart",
+      "responses": [
+        {
+          "uuid": "7a250b44-6c57-4ef8-8ebe-d4ac2ca17b9d",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e0625e0c-9a81-45bf-bcc6-85fb089d2c99",
+      "type": "http",
+      "documentation": "Update the cart with new added items",
+      "method": "put",
+      "endpoint": "cart",
+      "responses": [
+        {
+          "uuid": "5a85257c-14af-49ad-91ba-7956e55cd89e",
+          "body": "{\n  \"id\":\"{{body 'id'}}\",\n  \"item\": \"{{\n    \n  }}\"\n  \n  \n  \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1775b4a3-5887-4ea1-bdd4-5a09e0ba51d5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "products",
+      "responses": [
+        {
+          "uuid": "ce5c7822-ecad-4a1e-9e30-f13c13edeb62",
+          "body": "// Sample body\n[\n  {{# repeat 10}}\n  {\n    \"productId\": \"{{urlParam 'id'}}\",\n    \"tags\": \"{{someOf (array 'Getting started' 'https' 'proxy mode' 'headers' 'templating') 1 3}}\"\n    \n    \"userName\": \n    {{#switch (urlParam 'id')}}\n      {{#case '1'}}\"Men\"{{/case}}\n      {{#case '2'}}\"Women\"{{/case}}\n      {{#default}}\"Men\"{{/default}}\n    {{/switch}}\n  }\n  {{/ repeat}}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "af037260-5447-4fa5-be30-45f62a9e4911"
+    },
+    {
+      "type": "route",
+      "uuid": "8c4538e1-e3de-473a-b957-b4c5217ee531"
+    },
+    {
+      "type": "route",
+      "uuid": "e0625e0c-9a81-45bf-bcc6-85fb089d2c99"
+    },
+    {
+      "type": "route",
+      "uuid": "1775b4a3-5887-4ea1-bdd4-5a09e0ba51d5"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

@@ -1,0 +1,56 @@
+.input-box {
+    width: var(--width-large);
+    height: var(--height-medium);
+
+    border-style: none;
+    border-bottom: var(--grey-border);
+    border-top: var(--grey-border);
+
+    text-align: center;
+}
+
+.btn {
+    color: var(--dark);
+}
+
+.selector {
+    margin-bottom: var(--s-medium);
+
+    border-radius: var(--default-border-radius);
+}
+
+.btn-icon {
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
+
+    color: var(--dark);
+}
+
+.btn-icon:hover, .btn-icon:focus {
+    border: var(--grey-border);
+    border-radius: var(--default-border-radius);
+
+    color: var(--darker);
+}
+
+img{
+    width: 100%;
+}
+
+
+/* cart list displayed on smaller screens */
+@media only screen and (max-width: 768px) {
+
+
+}
+
+/* .cart-list
+    container-type: inline-size;
+}
+
+@container(min-width: 700px){
+    .cart-list > *{
+
+
+    }
+} */

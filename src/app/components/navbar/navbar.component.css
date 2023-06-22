@@ -2,7 +2,13 @@ button {
     padding: 10px;
     margin-left: 5px;
 }
+.offcanvas{
+    background-color: var(--white);
+}
 
+.offcanvas div{
+    padding: var(--s-medium);
+}
 
 .nav {
     height: 60px;
@@ -55,31 +61,69 @@ button {
 #mobile-left-sidebar {
     background-color: var(--dark);
     color: var(--white);
+    width: 100%;
 }
 
-#cart-item-list fa-icon{
+#cart-sidebar fa-icon{
     background-color: var(--white);
     color: var(--dark);
 }
 
-.offcanvas {
-    width: 100%;
+#cart-sidebar p{
+    font-family: var(--heading-font);
+    font-size: var(--x-large);
+    font-weight: var(--bold);
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+    color: var(--dark);
 }
 
 p, ng-template {
-    margin-left: var(--s-small);
+    margin-left: var(--s-medium);
     color: var(--white);
     font-size: var(--large);
     text-align: center;
     width: fit-content;
 }
 
-fa-icon,
-.cart-item-counter {
+fa-icon, div .cart-item-counter {
     display: flex;
     justify-content: center;
     align-self: center;
 }
+
+.offcanvas-footer{
+    height:fit-content;
+    width:100%;
+
+    padding: var(--s-medium);
+    
+    position:absolute;
+    bottom:0; 
+        
+    z-index: 10;
+
+    background-color: var(--white);
+}
+
+.cart-sb-btn, .cart-sb-btn:focus, .cart-sb-btn:active, .cart-sb-btn{
+    padding: var(--s-medium);
+}
+
+.checkout-btn, .checkout-btn:focus, .checkout-btn:active{
+    border-color: var(--primary-color);
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.cart-btn, .cart-sb-btn:focus, .cart-btn:active{
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--white);
+}
+
 
 @media only screen and (max-width: 768px) {
 
@@ -114,6 +158,10 @@ fa-icon,
 
     .vr{
         display: none !important;
+    }
+
+    .offcanvas {
+        width: 100%;
     }
 
 }
