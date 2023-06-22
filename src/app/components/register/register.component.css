@@ -8,3 +8,64 @@
   .input-field.valid input {
     border-color: green;
   }
+
+.btn {
+    border-color: var(--primary-color);
+    color: var(--white);
+    background-color: var(--primary-color);
+   border-color: var(--primary-color);
+ } 
+ a{
+color: var(--primary-color);
+ }
+ h3 {
+  font-family: var(--heading-font);
+  font-size: var(--large);
+  font-weight: var(--bold);
+  font-style: normal;
+  align-items: center;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--dark);
+  color: var(--white);
+}
+.cancel-button {
+  position: absolute;
+  /* top: 100px; */
+  right: 210px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 0%;
+}
+input-field.error input {
+  border-color: red;
+}
+
+.input-field.error .text-danger {
+  display: block;
+}
+
+.input-field.valid input {
+  border-color: green;
+}
+
+button {
+  border-radius: var(--default-border-radius);
+  height: var(--height-large);
+  font-family: var(--body-font);
+  background-color: var(--primary-color);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: var(--s-large);
+  gap: var(--s-large);
+}

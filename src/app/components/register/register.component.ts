@@ -12,6 +12,9 @@ import ValidateForm from '../helper/validateform';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+goBack() {
+throw new Error('Method not implemented.');
+}
   type: string = "password";
   registerForm!: FormGroup;
   submitted: any;
