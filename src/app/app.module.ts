@@ -25,7 +25,6 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { UserService } from './services/userservice/user.service';
 // PIPES
 import { FilterPipe } from './services/filter/filter.pipe';
-import { ModalComponentComponent } from './modal-component/modal-component.component';
 
 
 @NgModule({
@@ -42,8 +41,7 @@ import { ModalComponentComponent } from './modal-component/modal-component.compo
     CartItemListComponent,
     CartComponent,
     SubtotalComponent,
-    ForgotPasswordComponent,
-    ModalComponentComponent
+    ForgotPasswordComponent
   ],
   imports: [
     ReactiveFormsModule,

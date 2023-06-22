@@ -1,1 +1,57 @@
-<p>cart works!</p>
+<ng-container *ngIf="
+  {
+    cartItems: cartItems$ | async,
+    cartItemCount: cartItemsCount$ | async
+  } as observables">
+
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-7 col-lg-7">
+      <div class="card">
+        <app-cart-item-list></app-cart-item-list>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="col-sm-12 col-md-5 col-lg-5">
+      <div class="card">
+        <h1>Order Review</h1>
+        <hr />
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start">
+            <div class="offcanvas-title d-flex justify-content-start align-self-center">
+              <p>{{observables.cartItemCount}}</p>
+              <p class="text-align-top text-align-center ms-2 mb-0">Items in cart</p>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end p-0">
+            <p>{{subTotal$ | async | currency:'ZAR ':'symbol':'.2'}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start">
+            <div class="offcanvas-title d-flex justify-content-start align-self-center">
+              <p class="text-align-top text-align-center mb-0">Delivery</p>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end p-0">
+            <p>{{100 | currency:'ZAR ':'symbol':'.2'}}</p>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center btn-flex">
+          <button [routerLink]="['/checkout']" class="btn btn-primary btn-block checkout-btn">
+            <span>Proceed To Checkout</span>
+          </button>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</ng-container>

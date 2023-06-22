@@ -79,7 +79,7 @@ body {
 }
 
 .card {
-    padding: var(--s-large) !important;
+    padding: var(--s-medium) !important;
     width: 100%;
 
     background-color: var(--white);

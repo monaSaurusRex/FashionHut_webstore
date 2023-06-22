@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
 
 import { UserService } from 'src/app/services/userservice/user.service';
 
@@ -26,12 +25,8 @@ export class ForgotPasswordComponent implements OnInit{
 goBack() {
 
 }
-  modalService: any;
 
-openModal() {
-  this.modalService.open(ModalComponentComponent );
-  
-}
+
 forgotPasswordForm: any;
   usernamePattern: any;
   submitted: boolean = true;
