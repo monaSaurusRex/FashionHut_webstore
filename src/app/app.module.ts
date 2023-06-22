@@ -25,6 +25,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { UserService } from './services/userservice/user.service';
 // PIPES
 import { FilterPipe } from './services/filter/filter.pipe';
+import { CartSummaryCardComponent } from './components/cart-summary-card/cart-summary-card.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FilterPipe } from './services/filter/filter.pipe';
     CartItemListComponent,
     CartComponent,
     SubtotalComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    CartSummaryCardComponent
   ],
   imports: [
     ReactiveFormsModule,

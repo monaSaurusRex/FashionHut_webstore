@@ -20,7 +20,6 @@ img{
     width: 100%;
 }
 
-
 /* cart list displayed on smaller screens */
 @media only screen and (max-width: 768px) {
 

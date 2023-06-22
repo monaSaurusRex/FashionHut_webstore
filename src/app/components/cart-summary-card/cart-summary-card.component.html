@@ -1,0 +1,50 @@
+<ng-container *ngIf="
+  {
+    cartItems: cartItems$ | async,
+    cartItemCount: cartItemsCount$ | async
+  } as observables">
+
+      <div class="card">
+        <h1>Your Order</h1>
+        <hr />
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start">
+            <div class="offcanvas-title d-flex justify-content-start">
+              <p>{{observables.cartItemCount}}</p>
+              <p class="text-align-top text-align-center ms-2">Items in cart</p>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end p-0">
+            <p>{{subTotal$ | async | currency:'ZAR ':'symbol':'.2'}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start">
+            <div class="offcanvas-title d-flex justify-content-start align-self-center">
+              <p class="text-align-top text-align-center mb-0">Delivery</p>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end p-0">
+            <p>{{100 | currency:'ZAR ':'symbol':'.2'}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start">
+            <div class="offcanvas-title d-flex justify-content-start align-self-center">
+              <h1 class="text-align-top text-align-center mb-0">Total</h1>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end p-0">
+            <p>{{total$ | async | currency:'ZAR ':'symbol':'.2'}}</p>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center btn-flex">
+          <button [routerLink]="['/checkout']" class="btn btn-primary btn-block checkout-btn">
+            <span>Proceed To Checkout</span>
+          </button>
+        </div>
+      </div>
+</ng-container>
