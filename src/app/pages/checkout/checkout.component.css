@@ -1,0 +1,51 @@
+
+  /* .data-acc-content { display: none;  }
+  .data-acc-step:not(.open) { background: #f2f2f2;  }
+  .data-acc-step:not(.open) h5 { color: #777;  }
+  .data-acc-step:not(.open) .badge-primary { background: #ccc;  }  */
+  /* div[data-acc-content] { display: none;  }
+  div[data-acc-step]:not(.open) { background: #f2f2f2;  }
+  div[data-acc-step]:not(.open) h5 { color: #777;  }
+  div[data-acc-step]:not(.open) .badge-primary { background: #ccc;  } */
+.accordion-body{
+  background-color: var(--white);
+}
+
+.accordion{
+  width: 100%;
+}
+  .form{
+    margin: var(--s-medium);
+  }
+  .payment{
+    width: 80%;
+  }
+  .btn {
+    color: var(--dark);
+}
+.error {
+  border-color:  red;
+  color: red;
+ 
+}
+
+.success {
+  color: green;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+button{
+  background-color: var(--dark);
+  color: var(--white);
+  border-inline-color: var(--primary-color);
+}
+.card{
+  background-color: var(--white);
+}
+.accordion-button{
+  color: var();
+}

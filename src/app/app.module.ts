@@ -6,16 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewAllProductsComponent } from './pages/view-all-products/view-all-products.component';
 import { SearchAndFilterComponent } from './components/search-and-filter/search-and-filter.component';
 import { ViewProductDetailsComponent } from './pages/view-product-details/view-product-details.component';
 import { LoginComponent } from './components/login/login.component';
+import { Validators } from '@angular/forms';
 import { FilterPipe } from './services/filter/filter.pipe';
 import { RegisterComponent } from './components/register/register.component';
 
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,17 @@ import { RegisterComponent } from './components/register/register.component';
     FilterPipe,
     ViewProductDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CheckoutComponent
     
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FontAwesomeModule,
+    NgxPaginationModule,
     FontAwesomeModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
