@@ -89,6 +89,26 @@ Validators.pattern('^[0-9]{16}$')
 
     this.securityCodeControl.setValue(input.value);
   }
+  isDeliveryFormValid(): boolean {
+    return (
+      this.streetAddressControl.valid &&
+      this.streetAddress2Control.valid &&
+      this.suburbCityControl.valid &&
+      this.provinceControl.valid &&
+      this.postalCodeControl.valid &&
+      this.countryControl.valid
+    );
+  }
+  
+  isPaymentFormValid(): boolean {
+    return (
+      this.cardNameControl.valid &&
+      this.cardNumberControl.valid &&
+      this.cardExpirationControl.valid &&
+      this.securityCodeControl.valid
+    );
+  }
+  
     }
     
   

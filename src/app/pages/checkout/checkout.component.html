@@ -86,7 +86,7 @@
                     </div>
                   </div>
                   <br />
-                  <button class="btn btn-primary btn-block cart-btn" (click)="updateOrderReview()">
+                  <button class="btn btn-primary btn-block cart-btn" [disabled]="!isDeliveryFormValid()" (click)="updateOrderReview()">
                     <span>Continue</span>
                   </button>
                 </form>
@@ -155,7 +155,7 @@
                     </div>
                   </div>
                   <br />
-                  <button class="btn btn-primary btn-block cart-btn" (click)="updateOrderReview()">
+                  <button class="btn btn-primary btn-block cart-btn" [disabled]="!isPaymentFormValid()" (click)="updateOrderReview()">
                     <span>Continue</span>
                   </button>
                 </form>
