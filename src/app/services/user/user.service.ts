@@ -7,6 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  checkAccountExistence(email: any) {
+    throw new Error('Method not implemented.');
+  }
+
   constructor(private http: HttpClient) {}
   private url: string = "http://localhost:3000"
 
@@ -33,4 +37,5 @@ export class UserService {
     const userString = sessionStorage.getItem('user');
     return userString ? JSON.parse(userString) : null;
   }
+    
 }
