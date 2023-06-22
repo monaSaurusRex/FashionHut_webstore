@@ -3,6 +3,8 @@ import { FormControl,FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { ElementRef, ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  @ViewChild('paymentAccordion', { static: false }) paymentAccordion!: ElementRef;
   streetAddressControl: FormControl = new FormControl('', Validators.required);
   streetAddress2Control: FormControl = new FormControl('', Validators.required);
 
@@ -30,9 +33,10 @@ Validators.pattern('^[0-9]{16}$')
     Validators.pattern('^[0-9]{3}$')
   ]);
   orderInfo: any = {};
-
+  constructor() { }
   
   updateOrderReview() {
+
     this.orderInfo = {
       streetAddress: this.streetAddressControl.value,
       streetAddress2: this.streetAddress2Control.value,
@@ -48,6 +52,7 @@ Validators.pattern('^[0-9]{16}$')
 
   
   }
+  
   update(){
     Swal.fire({
       position: 'center',
@@ -85,6 +90,7 @@ Validators.pattern('^[0-9]{16}$')
     this.securityCodeControl.setValue(input.value);
   }
     }
+    
   
   
   
