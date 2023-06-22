@@ -81,7 +81,7 @@ button {
 }
 
 p, ng-template {
-    margin-left: var(--s-medium);
+    margin: 0px !important;
     color: var(--white);
     font-size: var(--large);
     text-align: center;

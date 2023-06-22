@@ -218,8 +218,9 @@ input {
 img {
     border-radius: var(--default-border-radius);
     /* width: 100% important!; */
-    height: 80%;
+    height: 60%;
     object-fit: contain;
+    height: fit-content;
 }
 
 .form-control {
