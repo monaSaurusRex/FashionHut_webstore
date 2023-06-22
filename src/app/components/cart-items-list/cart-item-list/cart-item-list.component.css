@@ -1,24 +1,19 @@
-.input-box {
-    width: var(--width-large);
-    height: var(--height-medium);
+.btn {
+    color: var(--dark);
+    display: flex;
+    flex-direction: row;
 
-    border-style: none;
-    border-bottom: var(--grey-border);
-    border-top: var(--grey-border);
-
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0px !important;
 }
 
 .btn {
-    color: var(--dark);
+    color: var(--light-grey);
 }
 
-.btn-icon {
-    color: var(--dark);
-}
-
-.btn-icon:hover, .btn-icon:focus {
-    color: var(--darker);
+.btn:hover, .btn-icon:focus {
+    color: var(--light-grey);
 }
 
 img{

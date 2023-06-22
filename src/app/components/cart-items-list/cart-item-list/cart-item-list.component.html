@@ -31,10 +31,10 @@
                         <h3 class=" text-end text-nowrap">{{item.productPrice * item.quantity | currency:'ZAR ':'symbol':'.2'}}</h3>
                     </div>
                     <!-- remove button -->
-                    <div class="col-12 justify-content-start flex-row">
-                        <button (click)="removeItem(item)" class="btn btn-decrease btn-icon">
+                    <div class="col-12">
+                        <button (click)="removeItem(item)" class="btn justify-content-start flex-row">
                             <fa-icon [icon]="removeIcon"></fa-icon>
-                            <p>Remove</p>
+                            <p class="greyed">Remove</p>
                         </button>
                     </div>
                 </div>
