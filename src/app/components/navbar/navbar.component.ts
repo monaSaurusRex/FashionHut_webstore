@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
 
@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
   searchIcon = faSearch;
   
 
-  constructor(private _cartService: CartService, ) {}
+  constructor(private _cartService: CartService, private router: Router) {}
 
   
 
