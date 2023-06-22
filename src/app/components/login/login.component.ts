@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
+    this.router.navigate(['/all-products']); //comment out with functionality done
     if (this.loginForm.valid) {
       const body: any = {
         email: this.loginForm.value.email,
