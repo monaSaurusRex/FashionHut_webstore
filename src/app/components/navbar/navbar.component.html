@@ -4,7 +4,7 @@
   } as observables">
 
 
-    <nav class="navbar navbar-dark fixed top text" id="mainNav"> <!--navbar-expand-lg-->
+    <nav class="navbar navbar-dark text sticky-top" id="mainNav"> <!--navbar-expand-lg fixed top -->
         <div class="container-fluid">
 
             <div class="nav-left d-flex justify-content-start">
@@ -33,20 +33,20 @@
                     </div>
                     <div class="offcanvas-body">
 
-                        <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/login']">Login</a>
-                            </li>
-                            <div class="vr mobile-hide align-self-center mobile-hide"></div>
-                            <hr>
-                            <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/register']">Register</a>
-                            </li>
-                            <div class="vr mobile-hide align-self-center"></div>
-                            <hr>
-                        </ul>
-                    </div>
+                    <ul class="navbar-nav justify-content-end flew-grow-1 pe-6">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/login']">Login</a>
+                        </li>
+                        <div class="vr align-self-center"></div>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/register']">Register</a>
+                        </li>
+                        <div class="vr align-self-center"></div>
+                        <hr>
+                    </ul>
                 </div>
+            </div>
 
                 <button class="navbar-toggler shadow-none " data-bs-toggle="offcanvas" data-bs-target="#search-top-bar">
                     <fa-icon [icon]="searchIcon"></fa-icon>
