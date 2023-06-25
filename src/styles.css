@@ -67,10 +67,7 @@
 
 body {
     background-color: var(--background-color);
-}
-
-.container {
-    margin: var(--s-medium);
+    width: 100% !important;
 }
 
 .row {
