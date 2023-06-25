@@ -86,7 +86,8 @@
               </div>
               <br />
               <button class="btn btn-primary btn-block cart-btn" [disabled]="!isDeliveryFormValid()"
-                (click)="updateOrderReview()">
+                (click)="updateOrderReview()" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" data-bs-target="#collapseTwo">
                 <span>Continue</span>
               </button>
             </form>
@@ -156,7 +157,7 @@
               </div>
               <br />
               <button class="btn btn-primary btn-block cart-btn" [disabled]="!isPaymentFormValid()"
-                (click)="updateOrderReview()">
+                (click)="updateOrderReview()" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
                 <span>Continue</span>
               </button>
             </form>

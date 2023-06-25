@@ -56,10 +56,11 @@
 }
 
 /* accordion styles */
-button, button:hover, button:active, button:focus{
+.accordion-button, .accordion-button:hover, .accordion-button:active, .accordion-button:focus{
   background-color: var(--dark);
   color: var(--white);
   border-color: var(--primary-color);
+  color: var(--white);
 }
 
 button[disabled] {
@@ -70,10 +71,6 @@ button[disabled] {
 
 .card {
   background-color: var(--white);
-}
-
-.accordion-button {
-  color: var(--white);
 }
 
 .accordion h1{
