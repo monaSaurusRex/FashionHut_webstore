@@ -128,13 +128,25 @@ export class CartService {
     // console.log(cartItem);
   }
 
-  // get the total number of items within the cart
+  // get the total number of items within the cart based on item quantity
+  // getCartItemsCount(): Observable<any> {
+  //   return this.cart$.pipe(
+  //     map((cart) => {
+  //       const count = cart.items
+  //         .map((item) => item.quantity)
+  //         .reduce((preVal, curVal) => preVal + curVal, 0);
+  //       return count;
+  //     })
+  //   );
+  // }
+
+  // get the total number of items within the cart based length of item array
   getCartItemsCount(): Observable<any> {
     return this.cart$.pipe(
       map((cart) => {
-        const count = cart.items
-          .map((item) => item.quantity)
-          .reduce((preVal, curVal) => preVal + curVal, 0);
+        const count = cart.items.length;
+          // .map((item) => item.quantity)
+          // .reduce((preVal, curVal) => preVal + curVal, 0);
         return count;
       })
     );
