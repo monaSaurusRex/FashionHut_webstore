@@ -26,10 +26,11 @@
    margin: var(--s-medium) !important;
 }
 
-img {
+.card-image{
    border-radius: var(--default-border-radius);
    width: 100% important!;
    object-fit: contain;
+   height: 100%;
 }
 
 img:hover {
