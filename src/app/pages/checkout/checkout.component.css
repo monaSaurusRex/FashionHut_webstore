@@ -59,7 +59,13 @@
 button, button:hover, button:active, button:focus{
   background-color: var(--dark);
   color: var(--white);
-  border-inline-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+button[disabled] {
+  background-color: var(--white);
+  border-color: var(--light-grey);
+  color: var(--light-grey);
 }
 
 .card {
