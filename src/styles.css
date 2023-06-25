@@ -92,6 +92,8 @@ title {
     font-size: var(--x-large);
     font-weight: var(--bold);
     font-style: normal;
+    height: var(--x-large);
+    
 
     display: flex;
     align-items: center;
@@ -105,6 +107,7 @@ h2 {
     font-size: var(--medium);
     font-weight: var(--bold);
     font-style: normal;
+    height: auto !important;
 
     display: flex;
     align-items: center;
@@ -117,6 +120,7 @@ h3 {
     font-size: var(--normal);
     font-weight: var(--bold);
     font-style: normal;
+    height: auto !important;
 
     display: flex;
     align-items: center;
