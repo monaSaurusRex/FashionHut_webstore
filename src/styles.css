@@ -131,7 +131,8 @@ h3 {
     color: var(--light-grey);
 }
 
-p {
+p, .bold,
+label {
     font-family: var(--body-font);
     font-size: var(--normal);
     font-weight: var(--regular);
@@ -147,15 +148,7 @@ p {
 .bold,
 label {
     font-family: var(--body-font);
-    font-size: var(--medium);
     font-weight: var(--bold);
-    font-style: normal;
-    height: auto !important;
-
-    display: flex;
-    align-items: center;
-
-    color: var(--dark);
 }
 
 .greyed {
@@ -260,7 +253,8 @@ hr {
         font-size: var(--normal);
     }
 
-    p {
+    p, .bold,
+    label{
         font-size: var(--small);
         margin: var(--s-small) 0px !important;
     }
