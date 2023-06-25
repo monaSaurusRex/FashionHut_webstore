@@ -5,6 +5,11 @@
 
 .card {
     width: 100%;
-
     margin: var(--s-medium) 0px;
+}
+
+.checkout-btn {
+    border-color: var(--primary-color);
+    color: var(--white);
+    background-color: var(--primary-color);
 }

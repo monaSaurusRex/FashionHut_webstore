@@ -170,50 +170,11 @@
 
   <!-- order summary -->
   <div class="col-sm-12 col-md-4 col-lg-4">
-    <ng-container *ngIf="
-  {
-    cartItems: cartItems$ | async,
-    cartItemCount: cartItemsCount$ | async
-  } as observables">
-
-      <div class="card">
-        <h1>Your Order</h1>
-        <hr />
-        <div class="row">
-          <div class="col-6 d-flex justify-content-start">
-            <div class="offcanvas-title d-flex justify-content-start">
-              <p>{{observables.cartItemCount}}</p>
-              <p class="text-align-top text-align-center ms-2">Items in cart</p>
-            </div>
-          </div>
-          <div class="col-6 d-flex justify-content-end p-0">
-            <p>{{subTotal$ | async | currency:'ZAR ':'symbol':'.2'}}</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 d-flex justify-content-start">
-            <div class="offcanvas-title d-flex justify-content-start align-self-center">
-              <p class="text-align-top text-align-center mb-0">Delivery</p>
-            </div>
-          </div>
-          <div class="col-6 d-flex justify-content-end p-0">
-            <p>{{100 | currency:'ZAR ':'symbol':'.2'}}</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 d-flex justify-content-start">
-            <div class="offcanvas-title d-flex justify-content-start align-self-center">
-              <h2 class="text-align-top text-align-center mb-0">Total</h2>
-            </div>
-          </div>
-          <div class="col-6 d-flex justify-content-end p-0">
-            <h2>{{total$ | async | currency:'ZAR ':'symbol':'.2'}}</h2>
-          </div>
-        </div>
-      </div>
-    </ng-container>
+    <div class="card">
+      <h1>Your Order</h1>
+      <hr />
+      <app-cart-summary-card></app-cart-summary-card>
+    </div>
 
     <div class="card">
       <h1>Order Review</h1>

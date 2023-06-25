@@ -4,9 +4,6 @@
     cartItemCount: cartItemsCount$ | async
   } as observables">
 
-      <div class="card">
-        <h1>Your Order</h1>
-        <hr />
         <div class="row">
           <div class="col-6 d-flex justify-content-start">
             <div class="offcanvas-title d-flex justify-content-start">
@@ -40,11 +37,4 @@
             <h2>{{total$ | async | currency:'ZAR ':'symbol':'.2'}}</h2>
           </div>
         </div>
-
-        <div class="row d-flex justify-content-center btn-flex">
-          <button [routerLink]="['/checkout']" class="btn btn-primary btn-block checkout-btn">
-            <span>Proceed To Checkout</span>
-          </button>
-        </div>
-      </div>
 </ng-container>
