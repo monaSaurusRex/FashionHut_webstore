@@ -178,4 +178,10 @@ export class CartService {
     cart.items = cart.items.filter((item) => deleteItem.id !== item.id);
     this.setCartItems(cart);
   }
+
+  clearCart() {
+    const cart = { ...this.cart$.value };
+    cart.items = [];
+    this.setCartItems(cart);
+  }
 }

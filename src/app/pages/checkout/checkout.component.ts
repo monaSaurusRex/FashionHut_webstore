@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 
 
@@ -35,7 +36,7 @@ Validators.pattern('^[0-9]{16}$')
   ]);
   orderInfo: any = {};
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _cartService: CartService) { }
 
   
   updateOrderReview() {
@@ -64,6 +65,7 @@ Validators.pattern('^[0-9]{16}$')
       showConfirmButton: false,
       timer: 1500
     }).then(() => {
+      this._cartService.clearCart();
       this.router.navigate(['all-products']);
     });
   }
