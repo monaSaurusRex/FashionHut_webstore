@@ -1,32 +1,48 @@
-
-  /* .data-acc-content { display: none;  }
+/* .data-acc-content { display: none;  }
   .data-acc-step:not(.open) { background: #f2f2f2;  }
   .data-acc-step:not(.open) h5 { color: #777;  }
   .data-acc-step:not(.open) .badge-primary { background: #ccc;  }  */
-  /* div[data-acc-content] { display: none;  }
+/* div[data-acc-content] { display: none;  }
   div[data-acc-step]:not(.open) { background: #f2f2f2;  }
   div[data-acc-step]:not(.open) h5 { color: #777;  }
   div[data-acc-step]:not(.open) .badge-primary { background: #ccc;  } */
-.accordion-body{
+
+.row {
+  width: 100%;
+  margin: var(--s-medium) 0px !important;
+}
+
+.card {
+  width: 100%;
+
+  margin: var(--s-medium) 0px;
+}
+
+.accordion-body {
   background-color: var(--white);
 }
 
-.accordion{
+.accordion {
   width: 100%;
+  margin: var(--s-medium) 0px;
 }
-  .form{
-    margin: var(--s-medium);
-  }
-  .payment{
-    width: 80%;
-  }
-  .btn {
-    color: var(--dark);
+
+.form {
+  margin: var(--s-medium);
 }
+
+.payment {
+  width: 80%;
+}
+
+.btn {
+  color: var(--dark);
+}
+
 .error {
-  border-color:  red;
+  border-color: red;
   color: red;
- 
+
 }
 
 .success {
@@ -38,14 +54,30 @@
   color: var(--white);
   border-color: var(--primary-color);
 }
-button{
+
+/* accordion styles */
+button, button:hover, button:active, button:focus{
   background-color: var(--dark);
   color: var(--white);
   border-inline-color: var(--primary-color);
 }
-.card{
+
+.card {
   background-color: var(--white);
 }
-.accordion-button{
+
+.accordion-button {
   color: var(--white);
+}
+
+.accordion h1{
+  color: var(--white);
+}
+
+input, .form-control {
+  margin: var(--s-smaller) 0px !important;
+}
+
+.form-group{
+  margin: var(--s-small) 0px !important;
 }

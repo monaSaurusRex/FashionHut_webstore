@@ -171,11 +171,6 @@ label {
     color: var(--light-grey);
 }
 
-label {
-    font-weight: var(--mediumBold);
-    color: var(--dark);
-}
-
 fa-icon,
 .cart-item-counter {
     height: auto !important;
@@ -223,7 +218,7 @@ img {
     height: fit-content;
 }
 
-.form-control {
+input, .form-control {
     border-radius: var(--default-border-radius);
     border-color: var(--grey);
 }
@@ -277,6 +272,7 @@ hr {
 
     .container-fluid {
         padding: 0px 5px;
+        margin: var(--s-medium) 0px !important;
     }
 
     .card {

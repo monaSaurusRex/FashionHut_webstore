@@ -1,46 +1,64 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart/cart.service';
-
-
+import { Observable } from 'rxjs';
+import { Item } from 'src/app/interfaces/cart';
+import { Product } from 'src/app/interfaces/product';
+import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent {
-  @ViewChild('paymentAccordion', { static: false }) paymentAccordion!: ElementRef;
+  @ViewChild('paymentAccordion', { static: false })
+  paymentAccordion!: ElementRef;
   streetAddressControl: FormControl = new FormControl('', Validators.required);
   streetAddress2Control: FormControl = new FormControl('', Validators.required);
 
   suburbCityControl: FormControl = new FormControl('', Validators.required);
   provinceControl: FormControl = new FormControl('', Validators.required);
-  postalCodeControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
-  countryControl: FormControl = new FormControl('', Validators.required);
-  cardNameControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]);
-  cardNumberControl: FormControl = new FormControl('', [ Validators.required,
-Validators.pattern('^[0-9]{16}$')
-    
+  postalCodeControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]+$'),
   ]);
-  cardExpirationControl: FormControl = new FormControl('', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/[0-9]{2}$')]);
-  
+  countryControl: FormControl = new FormControl('', Validators.required);
+  cardNameControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-Z]+$'),
+  ]);
+  cardNumberControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]{16}$'),
+  ]);
+  cardExpirationControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^(0[1-9]|1[0-2])/[0-9]{2}$'),
+  ]);
+
   securityCodeControl: FormControl = new FormControl('', [
     Validators.required,
-    Validators.pattern('^[0-9]{3}$')
+    Validators.pattern('^[0-9]{3}$'),
   ]);
   orderInfo: any = {};
-  
-  constructor(private router: Router, private _cartService: CartService) { }
 
-  
+// CART service variables
+  cartItems$: Observable<Item[]> | undefined;
+  cartItemProduct$: Observable<Product[]> | undefined;
+  itemQuantity$: Observable<number> | undefined;
+  cartItemsCount$: Observable<number> | undefined;
+  subTotal$: Observable<number> | undefined;
+  total$: Observable<number> | undefined;
+
+  constructor(private router: Router, private _cartService: CartService) {}
+
   updateOrderReview() {
-
     this.orderInfo = {
       streetAddress: this.streetAddressControl.value,
       streetAddress2: this.streetAddress2Control.value,
@@ -51,28 +69,27 @@ Validators.pattern('^[0-9]{16}$')
       cardName: this.cardNameControl.value,
       cardNumber: this.cardNumberControl.value,
       cardExpiration: this.cardExpirationControl.value,
-      securityCode: this.securityCodeControl.value
+      securityCode: this.securityCodeControl.value,
     };
-
-  
   }
-  
+
   update() {
     Swal.fire({
       position: 'center',
       icon: 'success',
       title: 'Your order has been successfully purchased',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     }).then(() => {
       this._cartService.clearCart();
       this.router.navigate(['all-products']);
     });
   }
-  
-  
+
   get showErrorMessage() {
-    return this.cardExpirationControl.invalid && this.cardExpirationControl.touched;
+    return (
+      this.cardExpirationControl.invalid && this.cardExpirationControl.touched
+    );
   }
 
   limitCharacterCount(event: any) {
@@ -83,7 +100,6 @@ Validators.pattern('^[0-9]{16}$')
       input.value = input.value.slice(0, maxLength);
       this.cardNumberControl.setValue(input.value);
     }
-    
   }
   limitSecurityCode(event: any) {
     const input = event.target as HTMLInputElement;
@@ -92,7 +108,6 @@ Validators.pattern('^[0-9]{16}$')
     if (input.value.length > maxLength) {
       input.value = input.value.slice(0, maxLength);
       this.securityCodeControl.setValue(input.value);
-
     }
 
     this.securityCodeControl.setValue(input.value);
@@ -107,7 +122,7 @@ Validators.pattern('^[0-9]{16}$')
       this.countryControl.valid
     );
   }
-  
+
   isPaymentFormValid(): boolean {
     return (
       this.cardNameControl.valid &&
@@ -116,12 +131,17 @@ Validators.pattern('^[0-9]{16}$')
       this.securityCodeControl.valid
     );
   }
-  
+
   isOrderFormValid(): boolean {
     return this.isDeliveryFormValid() && this.isPaymentFormValid();
-    }
-    
-  
-}
-  
+  }
 
+  ngOnInit(){
+    this.cartItems$ = this._cartService.getCartItems();
+    this.itemQuantity$ = this._cartService.getItemQuantity(); //get the quantity of the cart item
+    this.cartItemsCount$ = this._cartService.getCartItemsCount();
+    this.subTotal$ = this._cartService.getSubtotal();
+    this.total$ = this._cartService.getTotal();
+      
+  }
+}
