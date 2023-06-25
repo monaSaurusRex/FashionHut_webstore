@@ -103,7 +103,7 @@ h2 {
     /*product title, description title*/
     font-family: var(--heading-font);
     font-size: var(--medium);
-    font-weight: var(--semi-bold);
+    font-weight: var(--bold);
     font-style: normal;
 
     display: flex;
