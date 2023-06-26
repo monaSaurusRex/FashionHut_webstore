@@ -51,6 +51,7 @@ export class ViewProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     // console.log((this.id = this.route.snapshot.params['id']));
     this.getProductDetails((this.id = this.route.snapshot.params['id']));
+    
   }
 
   quantity(value: string) {
@@ -70,27 +71,7 @@ export class ViewProductDetailsComponent implements OnInit {
 
   //When item is added to the cart
   addToCart(addedProduct: any) {
-    // assign properties for Item attributes to allow values in line 63 to be recognized
-    // type Item = {
-    //   id: number;
-    //   productId: number;
-    //   productName: string;
-    //   quantity: number;
-    //   price: number;
-    // };
-
-    // if (addedProduct) {
-    //   console.log(
-    //     `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`
-    //   );
-    //   let cartItem: Item = {
-    //     id: this._cartService.setUniqueId(),
-    //     productId: addedProduct.id,
-    //     productName:  addedProduct.title,
-    //     quantity: this.productQuantity,
-    //     price: addedProduct.price
-    //   };
-
+  
     if (addedProduct) {
       // console.log(
       //   `Product added: ${addedProduct.id} - ${addedProduct.title} Qty: ${this.productQuantity} Price: ${addedProduct.price}`

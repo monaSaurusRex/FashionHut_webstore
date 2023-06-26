@@ -9,6 +9,7 @@ import { Cart, Item } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
 
 import { CartService } from 'src/app/services/cart/cart.service';
+import { SearchAndFilterService } from 'src/app/services/search-and-filter/search-and-filter.service';
 import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
@@ -18,6 +19,7 @@ import { StoreService } from 'src/app/services/store-api/store.service';
 })
 export class ViewAllProductsComponent implements OnInit, OnDestroy {
   products: Product[] = []; //empty array of products
+  filteredProducts: Product[] = []; //
   searchValue : any;
   page: number= 1
   pageSize: number = 12 // number of products per page
@@ -31,9 +33,12 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   itemsInCart$: Observable<Item[]> | undefined;
   cart$: Observable<Cart[]> | undefined;
 
+  filteredProducts$: Observable<Product[]> | undefined;
+
   constructor(
     private _cartService: CartService,
     private _storeService: StoreService,
+    private _searchFilterService: SearchAndFilterService,
     private router: Router
   ) {}
 
@@ -41,7 +46,9 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
     this._storeService.getAll().subscribe((products: any) => {
       // console.table(products);
       this.products = products; //populate products array with data from api service
+      this.filteredProducts = products; //filtered products will by default just contain all the products 
     });
+
   }
 
   //send product id the user wants to view to the product details page
@@ -56,6 +63,21 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   //   return this.products.slice(startIndex, endIndex);
 
   //  }
+
+  getProductsByCategory(){
+
+
+    // getProductsByCategory(category: any)
+
+    this._storeService.getAll().subscribe((products: any) => {
+      // console.table(products);
+      this.products = products; //populate products array with data from api service
+    });
+
+    this._searchFilterService.getSearchQuery().subscribe((value: string )=> {
+      console.table(this.searchValue);
+    });
+  }
   
 
   ngOnDestroy() {

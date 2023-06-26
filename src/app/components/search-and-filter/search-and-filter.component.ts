@@ -52,4 +52,10 @@ export class SearchAndFilterComponent implements OnInit{
       console.log(query);
     });
   }
+
+  filterByCategory(category: string){
+    let searchValue = category.split(' ').join('%20'); //takes whitespace into account
+    this._searchFilterService.setSearchQuery(searchValue);
+    console.log(this._searchFilterService.getSearchQuery());
+  }
 }

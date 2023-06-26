@@ -6,7 +6,7 @@
       </button>
       <ul class="dropdown-menu" id="category-dropdown">
         <div *ngFor="let category of categories; last as isLast" >
-          <li class="dropdown-item">
+          <li class="dropdown-item" (click)="filterByCategory(category)">
             {{category}}
           </li>
           <hr *ngIf="!isLast" class="dropdown-divider">

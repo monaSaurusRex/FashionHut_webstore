@@ -33,8 +33,8 @@ export class StoreService {
     return this.http.delete('' + id);
   }
 
-  getProductByCategory(category: any){
-    return this.http.get('/category' + category )
+  getProductsByCategory(category: any){
+    return this.http.get(`${this.url}/products/category/${category}`);
   }
 
   getAllCategories(){
