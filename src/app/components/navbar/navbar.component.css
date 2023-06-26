@@ -132,17 +132,10 @@ ng-template {
     width: fit-content;
 }
 
-ul {
-    padding: 0px !important;
-}
 
-a {
-    padding: 0px !important;
-}
 
 fa-icon,
-div .cart-item-counter {
-    margin-right: var(--s-small);
+.cart-item-counter {
     display: flex;
     justify-content: center;
     align-self: center;

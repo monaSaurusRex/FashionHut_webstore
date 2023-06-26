@@ -1,7 +1,21 @@
-<!-- <div class="search-and-filter shadow-sm d-flex justify-content-center">
-    <div class="search ">
+<div class="container-fluid d-flex search-and-filter">
+    <div class="categories d-flex justify-content-start">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop by category
+            </button>
+            <ul class="dropdown-menu">
+              <!-- <a *ngFor="let category of categories" class="dropdown-item">{{category}}</a> -->
+              <li *ngFor="let category of categories" class="dropdown-item">
+                {{category.categoryName}}
+              </li>
+            </ul>
+          </div>
+    </div>
+
+    <div class="search d-flex justify-content-end align-self-center">
         <div class="input-group">
-                <input type="search" id="header-search" class="form-control" />
+                <input type="search" id="header-search" class="form-control" placeholder="Search for product..."/>
                 <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
             <button type="button" class="btn btn-primary btn-icon">
                 <fa-icon [icon]="search"></fa-icon>
@@ -9,4 +23,3 @@
         </div>
     </div>    
 </div>
- -->
