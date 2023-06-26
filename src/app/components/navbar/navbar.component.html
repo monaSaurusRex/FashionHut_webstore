@@ -105,7 +105,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                         <!-- <h1 id="offcanvasRightLabel">Items in cart ({{cartItemsCount$ | async}})</h1> -->
 
-                        <div class="offcanvas-title d-flex justify-content-start align-self-center">
+                        <div class="offcanvas-title d-flex justify-content-start align-self-center flex-row">
                             <h1 *ngIf="((cartItemsCount$ | async) === 0); else elseBlock">
                                 <!--if the total number of items in the cart is not 0-->
                                 <ng-template #elseBlock class="text-align-top text-align-center mb-0">
@@ -122,19 +122,19 @@
                     </div>
                     <!-- Cart Footer Buttons -->
                     <div class="offcanvas-footer row">
-                        <hr>
                         <div *ngIf="((cartItemsCount$ | async) != 0)">
-                            <div class="div">
+                            <hr>
+                            <div class="">
                                 <app-subtotal></app-subtotal>
                             </div>
-                            <div class="row">
+                            <div class="row d-flex flex-row">
                                 <div class="col-6 d-flex justify-content-center align-self-center">
-                                    <button class="btn btn-block cart-btn" [disabled]="(cartItemsCount$ | async) === 0"
+                                    <button class="btn cart-sb-btn" [disabled]="(cartItemsCount$ | async) === 0"
                                         [routerLink]="['cart']" data-bs-dismiss="offcanvas">View Cart
                                     </button>
                                 </div>
                                 <div class="col-6 d-flex justify-content-center align-self-center">
-                                    <button class="btn btn-block checkout-btn"
+                                    <button class="btn checkout-btn"
                                         [disabled]="(cartItemsCount$ | async) === 0" [routerLink]="['checkout']"
                                         data-bs-dismiss="offcanvas">Checkout
                                     </button>

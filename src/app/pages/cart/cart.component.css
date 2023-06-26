@@ -13,3 +13,11 @@
     color: var(--white);
     background-color: var(--primary-color);
 }
+
+@media only screen and (min-width: 992px) {
+
+    .card {
+        margin: var(--s-large) 60px !important;
+        width: auto !important;
+    }
+}

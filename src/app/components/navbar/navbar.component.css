@@ -1,6 +1,7 @@
-button {
-    padding: 10px;
-    margin-left: 5px;
+.btn {
+    padding: 0px !important;
+    margin: 0px !important;
+    width: 100%;
 }
 
 .offcanvas {
@@ -159,13 +160,6 @@ fa-icon,
     background-color: var(--white);
 }
 
-.cart-sb-btn,
-.cart-sb-btn:focus,
-.cart-sb-btn:active,
-.cart-sb-btn {
-    padding: var(--s-medium);
-}
-
 .checkout-btn,
 .checkout-btn:focus,
 .checkout-btn:active {
@@ -174,12 +168,16 @@ fa-icon,
     background-color: var(--primary-color);
 }
 
-.cart-btn,
+.cart-sb-btn,
 .cart-sb-btn:focus,
-.cart-btn:active {
+.cart-sb-btn:active {
     border-color: var(--primary-color);
     color: var(--primary-color);
     background-color: var(--white);
+}
+
+.col-6{
+    padding: 0px var(--s-medium)!important;
 }
 
 
