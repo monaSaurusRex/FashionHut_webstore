@@ -6,7 +6,7 @@
 
 .search, .input-group{
     width: 100%;
-    margin: var(--s-medium);
+    margin: var(--s-medium) !important;
 }
 
 button{
