@@ -18,7 +18,7 @@ import { StoreService } from 'src/app/services/store-api/store.service';
 })
 export class ViewAllProductsComponent implements OnInit, OnDestroy {
   products: Product[] = []; //empty array of products
-  searchText : any;
+  searchValue : any;
   page: number= 1
   pageSize: number = 12 // number of products per page
 

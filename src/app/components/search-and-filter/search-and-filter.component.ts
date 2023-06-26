@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { SearchAndFilterService } from 'src/app/services/search-and-filter/search-and-filter.service';
 import { StoreService } from 'src/app/services/store-api/store.service';
 
@@ -25,16 +25,31 @@ export class SearchAndFilterComponent implements OnInit{
   
   constructor(private _storeService: StoreService, private router: Router, private _searchFilterService: SearchAndFilterService){}
 
-  searchText : any;
+  searchValue : any;
+
+  searchQuery$ : Observable<string> | undefined;
 
   ngOnInit(){
     this._storeService.getAllCategories().subscribe((categories: any) => {
-      console.log(categories);
+      // console.log(categories);
       this.categories = categories; //populate products array with data from api service
     });
+
+    this.searchQuery$ = this._searchFilterService.getSearchQuery();
+
+    // this._searchFilterService.getSearchQuery().subscribe((query: string) => {
+    //   console.log(query);
+    // });
+
+    // this._searchFilterService.setSearchQuery(this.searchValue);
+
   }
 
-  searchValue(searchText: string){
-    
+  updateSearchValue(searchValue: string){
+    // console.log(searchValue);
+    this._searchFilterService.setSearchQuery(this.searchValue);
+    this._searchFilterService.getSearchQuery().subscribe((query: string) => {
+      console.log(query);
+    });
   }
 }
