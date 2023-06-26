@@ -17,13 +17,14 @@
 
 <div class="row g-4 d-flex flex-row">
   <ng-container *ngIf="(products | filter: searchValue).length > 0; else noResults">
-  <div *ngFor="let product of products | paginate: {itemsPerPage: 8, currentPage: page} | filter: searchValue" class="col-6 col-sm-6 col-md-4 col-lg-3">
-    <!-- <div *ngIf="(itemsInCart$  | async)?.length === 0">The product you were looking for was not found.</div> -->
-    <div class="card">
-      <div class="card-body d-flex flex-column justify-content-end">
-        <div class="card-image d-flex flex-column justify-content-center">
-          <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
-        </div>
+    <div *ngFor="let product of products | paginate: {itemsPerPage: 8, currentPage: page} | filter: searchValue"
+      class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <!-- <div *ngIf="(itemsInCart$  | async)?.length === 0">The product you were looking for was not found.</div> -->
+      <div class="card">
+        <div class="card-body d-flex flex-column justify-content-end">
+          <div class="card-image d-flex flex-column justify-content-center">
+            <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
+          </div>
 
           <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
           <p class="product-price bold">{{product.price | currency:' ZAR ':'symbol':'.2'}} </p>
@@ -38,4 +39,5 @@
   </ng-template>
 </div>
 
-<pagination-controls (pageChange)="page = $event" class="pagination"></pagination-controls>
+
+<pagination-controls (pageChange)="page = $event" class="pagination d-flex align-items-center"></pagination-controls>

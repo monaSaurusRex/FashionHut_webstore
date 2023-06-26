@@ -27,7 +27,8 @@ label{
     color: var(--dark);
 }
 
-li:hover, li:active, li:focus, li:active:hover, li:focus:hover{
+a:hover, a:focus, a:active,
+.dropdown-item:hover, .dropdown-item:focus, .dropdown-item:active, li:hover, li:active, li:focus, li:active:hover, li:focus:hover{
     color: var(--darker);
     text-decoration: underline;
     outline: none !important;

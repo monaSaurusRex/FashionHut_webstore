@@ -273,7 +273,7 @@ hr {
     }
 
     p, .bold,
-    label{
+    label, a, span{
         font-size: var(--small);
         margin: var(--s-small) 0px !important;
     }

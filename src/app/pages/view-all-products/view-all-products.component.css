@@ -25,9 +25,9 @@
    margin: var(--s-medium) !important;
 }
 
-.card-image{
+.card-image {
    border-radius: var(--default-border-radius);
-   width: 100% important!;
+   width: 100% important !;
    object-fit: contain;
    height: 100%;
 }
@@ -61,7 +61,7 @@ p .product-price {
    border-color: var(--primary-color);
    color: var(--primary-color);
    background-color: var(--white);
-   
+
 }
 
 .btn:hover,
@@ -87,7 +87,7 @@ p .product-price {
       background-color: var(--primary-color);
    }
 
-   .col-6{
+   .col-6 {
       padding: var(--s-medium);
    }
 }
@@ -127,8 +127,43 @@ p .product-price {
 
 .btn-icon:hover,
 .btn-icon:focus,
-.btn-icon:active {
+.btn-icon:active,
+a:hover,
+a:focus,
+a:active,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item:active {
    background-color: var(--darker);
    border: var(--darker);
    color: var(--white);
+}
+
+.pagination {
+   position: absolute;
+   bottom: 0;
+   height: fit-content;
+   width: 100%;
+
+   padding: var(--s-medium);
+
+   position: absolute;
+   left: 0px !important;
+   bottom: 0;
+
+   z-index: 10;
+
+   background-color: var(--white);
+}
+
+.current {
+   background-color: var(--dark) !important;
+   border: transparent !important;
+   border-radius: 20px !important;
+}
+
+.current:hover {
+   background-color: var(--darker) !important;
+   border-radius: 20px !important;
+   border: transparent !important;
 }
