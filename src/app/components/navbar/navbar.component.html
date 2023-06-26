@@ -56,7 +56,7 @@
 
             <div class="d-flex justify-content-end">
 
-                <ul class="nav .d-none .d-sm-block .d-xs-block">
+                <ul class="nav mobile-hide">
                     <li class="nav-item">
                         <a class="nav-link d-flex flex-row" [routerLink]="['/login']">Login </a>
                     </li>
@@ -65,8 +65,10 @@
                         <a class="nav-link" [routerLink]="['/register']">Register</a>
                     </li>
                     <hr>
+                    <div class="vertical-line d-flex align-self-center"></div>
                 </ul>
 
+                
                 <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center"
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-sidebar">
                     <fa-icon [icon]="cartIcon"></fa-icon>

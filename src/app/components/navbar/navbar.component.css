@@ -45,13 +45,15 @@ button {
 
 .nav-item a {
     color: var(--white);
-    
+
 }
 
-.vertical-line{
+.vertical-line {
     background-color: var(--light-grey);
     width: 1px;
     height: var(--x-large);
+    margin-right: var(--s-small);
+    margin-left: var(--s-small);
     /* border-right: 1px solid var(--light-grey); */
 }
 
@@ -94,7 +96,7 @@ button {
     align-items: center;
     color: var(--dark);
 }
-    
+
 p,
 ng-template {
     margin: 0px !important;
@@ -104,11 +106,11 @@ ng-template {
     width: fit-content;
 }
 
-ul{
-    padding: 0px var(--s-small) !important;
+ul {
+    padding: 0px !important;
 }
 
-a{
+a {
     padding: 0px !important;
 }
 
