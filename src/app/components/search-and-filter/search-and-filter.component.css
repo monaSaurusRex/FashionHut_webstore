@@ -19,5 +19,8 @@
 .btn-icon:active {
     background-color: var(--darker);
     border: var(--darker);
-    color: var(--white);
+}
+
+label{
+    color: var(--dark);
 }
