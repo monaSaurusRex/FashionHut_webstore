@@ -47,6 +47,25 @@
                             <hr>
                         </ul>
                     </div>
+                    <div class="mobile-sidebar-footer  row">
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 d-flex justify-content-center align-self-center">
+                                <button class="btn btn-block register-btn"
+                                    [routerLink]="['register']" data-bs-dismiss="offcanvas">Register
+                                </button>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center align-self-center">
+                                <button class="btn btn-block login-btn"
+                                    [routerLink]="['login']" data-bs-dismiss="offcanvas">
+                                    <span class="d-flex flex-row">
+                                        <fa-icon [icon]="userIcon"></fa-icon>  Login
+                                    </span>
+                                   
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -68,7 +87,7 @@
                     <div class="vertical-line d-flex align-self-center"></div>
                 </ul>
 
-                
+
                 <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center"
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-sidebar">
                     <fa-icon [icon]="cartIcon"></fa-icon>

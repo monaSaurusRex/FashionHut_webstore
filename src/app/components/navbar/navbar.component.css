@@ -81,6 +81,32 @@ button {
     /* width: 100%; */
 }
 
+.mobile-sidebar-footer {
+    height: fit-content;
+    width: 100%;
+
+    padding: var(--s-medium);
+
+    position: absolute;
+    bottom: 0;
+
+    z-index: 10;
+
+    background-color: var(--dark);
+}
+
+.register-btn {
+    border-color: var(--white);
+    color: var(--white);
+
+}
+
+.login-btn {
+    border-color: var(--white);
+    background-color: var(--white);
+    color: var(--dark);
+}
+
 #cart-sidebar fa-icon {
     background-color: var(--white);
     color: var(--dark);
