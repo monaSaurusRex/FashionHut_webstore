@@ -20,7 +20,7 @@
       <input [(ngModel)]="searchValue" type="form-control searchbar shadow-none" type="text" id="searchQuery" class="form-control" placeholder="Search for product..." 
       (ngModelChange)="updateSearchValue(searchValue)"/>
       <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
-      <button type="button" class="btn btn-primary btn-icon">
+      <button type="button" class="btn btn-primary btn-icon" [routerLink]="['view-all-products']" (click)="updateSearchValue(searchValue)">
         <fa-icon [icon]="searchIcon"></fa-icon>
       </button>
     </div>
