@@ -275,3 +275,11 @@ hr {
     }
 
 }
+
+
+@media only screen and (min-width: 541px) {
+    .large-screen-hide {
+        /*class property assigned to html elements to hide them on mobile devices*/
+        display: none !important;
+    }
+}
