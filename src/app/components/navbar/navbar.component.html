@@ -106,7 +106,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                         <!-- <h1 id="offcanvasRightLabel">Items in cart ({{cartItemsCount$ | async}})</h1> -->
 
-                        <div class="offcanvas-title d-flex justify-content-start align-self-center">
+                        <div class="offcanvas-title d-flex justify-content-start align-self-center flex-row">
                             <h1 *ngIf="((cartItemsCount$ | async) === 0); else elseBlock">
                                 <!--if the total number of items in the cart is not 0-->
                                 <ng-template #elseBlock class="text-align-top text-align-center mb-0">
