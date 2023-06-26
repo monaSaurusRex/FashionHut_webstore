@@ -9,15 +9,15 @@
     margin: var(--s-medium) !important;
 }
 
-button{
+.btn{
     background-color: var(--dark);
     border: var(--dark);
     color: var(--white);
 }
 
-.btn-icon:hover,
-.btn-icon:focus,
-.btn-icon:active {
+.btn:hover,
+.btn:focus,
+.btn:active{
     background-color: var(--darker);
     border: var(--darker);
     color: var(--white);
@@ -25,4 +25,8 @@ button{
 
 label{
     color: var(--dark);
+}
+
+.dropdown-menu{
+    display: block;
 }

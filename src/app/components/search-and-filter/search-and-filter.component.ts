@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { Category } from 'src/app/interfaces/category';
+import { SearchAndFilterService } from 'src/app/services/search-and-filter/search-and-filter.service';
 import { StoreService } from 'src/app/services/store-api/store.service';
 
 @Component({
@@ -14,20 +14,27 @@ import { StoreService } from 'src/app/services/store-api/store.service';
 export class SearchAndFilterComponent implements OnInit{
 
   //icons 
-  search = faSearch;
+  searchIcon = faSearch;
 
   //objects
   categories: any[] = [];
   subscription!: Subscription;
 
-  constructor(private _storeService: StoreService, router: Router){}
+  // search parameters
+  // searchQuery$: new BehaviorSubject<string>('');
+  
+  constructor(private _storeService: StoreService, private router: Router, private _searchFilterService: SearchAndFilterService){}
+
+  searchText : any;
 
   ngOnInit(){
-    this.subscription = this._storeService
-    .getAllCategories()
-    .subscribe((data:any[]) => {
-      this.categories = data;
-      console.log(this.categories)
+    this._storeService.getAllCategories().subscribe((categories: any) => {
+      console.log(categories);
+      this.categories = categories; //populate products array with data from api service
     });
+  }
+
+  searchValue(searchText: string){
+    
   }
 }

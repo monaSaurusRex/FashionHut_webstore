@@ -1,25 +1,27 @@
 <div class="d-flex search-and-filter">
-    <div class="categories d-flex justify-content-start mobile-hide">
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Shop by category
-            </button>
-            <ul class="dropdown-menu">
-              <!-- <a *ngFor="let category of categories" class="dropdown-item">{{category}}</a> -->
-              <li *ngFor="let category of categories" class="dropdown-item">
-                {{category.categoryName}}
-              </li>
-            </ul>
-          </div>
+  <div class="categories d-flex justify-content-start mobile-hide align-self-center">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Shop by category
+      </button>
+      <ul class="dropdown-menu" id="category-dropdown">
+        <!-- <a *ngFor="let category of categories" class="dropdown-item">{{category}}</a> -->
+        <li *ngFor="let category of categories; last as isLast" class="dropdown-item">
+          <a>{{category}}</a>
+          <hr *ngIf="!isLast" class="dropdown-divider">
+        </li>
+       
+      </ul>
     </div>
+  </div>
 
-    <div class="search d-flex justify-content-end align-self-center">
-        <div class="input-group">
-                <input type="search" id="header-search" class="form-control" placeholder="Search for product..."/>
-                <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
-            <button type="button" class="btn btn-primary btn-icon">
-                <fa-icon [icon]="search"></fa-icon>
-            </button>
-        </div>
-    </div>    
+  <div class="search d-flex justify-content-end align-self-center">
+    <div class="input-group">
+      <input type="search" id="searchQuery" class="form-control" placeholder="Search for product..." />
+      <label for="header-search" class="visually-hidden" placeholder="search">Search</label>
+      <button type="button" class="btn btn-primary btn-icon">
+        <fa-icon [icon]="searchIcon"></fa-icon>
+      </button>
+    </div>
+  </div>
 </div>

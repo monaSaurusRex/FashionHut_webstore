@@ -38,7 +38,7 @@ export class StoreService {
   }
 
   getAllCategories(){
-    return this.http.get<any[]>('https://fakestoreapi.com/products/categories');
+    return this.http.get(`${this.url}/products/categories`);
   }
 
 }

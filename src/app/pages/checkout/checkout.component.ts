@@ -77,7 +77,7 @@ export class CheckoutComponent {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Your order has been successfully purchased',
+      title: 'Your order has been successfully purchased!',
       showConfirmButton: false,
       timer: 1500,
     }).then(() => {
