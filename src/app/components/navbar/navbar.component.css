@@ -42,7 +42,7 @@ button {
     padding: var(--s-small);
 }
 
-.user-functions ul{
+.user-functions ul, a{
     padding: 0px;
 }
 
