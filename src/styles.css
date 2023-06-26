@@ -89,8 +89,7 @@ title {
     font-size: var(--x-large);
     font-weight: var(--bold);
     font-style: normal;
-    height: var(--xx-large);
-    
+    margin: 0px !important;
 
     display: flex;
     align-items: center;
@@ -139,6 +138,8 @@ label {
     font-weight: var(--regular);
     font-style: normal;
     height: auto !important;
+
+    margin: 0px !important;
 
     display: flex;
     align-items: center;

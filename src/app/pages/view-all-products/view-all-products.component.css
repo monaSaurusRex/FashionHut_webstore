@@ -37,7 +37,8 @@ img:hover {
 }
 
 h1 {
-   margin: var(--s-medium) 0px !important;
+   padding: var(--s-small) 0px !important;
+   height: auto !important;
 
    width: 100% !important;
 
@@ -53,6 +54,7 @@ h1:hover {
 
 p .product-price {
    font-weight: var(--bold);
+   margin: 0px !important;
 }
 
 .btn {
