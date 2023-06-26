@@ -6,7 +6,7 @@
 <div class="search-and-filter shadow-sm d-flex justify-content-center">
   <div class="search d-flex">
     <div class="input-group">
-      <input class="form-control searchbar" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" 
+      <input class="form-control searchbar" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
         placeholder="Search for product...">
       <button type="button" class="btn btn-icon search-btn">
         <fa-icon [icon]="searchIcon"></fa-icon>
@@ -25,15 +25,17 @@
           <img src={{product.image}} class="card-img-top" (click)="viewProductDetails(product.id)">
         </div>
 
-        <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
-        <p class="product-price bold">{{product.price | currency:' ZAR ':'symbol':'.2'}} </p>
+          <h1 class="d-inline-block text-truncate" (click)="viewProductDetails(product.id)">{{product.title}}</h1>
+          <p class="product-price bold">{{product.price | currency:' ZAR ':'symbol':'.2'}} </p>
+        </div>
       </div>
     </div>
-  </div>
-</ng-container>
-<ng-template #noResults>
-  <div class="col-12">No results found.</div>
- </ng-template>
+  </ng-container>
+  <ng-template #noResults>
+    <div class="col-12 d-flex justify-content-center">
+      <p class="greyed">No results found...</p>
+    </div>
+  </ng-template>
 </div>
 
 <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>

@@ -8,15 +8,14 @@ export class StoreService {
 
   constructor(private http: HttpClient) {}
 
-  private url: string = "https://fakestoreapi.com/products"
-
+  private url: string = "https://fakestoreapi.com"
 
   getAll() {
-    return this.http.get(`${this.url}`);
+    return this.http.get(`${this.url}/products`);
   }
 
   getOneProduct(id: number) {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`${this.url}/products/${id}`);
   }
 
   createProduct(body: any) {
