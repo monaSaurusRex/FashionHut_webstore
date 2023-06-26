@@ -5,12 +5,12 @@
         Shop by category
       </button>
       <ul class="dropdown-menu" id="category-dropdown">
-        <!-- <a *ngFor="let category of categories" class="dropdown-item">{{category}}</a> -->
-        <li *ngFor="let category of categories; last as isLast" class="dropdown-item">
-          <a>{{category}}</a>
+        <div *ngFor="let category of categories; last as isLast" >
+          <li class="dropdown-item">
+            {{category}}
+          </li>
           <hr *ngIf="!isLast" class="dropdown-divider">
-        </li>
-       
+        </div>
       </ul>
     </div>
   </div>

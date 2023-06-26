@@ -6,7 +6,7 @@
     <div *ngIf="(observables.cartItems)?.length === 0" class="d-flex justify-content-center">
         <p>Nothing has been added to your cart... yet.</p>
     </div>
-    <div *ngFor="let item of (cartItems$ | async)">
+    <div *ngFor="let item of (cartItems$ | async); last as isLast">
         <div class="row">
             <!-- image -->
             <div class="col-5">
@@ -43,6 +43,6 @@
             </div>
 
         </div>
-        <hr>
+        <hr *ngIf="!isLast">
     </div>
 </ng-container>

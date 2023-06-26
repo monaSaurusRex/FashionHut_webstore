@@ -27,6 +27,12 @@ label{
     color: var(--dark);
 }
 
+li:hover, li:active, li:focus, li:active:hover, li:focus:hover{
+    color: var(--darker);
+    text-decoration: underline;
+    outline: none !important;
+}
+
 /* .dropdown-menu{
     display: block;
 } */
