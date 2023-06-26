@@ -42,6 +42,10 @@ button {
     padding: var(--s-small);
 }
 
+.user-functions ul{
+    padding: 0px;
+}
+
 
 .nav-item a {
     color: var(--white);
