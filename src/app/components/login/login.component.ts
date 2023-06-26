@@ -12,7 +12,7 @@ import { User } from 'src/app/interfaces/user';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loggedInUser: User | null = null;
+ 
   userIcon = faUser;
 
   constructor(
