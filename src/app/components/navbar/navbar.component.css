@@ -39,11 +39,20 @@ button {
     font-family: var(--body-font);
     font-weight: var(--regular);
     font-size: var(--medium);
-    padding: 5px;
+    padding: var(--s-small);
 }
+
 
 .nav-item a {
     color: var(--white);
+    
+}
+
+.vertical-line{
+    background-color: var(--light-grey);
+    width: 1px;
+    height: var(--x-large);
+    /* border-right: 1px solid var(--light-grey); */
 }
 
 .navbar-toggler,
