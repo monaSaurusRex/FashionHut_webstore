@@ -7,7 +7,7 @@
         <p>Nothing has been added to your cart... yet.</p>
     </div>
     <div *ngFor="let item of (cartItems$ | async)">
-        <div class="row">
+        <div class="row d-flex justify-content-start">
             <!-- image -->
             <div class="col-5">
                 <img class="d-flex justify-content-center" src={{item.productImageURL}} id="product-image"/>
