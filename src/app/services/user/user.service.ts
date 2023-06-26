@@ -1,36 +1,58 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { User } from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private url: string = "http://localhost:3000"; // Update with your API URL
+  private currentUser: User | null = null;
 
   constructor(private http: HttpClient) {}
-  private url: string = "http://localhost:3000"
 
-  login(body: any): Observable<any> {
+  createUser(user: User): Observable<User> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.url}/login`, body, { headers });
+    return this.http.post<User>(`${this.url}/posts`, user, { headers }); // Update with your registration endpoint
   }
 
-  createUser(body: any): Observable<any> {
+  verifyUser(email: string, password: string): Observable<User | null> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.url}/register`, body, { headers });
+    return this.http.get<any>(`${this.url}/posts?email=${email}&password=${password}`, { headers }).pipe(
+      map(response => {
+        const users = response.posts;
+        if (users.length > 0) {
+          return users[0];
+        } else {
+          return null;
+        }
+      }),
+      catchError(() => {
+        return of(null);
+      })
+    );
+  }
+  
+  
+  
+
+  setCurrentUser(user: User) {
+    this.currentUser = user;
+    sessionStorage.setItem('user', JSON.stringify(user));
   }
 
-  getUserEmail(): string | null {
-    // Retrieve the email of the logged-in user from the user session or storage
-    const user = this.getUserFromSession(); // Example: Retrieve user from session storage
-    return user ? user.email : null;
+  getCurrentUser(): User | null {
+    if (!this.currentUser) {
+      const userString = sessionStorage.getItem('user');
+      this.currentUser = userString ? JSON.parse(userString) : null;
+    }
+    return this.currentUser;
   }
 
-  private getUserFromSession(): any {
-    // Implement the logic to retrieve the user from the session storage or any other storage mechanism
-    // and return the user object
-    // Example:
-    const userString = sessionStorage.getItem('user');
-    return userString ? JSON.parse(userString) : null;
+  logout() {
+    this.currentUser = null;
+    sessionStorage.removeItem('user');
   }
 }

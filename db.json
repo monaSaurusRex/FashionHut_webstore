@@ -1,0 +1,222 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 2
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 3
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 4
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 5
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 6
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 7
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "phoneNumber": "0606432343",
+      "password": "Precious@ul1",
+      "id": 8
+    },
+    {
+      "email": "kamo@123",
+      "password": "Precious@ul1",
+      "id": 9
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "Kamo@123",
+      "phoneNumber": "0606432343",
+      "password": "Lebo@123",
+      "id": 10
+    },
+    {
+      "email": "kamo@123",
+      "password": "Lebo@123",
+      "id": 11
+    },
+    {
+      "email": "kamo@123",
+      "password": "Lebo@1234",
+      "id": 12
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 13
+    },
+    {
+      "id": 1687768961855,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamo@123"
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "Kamo@123",
+      "password": "Kamo@123",
+      "id": 1687768961856
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Lebo@123",
+      "id": 1687768961857
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "Kamo@123",
+      "password": "Kamo@123",
+      "id": 1687768961858
+    },
+    {
+      "id": 1687772292744,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Lebo@123"
+    },
+    {
+      "id": 1687772338887,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "Kamo@123",
+      "password": "Kamog@123"
+    },
+    {
+      "id": 1687773292312,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamo@123"
+    },
+    {
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "Kamo@123",
+      "password": "Kamo@123",
+      "id": 1687773292313
+    },
+    {
+      "id": 1687774286611,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamog@123"
+    },
+    {
+      "id": 1687775319225,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamo@123"
+    },
+    {
+      "firstName": "Kamo",
+      "lastName": "Nkadime",
+      "email": "Kamo@123",
+      "phoneNumber": "0606475782",
+      "password": "Precyui@123",
+      "id": 1687775319226
+    },
+    {
+      "id": 1687776318687,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamog@123"
+    },
+    {
+      "id": 1687776669951,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamog@123"
+    },
+    {
+      "email": "kamo@123",
+      "password": "Precyui@123",
+      "id": 1687776669952
+    },
+    {
+      "email": "kamo@123",
+      "password": "Precyui@123",
+      "id": 1687776669953
+    },
+    {
+      "id": 1687777701899,
+      "firstName": "kamogelo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamoh@123"
+    },
+    {
+      "id": 1687777701900
+    },
+    {
+      "id": 1687782811711,
+      "firstName": "Bolebo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Precy@123"
+    },
+    {
+      "id": 1687783371665,
+      "firstName": "Bolebo",
+      "lastName": "Precious",
+      "email": "kamo@123",
+      "password": "Kamoh@123"
+    }
+  ]
+}

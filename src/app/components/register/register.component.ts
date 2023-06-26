@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
-import ValidateForm from '../helper/validateform';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-register',
@@ -14,12 +13,14 @@ import ValidateForm from '../helper/validateform';
 export class RegisterComponent implements OnInit {
   type: string = "password";
   registerForm!: FormGroup;
-  submitted: any;
-  password: any;
-  confirm: any;
   passwordMismatch: boolean = false;
 
-  constructor(private http: HttpClient, private formbuilder: FormBuilder, private _userService: UserService, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private formbuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
@@ -38,33 +39,29 @@ export class RegisterComponent implements OnInit {
       return; // Stop form submission
     }
 
-    if (this.registerForm.valid) {
-      let body: any = {
-        firstName: this.registerForm.value.firstName,
-        lastName: this.registerForm.value.lastName,
-        email: this.registerForm.value.email,
-        phoneNumber: this.registerForm.value.phoneNumber,
-        password: this.registerForm.value.password
-      };
-
-      this._userService.createUser(body).subscribe(
-        (response: any) => {
-          // Login successful, handle the response here
-          console.log('registered successful', response);
-          this.router.navigate(['/login']);
-          // You can perform any necessary actions after successful login, such as storing the user token or redirecting to a different page
-          // this.router.navigate(['/checkout']);
-        },
-        (error: any) => {
-          // Login failed, handle the error
-          console.log('failed', error);
-          // You can display an error message to the user indicating that the login credentials are invalid
-        }
-      );
-    } else {
-      ValidateForm.validateAllFormFields(this.registerForm);
-      // Handle form validation errors
+    if (this.registerForm.invalid) {
+      return;
     }
+
+    const user: User = {
+      id: Date.now(),
+      firstName: this.registerForm.value.firstName,
+      lastName: this.registerForm.value.lastName,
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    };
+
+    this.userService.createUser(user).subscribe(
+      (response: User) => {
+        alert('Registration successful');
+        console.log(response);
+        this.registerForm.reset();
+        this.router.navigate(['/login']);
+      },
+      (error: any) => {
+        alert('Registration failed');
+      }
+    );
   }
 
   checkPasswordMismatch() {
