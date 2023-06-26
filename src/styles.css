@@ -292,6 +292,10 @@ hr {
         padding: var(--s-medium) !important;
     }
 
+    hr{
+        margin: var(--s-medium) 0px !important;
+    }
+
 }
 
 
