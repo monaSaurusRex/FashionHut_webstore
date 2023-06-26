@@ -87,7 +87,7 @@
 
                 <button class="navbar-toggler navbar-toggler-right d-flex justify-content-start align-self-center"
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-sidebar">
-                    <fa-icon [icon]="cartIcon"></fa-icon>
+                    <fa-icon [icon]="cartIcon" class="pe-3"></fa-icon>
 
                     <p *ngIf="((cartItemsCount$ | async) === 0); else elseBlock"
                         class="text-align-top text-align-center mb-0"></p>
