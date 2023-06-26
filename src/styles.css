@@ -36,7 +36,7 @@
     --medium: 18px;
     --large: 20px;
     --x-large: 25px;
-    --xx-large: 35px;
+    --xx-large: 30px;
 
     /* spacing*/
     --s-smaller: 3px;
@@ -89,7 +89,7 @@ title {
     font-size: var(--x-large);
     font-weight: var(--bold);
     font-style: normal;
-    height: var(--x-large);
+    height: var(--xx-large);
     
 
     display: flex;
