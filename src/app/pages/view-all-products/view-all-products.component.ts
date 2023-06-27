@@ -22,7 +22,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   filteredProducts: Product[] = []; //
   searchValue : any;
   page: number= 1
-  pageSize: number = 12 // number of products per page
+  pageSize: number = 10 // number of products per page
 
   //icons
   addToCartIcon = faCartPlus;
@@ -30,8 +30,7 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
   closeIcon = faTimes;
 
   //cart services function variables
-  itemsInCart$: Observable<Item[]> | undefined;
-  cart$: Observable<Cart[]> | undefined;
+  searchValue$: Observable<string> | undefined;
 
   filteredProducts$: Observable<Product[]> | undefined;
 
@@ -40,7 +39,11 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
     private _storeService: StoreService,
     private _searchFilterService: SearchAndFilterService,
     private router: Router
-  ) {}
+  ) {
+
+    this.searchValue = this.searchValue = this._searchFilterService.getSearchValue();
+    
+  }
 
   ngOnInit() {
     this._storeService.getAll().subscribe((products: any) => {
@@ -48,7 +51,6 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
       this.products = products; //populate products array with data from api service
       this.filteredProducts = products; //filtered products will by default just contain all the products 
     });
-
   }
 
   //send product id the user wants to view to the product details page
