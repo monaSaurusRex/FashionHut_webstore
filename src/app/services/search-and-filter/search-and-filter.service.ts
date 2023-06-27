@@ -15,7 +15,22 @@ export class SearchAndFilterService {
   }
 
   // gets the value of the search query
-  getSearchQuery(): Observable<string>{
+  getSearchQuery(): Observable<string> {
     return this.searchQuery$;
   }
+
+  getSearchValue(): string {
+    const searchQuery = this.searchQuery$.value;
+    return searchQuery;
+  }
+
+  getFilteredProducts(searchQuery: string){
+
+// filter based on filter by category
+
+// filter based on search query
+
+  }
+
+
 }

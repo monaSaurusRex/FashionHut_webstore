@@ -111,7 +111,7 @@ p .product-price {
 .search-and-filter {
    height: 60px;
    padding: 10px 30px;
-   margin: 0px -10px;
+   margin: -10px !important;
    background-color: var(--white);
 }
 
