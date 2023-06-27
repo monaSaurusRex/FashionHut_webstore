@@ -64,20 +64,20 @@ export class ViewAllProductsComponent implements OnInit, OnDestroy {
 
   //  }
 
-  getProductsByCategory(){
+  // getProductsByCategory(){
 
 
-    // getProductsByCategory(category: any)
+  //   // getProductsByCategory(category: any)
 
-    this._storeService.getAll().subscribe((products: any) => {
-      // console.table(products);
-      this.products = products; //populate products array with data from api service
-    });
+  //   this._storeService.getAll().subscribe((products: any) => {
+  //     // console.table(products);
+  //     this.products = products; //populate products array with data from api service
+  //   });
 
-    this._searchFilterService.getSearchQuery().subscribe((value: string )=> {
-      console.table(this.searchValue);
-    });
-  }
+  //   this._searchFilterService.getSearchQuery().subscribe((value: string )=> {
+  //     console.table(this.searchValue);
+  //   });
+  // }
   
 
   ngOnDestroy() {

@@ -106,15 +106,16 @@ p .product-price {
    }
 }
 
-.search-and-filter {
+.search-and-filter{
    height: 60px;
    padding: 10px 30px;
-   margin: 0px -10px;
+   margin: 0px  -12px ;
    background-color: var(--white);
 }
 
-.searchbar {
-   max-width: 100%;
+.input-group{
+   width: 100%;
+   /* margin: var(--s-medium) !important; */
 }
 
 .btn-icon {
